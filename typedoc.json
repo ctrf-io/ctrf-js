@@ -1,5 +1,5 @@
 {
-  "entryPoints": ["src/index.ts"],
+  "entryPoints": ["src/index.ts", "src/reference/index.ts"],
   "out": "docs",
   "exclude": ["src/__tests__/**/*", "src/**/*.test.ts", "src/**/*.spec.ts"],
   "excludePrivate": true,
@@ -8,6 +8,7 @@
   "includeVersion": true,
   "categorizeByGroup": true,
   "categoryOrder": [
+    "Reference Implementation",
     "Schema",
     "File Operations",
     "Report Processing",
@@ -18,6 +19,7 @@
     "*"
   ],
   "groupOrder": [
+    "Reference Implementation",
     "Schema",
     "File Operations",
     "Report Processing",

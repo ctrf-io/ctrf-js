@@ -78,6 +78,7 @@ export interface Environment {
   repositoryUrl?: string
   commit?: string
   branchName?: string
+  healthy?: boolean
   osPlatform?: string
   osRelease?: string
   osVersion?: string

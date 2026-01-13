@@ -31,7 +31,7 @@ export function isValidCtrfReport(
     typeof report === 'object' &&
     report !== null &&
     'reportFormat' in report &&
-    (report as any).reportFormat === 'CTRF'
+    (report as Record<string, unknown>).reportFormat === 'CTRF'
   )
 }
 

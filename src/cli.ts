@@ -5,6 +5,13 @@ import { hideBin } from 'yargs/helpers'
 import { mergeReports } from './merge.js'
 import { identifyFlakyTests } from './flaky.js'
 
+console.warn(
+  '⚠️  DEPRECATION NOTICE: This CLI is deprecated and will be removed in v1.'
+)
+console.warn('📦 Please use the standalone ctrf-cli package instead:')
+console.warn('   npm install -g ctrf-cli')
+console.warn('   https://github.com/ctrf-io/ctrf-cli\n')
+
 const argv = yargs(hideBin(process.argv))
   .command(
     'merge <directory>',
