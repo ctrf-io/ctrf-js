@@ -1,4 +1,4 @@
-[**CTRF v1.0.0**](../../README.md)
+[**CTRF v0.0.18-next.2**](../../README.md)
 
 ***
 

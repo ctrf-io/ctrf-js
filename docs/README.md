@@ -1,8 +1,8 @@
-**CTRF v1.0.0**
+**CTRF v0.0.18-next.2**
 
 ***
 
-# CTRF v1.0.0
+# CTRF v0.0.18-next.2
 
 ## Modules
 

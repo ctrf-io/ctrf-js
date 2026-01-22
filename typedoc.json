@@ -33,6 +33,7 @@
   "plugin": ["typedoc-plugin-markdown"],
   "name": "CTRF ",
   "githubPages": false,
+  "gitRemote": "origin",
   "gitRevision": "main",
   "cleanOutputDir": true
 }
