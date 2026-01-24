@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -8,8 +8,6 @@
 
 > `const` **CTRF\_NAMESPACE**: `"6ba7b810-9dad-11d1-80b4-00c04fd430c8"` = `'6ba7b810-9dad-11d1-80b4-00c04fd430c8'`
 
-Defined in: [src/methods/test-id.ts:11](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/methods/test-id.ts#L11)
+Defined in: [constants.ts:24](https://github.com/ctrf-io/ctrf-js/blob/main/src/constants.ts#L24)
 
-The CTRF namespace UUID used for generating deterministic test IDs.
-This namespace ensures that all CTRF test IDs are generated consistently
-across different implementations and tools.
+CTRF namespace UUID for deterministic ID generation

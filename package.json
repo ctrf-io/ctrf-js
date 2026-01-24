@@ -1,18 +1,18 @@
 {
   "name": "ctrf",
-  "version": "0.0.18-next.0",
-  "description": "Common library for working with CTRF reports",
+  "version": "0.0.18-next-1",
+  "description": "CTRF reference implementation in TypeScript for creating and validating CTRF documents.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "ctrf": "dist/cli.js"
+    "ctrf": "dist/cli/cli.js"
   },
   "engines": {
     "node": ">=20.19.0"
   },
   "scripts": {
-    "build": "tsc -p . && cp src/ctrf-schema.json dist/",
+    "build": "tsc -p . && cp src/ctrf-schema-*.json dist/",
     "build:check": "tsc -p . -noEmit",
     "build:watch": "tsc -p . --watch",
     "clean": "rm -rf dist && rm -rf coverage && rm -rf ctrf",
@@ -30,12 +30,12 @@
   "files": [
     "dist/",
     "types/",
-    "src/ctrf-schema.json",
+    "src/ctrf-schema-*.json",
     "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ctrf-io/ctrf-core-js.git"
+    "url": "git+https://github.com/ctrf-io/ctrf-js.git"
   },
   "publishConfig": {
     "access": "public",
@@ -47,7 +47,7 @@
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "glob": "^11.0.3",
+    "glob": "^13.0.0",
     "typescript": "^5.8.3",
     "yargs": "^18.0.0"
   },

@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Interface: Summary
 
-Defined in: [types/ctrf.d.ts:21](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L21)
+Defined in: [types.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L65)
+
+Aggregated test statistics
 
 ## Properties
 
@@ -14,7 +16,9 @@ Defined in: [types/ctrf.d.ts:21](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **duration**: `number`
 
-Defined in: [types/ctrf.d.ts:32](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L32)
+Defined in: [types.ts:87](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L87)
+
+Total duration in milliseconds
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:32](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:33](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L33)
+Defined in: [types.ts:89](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L89)
+
+Custom metadata
 
 ***
 
@@ -30,7 +36,9 @@ Defined in: [types/ctrf.d.ts:33](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **failed**: `number`
 
-Defined in: [types/ctrf.d.ts:24](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L24)
+Defined in: [types.ts:71](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L71)
+
+Number of failed tests
 
 ***
 
@@ -38,7 +46,9 @@ Defined in: [types/ctrf.d.ts:24](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **flaky**: `number`
 
-Defined in: [types/ctrf.d.ts:28](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L28)
+Defined in: [types.ts:79](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L79)
+
+Number of flaky tests
 
 ***
 
@@ -46,7 +56,9 @@ Defined in: [types/ctrf.d.ts:28](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **other**: `number`
 
-Defined in: [types/ctrf.d.ts:27](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L27)
+Defined in: [types.ts:77](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L77)
+
+Number of tests with other status
 
 ***
 
@@ -54,7 +66,9 @@ Defined in: [types/ctrf.d.ts:27](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **passed**: `number`
 
-Defined in: [types/ctrf.d.ts:23](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L23)
+Defined in: [types.ts:69](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L69)
+
+Number of passed tests
 
 ***
 
@@ -62,7 +76,9 @@ Defined in: [types/ctrf.d.ts:23](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **pending**: `number`
 
-Defined in: [types/ctrf.d.ts:26](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L26)
+Defined in: [types.ts:75](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L75)
+
+Number of pending tests
 
 ***
 
@@ -70,7 +86,9 @@ Defined in: [types/ctrf.d.ts:26](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **skipped**: `number`
 
-Defined in: [types/ctrf.d.ts:25](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L25)
+Defined in: [types.ts:73](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L73)
+
+Number of skipped tests
 
 ***
 
@@ -78,7 +96,9 @@ Defined in: [types/ctrf.d.ts:25](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **start**: `number`
 
-Defined in: [types/ctrf.d.ts:30](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L30)
+Defined in: [types.ts:83](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L83)
+
+Start timestamp (Unix epoch milliseconds)
 
 ***
 
@@ -86,7 +106,9 @@ Defined in: [types/ctrf.d.ts:30](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **stop**: `number`
 
-Defined in: [types/ctrf.d.ts:31](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L31)
+Defined in: [types.ts:85](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L85)
+
+Stop timestamp (Unix epoch milliseconds)
 
 ***
 
@@ -94,7 +116,9 @@ Defined in: [types/ctrf.d.ts:31](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **suites**: `number`
 
-Defined in: [types/ctrf.d.ts:29](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L29)
+Defined in: [types.ts:81](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L81)
+
+Number of test suites
 
 ***
 
@@ -102,4 +126,6 @@ Defined in: [types/ctrf.d.ts:29](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **tests**: `number`
 
-Defined in: [types/ctrf.d.ts:22](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L22)
+Defined in: [types.ts:67](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L67)
+
+Total number of tests

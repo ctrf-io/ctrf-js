@@ -1,13 +1,14 @@
 {
-  "entryPoints": ["src/index.ts"],
+  "entryPoints": ["src/index.ts", "src/reference/index.ts"],
   "out": "docs",
   "exclude": ["src/__tests__/**/*", "src/**/*.test.ts", "src/**/*.spec.ts"],
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
-  "includeVersion": true,
+  "includeVersion": false,
   "categorizeByGroup": true,
   "categoryOrder": [
+    "Reference Implementation",
     "Schema",
     "File Operations",
     "Report Processing",
@@ -18,6 +19,7 @@
     "*"
   ],
   "groupOrder": [
+    "Reference Implementation",
     "Schema",
     "File Operations",
     "Report Processing",
@@ -31,6 +33,7 @@
   "plugin": ["typedoc-plugin-markdown"],
   "name": "CTRF ",
   "githubPages": false,
+  "gitRemote": "origin",
   "gitRevision": "main",
   "cleanOutputDir": true
 }

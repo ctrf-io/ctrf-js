@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,22 +6,45 @@
 
 # Function: mergeReports()
 
-> **mergeReports**(`reports`): [`Report`](../interfaces/Report.md)
+> **mergeReports**(`reports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [src/methods/merge-reports.ts:10](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/methods/merge-reports.ts#L10)
+Defined in: [merge.ts:36](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L36)
 
-Merges multiple CTRF reports into a single report.
+Merge multiple CTRF reports into a single report.
+Useful for combining results from parallel or sharded test runs.
 
 ## Parameters
 
 ### reports
 
-[`Report`](../interfaces/Report.md)[]
+[`CTRFReport`](../interfaces/CTRFReport.md)[]
 
-Array of CTRF report objects to be merged.
+Array of CTRF reports to merge
+
+### options
+
+[`MergeOptions`](../interfaces/MergeOptions.md) = `{}`
+
+Merge options (deduplication, environment handling)
 
 ## Returns
 
-[`Report`](../interfaces/Report.md)
+[`CTRFReport`](../interfaces/CTRFReport.md)
 
-The merged CTRF report object.
+A new merged CTRFReport
+
+## Throws
+
+Error if no reports are provided
+
+## Example
+
+```typescript
+const merged = mergeReports([report1, report2, report3]);
+
+// With deduplication by test ID
+const merged = mergeReports(reports, { deduplicateTests: true });
+
+// Keep first environment only
+const merged = mergeReports(reports, { preserveEnvironment: 'first' });
+```

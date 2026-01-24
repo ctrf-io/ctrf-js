@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Interface: Step
 
-Defined in: [types/ctrf.d.ts:94](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L94)
+Defined in: [types.ts:212](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L212)
+
+Test step
 
 ## Properties
 
@@ -14,7 +16,9 @@ Defined in: [types/ctrf.d.ts:94](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:97](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L97)
+Defined in: [types.ts:218](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L218)
+
+Custom metadata
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:97](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **name**: `string`
 
-Defined in: [types/ctrf.d.ts:95](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L95)
+Defined in: [types.ts:214](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L214)
+
+Step name
 
 ***
 
@@ -30,4 +36,6 @@ Defined in: [types/ctrf.d.ts:95](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **status**: [`TestStatus`](../type-aliases/TestStatus.md)
 
-Defined in: [types/ctrf.d.ts:96](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L96)
+Defined in: [types.ts:216](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L216)
+
+Step status

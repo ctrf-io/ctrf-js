@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -8,4 +8,6 @@
 
 > **TestStatus** = `"passed"` \| `"failed"` \| `"skipped"` \| `"pending"` \| `"other"`
 
-Defined in: [types/ctrf.d.ts:161](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L161)
+Defined in: [types.ts:161](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L161)
+
+Test status enum

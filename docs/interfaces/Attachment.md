@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Interface: Attachment
 
-Defined in: [types/ctrf.d.ts:100](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L100)
+Defined in: [types.ts:198](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L198)
+
+File attachment
 
 ## Properties
 
@@ -14,7 +16,9 @@ Defined in: [types/ctrf.d.ts:100](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > **contentType**: `string`
 
-Defined in: [types/ctrf.d.ts:102](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L102)
+Defined in: [types.ts:202](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L202)
+
+MIME content type
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:102](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:104](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L104)
+Defined in: [types.ts:206](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L206)
+
+Custom metadata
 
 ***
 
@@ -30,7 +36,9 @@ Defined in: [types/ctrf.d.ts:104](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > **name**: `string`
 
-Defined in: [types/ctrf.d.ts:101](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L101)
+Defined in: [types.ts:200](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L200)
+
+Attachment name
 
 ***
 
@@ -38,4 +46,6 @@ Defined in: [types/ctrf.d.ts:101](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > **path**: `string`
 
-Defined in: [types/ctrf.d.ts:103](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L103)
+Defined in: [types.ts:204](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L204)
+
+Path to the attachment file

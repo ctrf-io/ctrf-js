@@ -1,97 +1,124 @@
 /**
- * @group Report Processing
+ * CTRF TypeScript SDK - Reference Implementation
+ *
+ * A complete TypeScript implementation for working with CTRF (Common Test Report Format) reports.
+ *
+ * @packageDocumentation
  */
-export { mergeReports } from './methods/merge-reports.js'
-/**
- * @group File Operations
- */
-export { readReportFromFile } from './methods/read-reports.js'
-/**
- * @group File Operations
- */
-export { readReportsFromDirectory } from './methods/read-reports.js'
-/**
- * @group File Operations
- */
-export { readReportsFromGlobPattern } from './methods/read-reports.js'
-/**
- * @group Report Processing
- */
-export { enrichReportWithInsights } from './methods/run-insights.js'
-/**
- * @group Report Processing
- */
-export {
-  sortReportsByTimestamp,
-  SortOrder,
-} from './methods/utilities/sort-reports.js'
-/**
- * @group Report Processing
- */
-export { storePreviousResults } from './methods/store-previous-results.js'
-/**
- * @group Validation
- */
-export {
-  validateReport,
-  validateReportStrict,
-  isValidCtrfReport,
-} from './methods/validate-schema.js'
-/**
- * @group Tree Operations
- */
-export {
-  organizeTestsBySuite,
-  traverseTree,
-  findSuiteByName,
-  findTestByName,
-  flattenTree,
-  getAllTests,
-  getSuiteStats,
-} from './methods/tree-hierarchical-structure.js'
-/**
- * @group Test Operations
- */
-export {
-  setTestId,
-  getTestId,
-  setTestIdsForReport,
-  findTestById,
-  generateTestIdFromProperties,
-  CTRF_NAMESPACE,
-} from './methods/test-id.js'
 
-/**
- * @group Schema
- */
 export type {
-  Report,
+  CTRFReport,
   Results,
+  Tool,
   Summary,
   Test,
   Environment,
-  Tool,
-  Step,
-  Attachment,
   RetryAttempt,
-  RootInsights,
+  Attachment,
+  Step,
+  Insights,
   TestInsights,
+  MetricDelta,
   Baseline,
-  InsightsMetric,
   TestStatus,
-} from '../types/ctrf.js'
+  ValidationResult,
+  ValidationErrorDetail,
+  MergeOptions,
+  FilterCriteria,
+  InsightsOptions,
+  ReportBuilderOptions,
+  TestBuilderOptions,
+  SummaryOptions,
+  ParseOptions,
+  StringifyOptions,
+  ValidateOptions,
+} from './types.js'
 
-/**
- * @group Utility Types
- */
-export type {
-  TreeNode,
-  TreeTest,
-  TreeOptions,
-  TestTree,
-} from './methods/tree-hierarchical-structure.js'
+export {
+  REPORT_FORMAT,
+  CURRENT_SPEC_VERSION,
+  TEST_STATUSES,
+  SUPPORTED_SPEC_VERSIONS,
+  CTRF_NAMESPACE,
+} from './constants.js'
 
-/**
- * @group Utility Types
- */
-export type { ValidationResult } from './methods/validate-schema.js'
+// ============================================================================
+// Validation
+// ============================================================================
+
+export {
+  validate,
+  isValid,
+  validateStrict,
+  isCTRFReport,
+  isTest,
+  isTestStatus,
+  isRetryAttempt,
+  hasInsights,
+} from './validate.js'
+
+// ============================================================================
+// Summary Calculation
+// ============================================================================
+
+export { calculateSummary } from './summary.js'
+
+// ============================================================================
+// Builders
+// ============================================================================
+
+export { ReportBuilder, TestBuilder } from './builder.js'
+
+// ============================================================================
+// ID Generation
+// ============================================================================
+
+export { generateTestId, generateReportId } from './id.js'
+
+// ============================================================================
+// Parsing & Serialization
+// ============================================================================
+
+export { parse, stringify } from './parse.js'
+
+// ============================================================================
+// Merging
+// ============================================================================
+
+export { mergeReports } from './merge.js'
+
+// ============================================================================
+// Filtering & Querying
+// ============================================================================
+
+export { filterTests, findTest } from './filter.js'
+
+// ============================================================================
+// Insights
+// ============================================================================
+
+export { addInsights, isTestFlaky } from './insights.js'
+
+// ============================================================================
+// Schema
+// ============================================================================
+
+export {
+  schema,
+  getSchema,
+  getCurrentSpecVersion,
+  getSupportedSpecVersions,
+} from './schema.js'
+
+// ============================================================================
+// Errors
+// ============================================================================
+
+export {
+  CTRFError,
+  ValidationError,
+  ParseError,
+  SchemaVersionError,
+  FileError,
+  BuilderError,
+} from './errors.js'

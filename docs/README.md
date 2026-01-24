@@ -1,78 +1,84 @@
-**CTRF v0.0.17**
+**CTRF**
 
 ***
 
-# CTRF v0.0.17
+# CTRF
 
-## Schema
+CTRF TypeScript SDK - Reference Implementation
 
-- [Attachment](interfaces/Attachment.md)
-- [Baseline](interfaces/Baseline.md)
-- [Environment](interfaces/Environment.md)
-- [InsightsMetric](interfaces/InsightsMetric.md)
-- [Report](interfaces/Report.md)
-- [Results](interfaces/Results.md)
-- [RetryAttempt](interfaces/RetryAttempt.md)
-- [RootInsights](interfaces/RootInsights.md)
-- [Step](interfaces/Step.md)
-- [Summary](interfaces/Summary.md)
-- [Test](interfaces/Test.md)
-- [TestInsights](interfaces/TestInsights.md)
-- [Tool](interfaces/Tool.md)
-- [TestStatus](type-aliases/TestStatus.md)
+A complete TypeScript implementation for working with CTRF (Common Test Report Format) reports.
 
-## File Operations
+## Classes
 
-- [readReportFromFile](functions/readReportFromFile.md)
-- [readReportsFromDirectory](functions/readReportsFromDirectory.md)
-- [readReportsFromGlobPattern](functions/readReportsFromGlobPattern.md)
+- [BuilderError](classes/BuilderError.md)
+- [CTRFError](classes/CTRFError.md)
+- [FileError](classes/FileError.md)
+- [ParseError](classes/ParseError.md)
+- [ReportBuilder](classes/ReportBuilder.md)
+- [SchemaVersionError](classes/SchemaVersionError.md)
+- [TestBuilder](classes/TestBuilder.md)
+- [ValidationError](classes/ValidationError.md)
 
-## Report Processing
+## Functions
 
-- [enrichReportWithInsights](functions/enrichReportWithInsights.md)
+- [addInsights](functions/addInsights.md)
+- [calculateSummary](functions/calculateSummary.md)
+- [filterTests](functions/filterTests.md)
+- [findTest](functions/findTest.md)
+- [generateReportId](functions/generateReportId.md)
+- [generateTestId](functions/generateTestId.md)
+- [getCurrentSpecVersion](functions/getCurrentSpecVersion.md)
+- [getSchema](functions/getSchema.md)
+- [getSupportedSpecVersions](functions/getSupportedSpecVersions.md)
+- [hasInsights](functions/hasInsights.md)
+- [isCTRFReport](functions/isCTRFReport.md)
+- [isRetryAttempt](functions/isRetryAttempt.md)
+- [isTest](functions/isTest.md)
+- [isTestFlaky](functions/isTestFlaky.md)
+- [isTestStatus](functions/isTestStatus.md)
+- [isValid](functions/isValid.md)
 - [mergeReports](functions/mergeReports.md)
-- [sortReportsByTimestamp](functions/sortReportsByTimestamp.md)
-- [storePreviousResults](functions/storePreviousResults.md)
-
-## Validation
-
-- [isValidCtrfReport](functions/isValidCtrfReport.md)
-- [validateReport](functions/validateReport.md)
-- [validateReportStrict](functions/validateReportStrict.md)
-
-## Tree Operations
-
-- [findSuiteByName](functions/findSuiteByName.md)
-- [findTestByName](functions/findTestByName.md)
-- [flattenTree](functions/flattenTree.md)
-- [getAllTests](functions/getAllTests.md)
-- [getSuiteStats](functions/getSuiteStats.md)
-- [organizeTestsBySuite](functions/organizeTestsBySuite.md)
-- [traverseTree](functions/traverseTree.md)
-
-## Test Operations
-
-- [findTestById](functions/findTestById.md)
-- [generateTestIdFromProperties](functions/generateTestIdFromProperties.md)
-- [getTestId](functions/getTestId.md)
-- [setTestId](functions/setTestId.md)
-- [setTestIdsForReport](functions/setTestIdsForReport.md)
-
-## Enumerations
-
-- [SortOrder](enumerations/SortOrder.md)
+- [parse](functions/parse.md)
+- [stringify](functions/stringify.md)
+- [validate](functions/validate.md)
+- [validateStrict](functions/validateStrict.md)
 
 ## Interfaces
 
-- [TestTree](interfaces/TestTree.md)
-- [TreeNode](interfaces/TreeNode.md)
-- [TreeOptions](interfaces/TreeOptions.md)
+- [Attachment](interfaces/Attachment.md)
+- [Baseline](interfaces/Baseline.md)
+- [CTRFReport](interfaces/CTRFReport.md)
+- [Environment](interfaces/Environment.md)
+- [FilterCriteria](interfaces/FilterCriteria.md)
+- [Insights](interfaces/Insights.md)
+- [InsightsOptions](interfaces/InsightsOptions.md)
+- [MergeOptions](interfaces/MergeOptions.md)
+- [MetricDelta](interfaces/MetricDelta.md)
+- [ParseOptions](interfaces/ParseOptions.md)
+- [ReportBuilderOptions](interfaces/ReportBuilderOptions.md)
+- [Results](interfaces/Results.md)
+- [RetryAttempt](interfaces/RetryAttempt.md)
+- [Step](interfaces/Step.md)
+- [StringifyOptions](interfaces/StringifyOptions.md)
+- [Summary](interfaces/Summary.md)
+- [SummaryOptions](interfaces/SummaryOptions.md)
+- [Test](interfaces/Test.md)
+- [TestBuilderOptions](interfaces/TestBuilderOptions.md)
+- [TestInsights](interfaces/TestInsights.md)
+- [Tool](interfaces/Tool.md)
+- [ValidateOptions](interfaces/ValidateOptions.md)
+- [ValidationErrorDetail](interfaces/ValidationErrorDetail.md)
 - [ValidationResult](interfaces/ValidationResult.md)
 
 ## Type Aliases
 
-- [TreeTest](type-aliases/TreeTest.md)
+- [TestStatus](type-aliases/TestStatus.md)
 
 ## Variables
 
 - [CTRF\_NAMESPACE](variables/CTRF_NAMESPACE.md)
+- [CURRENT\_SPEC\_VERSION](variables/CURRENT_SPEC_VERSION.md)
+- [REPORT\_FORMAT](variables/REPORT_FORMAT.md)
+- [schema](variables/schema.md)
+- [SUPPORTED\_SPEC\_VERSIONS](variables/SUPPORTED_SPEC_VERSIONS.md)
+- [TEST\_STATUSES](variables/TEST_STATUSES.md)

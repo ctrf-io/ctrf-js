@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,17 +6,19 @@
 
 # Interface: ValidationResult
 
-Defined in: [src/methods/validate-schema.ts:17](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/methods/validate-schema.ts#L17)
+Defined in: [types.ts:348](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L348)
 
-Interface for validation result
+Result of schema validation
 
 ## Properties
 
-### errors?
+### errors
 
-> `optional` **errors**: `string`[]
+> **errors**: [`ValidationErrorDetail`](ValidationErrorDetail.md)[]
 
-Defined in: [src/methods/validate-schema.ts:19](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/methods/validate-schema.ts#L19)
+Defined in: [types.ts:352](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L352)
+
+Array of validation errors
 
 ***
 
@@ -24,4 +26,6 @@ Defined in: [src/methods/validate-schema.ts:19](https://github.com/ctrf-io/ctrf-
 
 > **valid**: `boolean`
 
-Defined in: [src/methods/validate-schema.ts:18](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/methods/validate-schema.ts#L18)
+Defined in: [types.ts:350](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L350)
+
+Whether the report is valid

@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Interface: Tool
 
-Defined in: [types/ctrf.d.ts:88](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L88)
+Defined in: [types.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L53)
+
+Test tool information
 
 ## Properties
 
@@ -14,7 +16,9 @@ Defined in: [types/ctrf.d.ts:88](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:91](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L91)
+Defined in: [types.ts:59](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L59)
+
+Custom metadata
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:91](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **name**: `string`
 
-Defined in: [types/ctrf.d.ts:89](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L89)
+Defined in: [types.ts:55](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L55)
+
+Name of the test tool (e.g., 'jest', 'playwright')
 
 ***
 
@@ -30,4 +36,6 @@ Defined in: [types/ctrf.d.ts:89](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **version**: `string`
 
-Defined in: [types/ctrf.d.ts:90](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L90)
+Defined in: [types.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L57)
+
+Version of the test tool

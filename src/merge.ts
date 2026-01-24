@@ -1,108 +1,239 @@
-import fs from 'fs'
-import path from 'path'
+/**
+ * CTRF Report Merging
+ */
 
-export async function mergeReports(
-  directory: string,
-  output: string,
-  outputDir: string,
-  keepReports: boolean
-) {
-  try {
-    const directoryPath = path.resolve(directory)
-    const outputFileName = output
-    const resolvedOutputDir = outputDir
-      ? path.resolve(outputDir)
-      : directoryPath
-    const outputPath = path.join(resolvedOutputDir, outputFileName)
+import type {
+  CTRFReport,
+  Test,
+  Summary,
+  Environment,
+  MergeOptions,
+} from './types.js'
+import { REPORT_FORMAT, CURRENT_SPEC_VERSION } from './constants.js'
+import { calculateSummary } from './summary.js'
+import { generateReportId } from './id.js'
 
-    console.log('Merging CTRF reports...')
-
-    const files = fs.readdirSync(directoryPath)
-
-    files.forEach(file => {
-      console.log('Found file:', file)
-    })
-
-    const ctrfReportFiles = files.filter(file => {
-      try {
-        if (path.extname(file) !== '.json') {
-          console.log(`Skipping non-CTRF file: ${file}`)
-          return false
-        }
-        const filePath = path.join(directoryPath, file)
-        const fileContent = fs.readFileSync(filePath, 'utf8')
-        const jsonData = JSON.parse(fileContent)
-        if (!('results' in jsonData)) {
-          console.log(`Skipping non-CTRF file: ${file}`)
-          return false
-        }
-        return true
-      } catch (error) {
-        console.error(`Error reading JSON file '${file}':`, error)
-        return false
-      }
-    })
-
-    if (ctrfReportFiles.length === 0) {
-      console.log('No CTRF reports found in the specified directory.')
-      return
-    }
-
-    if (!fs.existsSync(resolvedOutputDir)) {
-      fs.mkdirSync(resolvedOutputDir, { recursive: true })
-      console.log(`Created output directory: ${resolvedOutputDir}`)
-    }
-
-    const mergedReport = ctrfReportFiles
-      .map(file => {
-        console.log('Merging report:', file)
-        const filePath = path.join(directoryPath, file)
-        const fileContent = fs.readFileSync(filePath, 'utf8')
-        return JSON.parse(fileContent)
-      })
-      .reduce(
-        (acc, curr) => {
-          if (!acc.results) {
-            return curr
-          }
-
-          acc.results.summary.tests += curr.results.summary.tests
-          acc.results.summary.passed += curr.results.summary.passed
-          acc.results.summary.failed += curr.results.summary.failed
-          acc.results.summary.skipped += curr.results.summary.skipped
-          acc.results.summary.pending += curr.results.summary.pending
-          acc.results.summary.other += curr.results.summary.other
-
-          acc.results.tests.push(...curr.results.tests)
-
-          acc.results.summary.start = Math.min(
-            acc.results.summary.start,
-            curr.results.summary.start
-          )
-          acc.results.summary.stop = Math.max(
-            acc.results.summary.stop,
-            curr.results.summary.stop
-          )
-
-          return acc
-        },
-        { results: null }
-      )
-
-    fs.writeFileSync(outputPath, JSON.stringify(mergedReport, null, 2))
-
-    if (!keepReports) {
-      ctrfReportFiles.forEach(file => {
-        const filePath = path.join(directoryPath, file)
-        if (file !== outputFileName) {
-          fs.unlinkSync(filePath)
-        }
-      })
-    }
-
-    console.log('CTRF reports merged successfully.')
-    console.log(`Merged report saved to: ${outputPath}`)
-  } catch (error) {
-    console.error('Error merging CTRF reports:', error)
+/**
+ * Merge multiple CTRF reports into a single report.
+ * Useful for combining results from parallel or sharded test runs.
+ *
+ * @param reports - Array of CTRF reports to merge
+ * @param options - Merge options (deduplication, environment handling)
+ * @returns A new merged CTRFReport
+ * @throws Error if no reports are provided
+ *
+ * @example
+ * ```typescript
+ * const merged = mergeReports([report1, report2, report3]);
+ *
+ * // With deduplication by test ID
+ * const merged = mergeReports(reports, { deduplicateTests: true });
+ *
+ * // Keep first environment only
+ * const merged = mergeReports(reports, { preserveEnvironment: 'first' });
+ * ```
+ */
+export function mergeReports(
+  reports: CTRFReport[],
+  options: MergeOptions = {}
+): CTRFReport {
+  if (!reports || reports.length === 0) {
+    throw new Error('No reports provided for merging')
   }
+
+  if (reports.length === 1) {
+    return { ...reports[0] }
+  }
+
+  const {
+    deduplicateTests = false,
+    mergeSummary = true,
+    preserveEnvironment = 'merge',
+  } = options
+
+  let allTests: Test[] = []
+  for (const report of reports) {
+    allTests.push(...report.results.tests)
+  }
+
+  if (deduplicateTests) {
+    const seen = new Map<string, Test>()
+    for (const test of allTests) {
+      if (test.id) {
+        seen.set(test.id, test)
+      } else {
+        seen.set(`no-id-${seen.size}`, test)
+      }
+    }
+    allTests = Array.from(seen.values())
+  }
+
+  let summary: Summary
+  if (mergeSummary) {
+    summary = calculateSummary(allTests)
+    let minStart = Number.MAX_SAFE_INTEGER
+    let maxStop = 0
+    for (const report of reports) {
+      minStart = Math.min(minStart, report.results.summary.start)
+      maxStop = Math.max(maxStop, report.results.summary.stop)
+    }
+    summary.start = minStart === Number.MAX_SAFE_INTEGER ? 0 : minStart
+    summary.stop = maxStop
+    summary.duration = summary.stop - summary.start
+  } else {
+    summary = sumSummaries(reports.map(r => r.results.summary))
+  }
+  let environment: Environment | undefined
+  switch (preserveEnvironment) {
+    case 'first':
+      environment = reports[0].results.environment
+      break
+    case 'last':
+      environment = reports[reports.length - 1].results.environment
+      break
+    case 'merge':
+    default:
+      environment = mergeEnvironments(
+        reports.map(r => r.results.environment).filter(Boolean) as Environment[]
+      )
+      break
+  }
+
+  const tool = reports[0].results.tool
+  const merged: CTRFReport = {
+    reportFormat: REPORT_FORMAT,
+    specVersion: CURRENT_SPEC_VERSION,
+    reportId: generateReportId(),
+    timestamp: new Date().toISOString(),
+    results: {
+      tool,
+      summary,
+      tests: allTests,
+    },
+  }
+
+  if (environment && Object.keys(environment).length > 0) {
+    merged.results.environment = environment
+  }
+
+  // Merge extra metadata from results
+  const mergedResultsExtra = mergeExtras(
+    reports.map(r => r.results.extra).filter(Boolean) as Record<
+      string,
+      unknown
+    >[]
+  )
+  if (mergedResultsExtra && Object.keys(mergedResultsExtra).length > 0) {
+    merged.results.extra = mergedResultsExtra
+  }
+
+  // Merge report-level extra
+  const mergedReportExtra = mergeExtras(
+    reports.map(r => r.extra).filter(Boolean) as Record<string, unknown>[]
+  )
+  if (mergedReportExtra && Object.keys(mergedReportExtra).length > 0) {
+    merged.extra = mergedReportExtra
+  }
+
+  return merged
+}
+
+/**
+ * Sum multiple summaries together.
+ */
+function sumSummaries(summaries: Summary[]): Summary {
+  const result: Summary = {
+    tests: 0,
+    passed: 0,
+    failed: 0,
+    skipped: 0,
+    pending: 0,
+    other: 0,
+    start: Number.MAX_SAFE_INTEGER,
+    stop: 0,
+  }
+
+  let totalFlaky = 0
+  let totalSuites = 0
+  let totalDuration = 0
+  let hasFlaky = false
+  let hasSuites = false
+  let hasDuration = false
+
+  for (const summary of summaries) {
+    result.tests += summary.tests
+    result.passed += summary.passed
+    result.failed += summary.failed
+    result.skipped += summary.skipped
+    result.pending += summary.pending
+    result.other += summary.other
+    result.start = Math.min(result.start, summary.start)
+    result.stop = Math.max(result.stop, summary.stop)
+
+    if (summary.flaky !== undefined) {
+      hasFlaky = true
+      totalFlaky += summary.flaky
+    }
+    if (summary.suites !== undefined) {
+      hasSuites = true
+      totalSuites += summary.suites
+    }
+    if (summary.duration !== undefined) {
+      hasDuration = true
+      totalDuration += summary.duration
+    }
+  }
+
+  if (result.start === Number.MAX_SAFE_INTEGER) {
+    result.start = 0
+  }
+
+  if (hasFlaky) result.flaky = totalFlaky
+  if (hasSuites) result.suites = totalSuites
+  if (hasDuration) result.duration = totalDuration
+
+  return result
+}
+
+/**
+ * Merge multiple environments into one.
+ */
+function mergeEnvironments(environments: Environment[]): Environment {
+  const merged: Environment = {}
+
+  for (const env of environments) {
+    for (const [key, value] of Object.entries(env)) {
+      if (
+        value !== undefined &&
+        merged[key as keyof Environment] === undefined
+      ) {
+        ;(merged as Record<string, unknown>)[key] = value
+      }
+    }
+  }
+
+  return merged
+}
+
+/**
+ * Merge multiple extra objects.
+ */
+function mergeExtras(
+  extras: Record<string, unknown>[]
+): Record<string, unknown> | undefined {
+  if (extras.length === 0) {
+    return undefined
+  }
+
+  const merged: Record<string, unknown> = {}
+
+  for (const extra of extras) {
+    for (const [key, value] of Object.entries(extra)) {
+      if (merged[key] === undefined) {
+        merged[key] = value
+      }
+    }
+  }
+
+  return Object.keys(merged).length > 0 ? merged : undefined
 }

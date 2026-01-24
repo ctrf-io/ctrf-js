@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,15 +6,19 @@
 
 # Interface: TestInsights
 
-Defined in: [types/ctrf.d.ts:134](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L134)
+Defined in: [types.ts:290](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L290)
+
+Test-level insights computed from historical data
 
 ## Properties
 
 ### averageTestDuration?
 
-> `optional` **averageTestDuration**: [`InsightsMetric`](InsightsMetric.md)
+> `optional` **averageTestDuration**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types/ctrf.d.ts:138](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L138)
+Defined in: [types.ts:298](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L298)
+
+Average test duration metric
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:138](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > `optional` **executedInRuns**: `number`
 
-Defined in: [types/ctrf.d.ts:140](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L140)
+Defined in: [types.ts:302](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L302)
+
+Number of runs this test was executed in
 
 ***
 
@@ -30,36 +36,46 @@ Defined in: [types/ctrf.d.ts:140](https://github.com/ctrf-io/ctrf-core-js/blob/m
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:141](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L141)
+Defined in: [types.ts:304](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L304)
+
+Custom metadata
 
 ***
 
 ### failRate?
 
-> `optional` **failRate**: [`InsightsMetric`](InsightsMetric.md)
+> `optional` **failRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types/ctrf.d.ts:136](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L136)
+Defined in: [types.ts:294](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L294)
+
+Fail rate metric
 
 ***
 
 ### flakyRate?
 
-> `optional` **flakyRate**: [`InsightsMetric`](InsightsMetric.md)
+> `optional` **flakyRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types/ctrf.d.ts:137](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L137)
+Defined in: [types.ts:296](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L296)
+
+Flaky rate metric
 
 ***
 
 ### p95TestDuration?
 
-> `optional` **p95TestDuration**: [`InsightsMetric`](InsightsMetric.md)
+> `optional` **p95TestDuration**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types/ctrf.d.ts:139](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L139)
+Defined in: [types.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L300)
+
+95th percentile test duration metric
 
 ***
 
 ### passRate?
 
-> `optional` **passRate**: [`InsightsMetric`](InsightsMetric.md)
+> `optional` **passRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types/ctrf.d.ts:135](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L135)
+Defined in: [types.ts:292](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L292)
+
+Pass rate metric

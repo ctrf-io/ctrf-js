@@ -1,4 +1,4 @@
-[**CTRF v0.0.17**](../README.md)
+[**CTRF**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Interface: Results
 
-Defined in: [types/ctrf.d.ts:13](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L13)
+Defined in: [types.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L37)
+
+Container for test results
 
 ## Properties
 
@@ -14,7 +16,9 @@ Defined in: [types/ctrf.d.ts:13](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **environment**: [`Environment`](Environment.md)
 
-Defined in: [types/ctrf.d.ts:17](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L17)
+Defined in: [types.ts:45](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L45)
+
+Environment information
 
 ***
 
@@ -22,7 +26,9 @@ Defined in: [types/ctrf.d.ts:17](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types/ctrf.d.ts:18](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L18)
+Defined in: [types.ts:47](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L47)
+
+Custom metadata
 
 ***
 
@@ -30,7 +36,9 @@ Defined in: [types/ctrf.d.ts:18](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **summary**: [`Summary`](Summary.md)
 
-Defined in: [types/ctrf.d.ts:15](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L15)
+Defined in: [types.ts:41](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L41)
+
+Aggregated test statistics
 
 ***
 
@@ -38,7 +46,9 @@ Defined in: [types/ctrf.d.ts:15](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **tests**: [`Test`](Test.md)[]
 
-Defined in: [types/ctrf.d.ts:16](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L16)
+Defined in: [types.ts:43](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L43)
+
+Array of individual test results
 
 ***
 
@@ -46,4 +56,6 @@ Defined in: [types/ctrf.d.ts:16](https://github.com/ctrf-io/ctrf-core-js/blob/ma
 
 > **tool**: [`Tool`](Tool.md)
 
-Defined in: [types/ctrf.d.ts:14](https://github.com/ctrf-io/ctrf-core-js/blob/main/types/ctrf.d.ts#L14)
+Defined in: [types.ts:39](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L39)
+
+Information about the test tool
