@@ -1,6 +1,19 @@
-# CTRF TypeScript Reference Implementation
+# CTRF Reference Implementation TypeScript
 
-This is the reference implementation of the Common Test Report Format (CTRF) specification in TypeScript.
+The reference implementation in TypeScript for the [Common Test Report Format (CTRF)](https://github.com/ctrf-io/ctrf) specification.
+
+## Open Standard
+
+[CTRF](https://github.com/ctrf-io/ctrf) is an open standard built and shaped by community contributions.
+
+Your feedback and contributions are essential to the project's success:
+
+- [Contribute](CONTRIBUTING.md)
+- [Discuss](https://github.com/orgs/ctrf-io/discussions)
+
+## Support
+
+You can support the project by giving this repository a star ⭐
 
 ## Installation
 
@@ -11,20 +24,20 @@ npm install ctrf
 ## Quick Start
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { ReportBuilder, TestBuilder, validateStrict } from 'ctrf'
 
 // Build a report using the fluent API
-const report = new ctrf.ReportBuilder()
+const report = new ReportBuilder()
   .tool({ name: 'jest', version: '29.0.0' })
   .addTest(
-    new ctrf.TestBuilder()
+    new TestBuilder()
       .name('should add numbers')
       .status('passed')
       .duration(150)
       .build()
   )
   .addTest(
-    new ctrf.TestBuilder()
+    new TestBuilder()
       .name('should handle errors')
       .status('failed')
       .duration(200)
@@ -34,57 +47,51 @@ const report = new ctrf.ReportBuilder()
   .build()
 
 // Validate the report
-const result = ctrf.validateStrict(report)
-if (!result.valid) {
-  console.error('Validation errors:', result.errors)
-}
-
-// Write to file
-await ctrf.writeReport(report, './ctrf-report.json')
+validateStrict(report)
 ```
 
 ## API Reference
 
-> 📚 **Full API Documentation:** [TypeDoc Reference](../docs/README.md)
+> 📚 **Full API Documentation:** [API Reference](../docs/README.md)
 
-### Core Types
+### Types
 
-| Type | Description |
-|------|-------------|
-| `CTRFReport` | The root report document containing results and metadata |
-| `Results` | Test results including summary, tests, and optional environment |
-| `Test` | Individual test case with status, duration, and metadata |
-| `Summary` | Aggregated test counts and timing information |
-| `Tool` | Information about the test framework/tool |
-| `Environment` | Optional environment metadata (OS, browser, etc.) |
+Full TypeScript types are provided for all CTRF entities.
+
+```typescript
+import type { CTRFReport, Test } from 'ctrf'
+
+const report: CTRFReport = { /* ... */ }
+const test: Test = { /* ... */ }
+```
 
 ### Validation
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { isValid, validate, validateStrict, isCTRFReport, ValidationError } from 'ctrf'
 
 // Quick validation (returns boolean)
-if (ctrf.isValid(report)) {
+if (isValid(report)) {
   console.log('Report is valid')
 }
 
 // Detailed validation (returns ValidationResult)
-const result = ctrf.validate(report)
+const result = validate(report)
 if (!result.valid) {
   result.errors?.forEach(err => console.error(err.message))
 }
 
 // Strict validation (throws on invalid)
 try {
-  ctrf.validateStrict(report)
+  validateStrict(report)
 } catch (error) {
-  if (error instanceof ctrf.ValidationError) {
+  if (error instanceof ValidationError) {
     console.error('Invalid report:', error.errors)
   }
 }
 
 // Type guards
-if (ctrf.isCTRFReport(data)) {
+if (isCTRFReport(data)) {
   // data is typed as CTRFReport
 }
 ```
@@ -92,17 +99,17 @@ if (ctrf.isCTRFReport(data)) {
 ### Building Reports
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { ReportBuilder, TestBuilder } from 'ctrf'
 
 // ReportBuilder - fluent API for constructing reports
-const report = new ctrf.ReportBuilder()
+const report = new ReportBuilder()
   .tool({ name: 'vitest', version: '1.0.0' })
   .environment({ os: 'linux', arch: 'x64' })
   .addTest(/* ... */)
   .build()
 
 // TestBuilder - fluent API for constructing tests
-const test = new ctrf.TestBuilder()
+const test = new TestBuilder()
   .name('User login test')
   .status('passed')
   .duration(1500)
@@ -113,64 +120,42 @@ const test = new ctrf.TestBuilder()
   .build()
 ```
 
-### Reading & Writing Reports
+### Parsing Reports
 
 ```typescript
-import { ctrf } from 'ctrf'
-
-// Async file operations
-const report = await ctrf.readReport('./ctrf-report.json')
-await ctrf.writeReport(report, './output.json')
-
-// Sync file operations
-const reportSync = ctrf.readReportSync('./ctrf-report.json')
-ctrf.writeReportSync(report, './output.json')
+import { parse, stringify } from 'ctrf'
 
 // Parse from string
-const parsed = ctrf.parse(jsonString)
+const parsed = parse(jsonString)
 
 // Stringify with formatting
-const json = ctrf.stringify(report, { pretty: true, indent: 2 })
+const json = stringify(report, { pretty: true, indent: 2 })
 ```
 
 ### Filtering & Querying
 
 ```typescript
-import { ctrf } from 'ctrf'
-
-// Get tests by status
-const failed = ctrf.getFailedTests(report)
-const passed = ctrf.getPassedTests(report)
-const skipped = ctrf.getSkippedTests(report)
-const flaky = ctrf.getFlakyTests(report)
+import { filterTests, findTest } from 'ctrf'
 
 // Filter by criteria
-const filtered = ctrf.filterTests(report, {
+const filtered = filterTests(report, {
   status: 'failed',
   suite: 'Authentication',
   tags: ['smoke'],
 })
 
 // Find specific test
-const test = ctrf.findTest(report, { name: 'login test' })
-const testById = ctrf.findTest(report, { id: 'test-uuid' })
-
-// Group tests
-const bySuite = ctrf.groupBy(report.results.tests, 'suite')
-const byStatus = ctrf.groupBy(report.results.tests, 'status')
-
-// Get unique values
-const suites = ctrf.getUniqueSuites(report)
-const tags = ctrf.getUniqueTags(report)
+const test = findTest(report, { name: 'login test' })
+const testById = findTest(report, { id: 'test-uuid' })
 ```
 
 ### Merging Reports
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { mergeReports } from 'ctrf'
 
 // Merge multiple reports into one
-const merged = ctrf.mergeReports([report1, report2, report3], {
+const merged = mergeReports([report1, report2, report3], {
   deduplicateTests: true,  // Remove duplicate tests by ID
 })
 ```
@@ -178,26 +163,26 @@ const merged = ctrf.mergeReports([report1, report2, report3], {
 ### ID Generation
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { generateTestId, generateReportId } from 'ctrf'
 
 // Generate deterministic test ID from properties
-const testId = ctrf.generateTestId({
+const testId = generateTestId({
   name: 'should add numbers',
   suite: ['Math', 'Addition'],
   filePath: 'tests/math.test.ts',
 })
 
 // Generate random report ID
-const reportId = ctrf.generateReportId()
+const reportId = generateReportId()
 ```
 
 ### Insights & Analytics
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { addInsights, isTestFlaky } from 'ctrf'
 
 // Enrich a report with insights from historical data
-const enriched = ctrf.enrichReportWithInsights(
+const enriched = addInsights(
   currentReport,
   historicalReports,
   { baseline: baselineReport }
@@ -207,52 +192,56 @@ const enriched = ctrf.enrichReportWithInsights(
 console.log(enriched.insights?.passRate)    // { current: 0.95, baseline: 0.90, change: 0.05 }
 console.log(enriched.insights?.flakyRate)   // { current: 0.02, baseline: 0.05, change: -0.03 }
 
-// Calculate insights separately
-const insights = ctrf.calculateInsights(reports, { window: 10 })
-
 // Check if a test is flaky
-const isFlaky = ctrf.isTestFlaky(test)
+const isFlaky = isTestFlaky(test)
 ```
 
 ### Summary Calculation
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { calculateSummary } from 'ctrf'
 
 // Calculate summary from tests
-const summary = ctrf.calculateSummary(tests)
+const summary = calculateSummary(tests)
 // { tests: 10, passed: 8, failed: 1, skipped: 1, pending: 0, other: 0, ... }
-
-// Recalculate summary for existing report
-const updated = ctrf.recalculateSummary(report)
 ```
 
 ### Constants
 
 ```typescript
-import { ctrf } from 'ctrf'
+import {
+  REPORT_FORMAT,
+  CURRENT_SPEC_VERSION,
+  SUPPORTED_SPEC_VERSIONS,
+  TEST_STATUSES,
+  CTRF_NAMESPACE,
+} from 'ctrf'
 
-ctrf.REPORT_FORMAT          // 'ctrf'
-ctrf.CURRENT_SPEC_VERSION   // '1.0.0'
-ctrf.SUPPORTED_SPEC_VERSIONS // ['1.0.0']
-ctrf.TEST_STATUSES          // ['passed', 'failed', 'skipped', 'pending', 'other']
-ctrf.CTRF_NAMESPACE         // UUID namespace for deterministic IDs
+REPORT_FORMAT           // 'CTRF'
+CURRENT_SPEC_VERSION    // '0.0.0'
+SUPPORTED_SPEC_VERSIONS // ['0.0.0']
+TEST_STATUSES           // ['passed', 'failed', 'skipped', 'pending', 'other']
+CTRF_NAMESPACE          // UUID namespace for deterministic IDs
 ```
 
 ### Error Handling
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { validateStrict, ValidationError, ParseError } from 'ctrf'
 
 try {
-  const report = await ctrf.readReport('./missing.json')
+  validateStrict(report)
 } catch (error) {
-  if (error instanceof ctrf.FileError) {
-    console.error('File not found:', error.path)
-  } else if (error instanceof ctrf.ParseError) {
-    console.error('Invalid JSON:', error.message)
-  } else if (error instanceof ctrf.ValidationError) {
+  if (error instanceof ValidationError) {
     console.error('Schema validation failed:', error.errors)
+  }
+}
+
+try {
+  const parsed = parse(jsonString)
+} catch (error) {
+  if (error instanceof ParseError) {
+    console.error('Invalid JSON:', error.message)
   }
 }
 ```
@@ -260,40 +249,15 @@ try {
 ### Schema Access
 
 ```typescript
-import { ctrf } from 'ctrf'
+import { schema, getSchema, getCurrentSpecVersion, getSupportedSpecVersions } from 'ctrf'
 
-// Get the JSON Schema
-const schema = ctrf.getSchema()
+// Get the current JSON Schema
+console.log(schema)
+
+// Get schema for specific version
+const v0_0Schema = getSchema('0.0.0')
 
 // Get version info
-const version = ctrf.getCurrentSpecVersion()      // '1.0.0'
-const supported = ctrf.getSupportedSpecVersions() // ['1.0.0']
+const version = getCurrentSpecVersion()      // '0.0.0'
+const supported = getSupportedSpecVersions() // ['0.0.0']
 ```
-
-## Migration from Legacy API
-
-The legacy API is deprecated and will be removed in v1. Here's how to migrate:
-
-| Legacy | Reference Implementation |
-|--------|--------------------------|
-| `mergeReports()` | `ctrf.mergeReports()` |
-| `readReportFromFile()` | `ctrf.readReport()` or `ctrf.readReportSync()` |
-| `readReportsFromDirectory()` | `ctrf.readReport()` with glob patterns |
-| `validateReport()` | `ctrf.validate()` |
-| `validateReportStrict()` | `ctrf.validateStrict()` |
-| `isValidCtrfReport()` | `ctrf.isValid()` |
-| `enrichReportWithInsights()` | `ctrf.enrichReportWithInsights()` |
-| `setTestId()` | `ctrf.generateTestId()` |
-| `Report` type | `ctrf.CTRFReport` type |
-| `Test` type | `ctrf.Test` type |
-
-## Design Principles
-
-This reference implementation follows these principles for standards body quality:
-
-1. **Spec-Compliant Only** - Only uses officially specified fields, no extensions
-2. **Self-Documenting** - Code is clear enough to serve as specification
-3. **Language-Agnostic** - Easy to translate to any programming language
-4. **Immutable Operations** - Functions don't mutate input data
-5. **Comprehensive Validation** - Strict schema validation with detailed errors
-6. **Deterministic** - Same inputs always produce same outputs

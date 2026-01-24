@@ -5,7 +5,7 @@
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
-  "includeVersion": true,
+  "includeVersion": false,
   "categorizeByGroup": true,
   "categoryOrder": [
     "Reference Implementation",
