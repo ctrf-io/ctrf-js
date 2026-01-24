@@ -6,7 +6,7 @@
 
 # Interface: ReportBuilderOptions
 
-Defined in: types.ts:414
+Defined in: [types.ts:414](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L414)
 
 Options for ReportBuilder
 
@@ -16,7 +16,7 @@ Options for ReportBuilder
 
 > `optional` **autoGenerateId**: `boolean`
 
-Defined in: types.ts:416
+Defined in: [types.ts:416](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L416)
 
 Automatically generate report ID
 
@@ -26,6 +26,6 @@ Automatically generate report ID
 
 > `optional` **autoTimestamp**: `boolean`
 
-Defined in: types.ts:418
+Defined in: [types.ts:418](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L418)
 
 Automatically set timestamp

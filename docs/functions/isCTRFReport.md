@@ -8,7 +8,7 @@
 
 > **isCTRFReport**(`report`): `report is { reportFormat: "CTRF" }`
 
-Defined in: validate.ts:128
+Defined in: [validate.ts:128](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L128)
 
 Checks if an object has the basic structure of a CTRF report.
 This is a quick, lightweight check that doesn't validate against the full schema.

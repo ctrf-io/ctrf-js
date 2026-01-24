@@ -6,7 +6,7 @@
 
 # Interface: RetryAttempt
 
-Defined in: types.ts:166
+Defined in: [types.ts:166](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L166)
 
 Details of a test retry attempt
 
@@ -16,7 +16,7 @@ Details of a test retry attempt
 
 > `optional` **attachments**: [`Attachment`](Attachment.md)[]
 
-Defined in: types.ts:190
+Defined in: [types.ts:190](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L190)
 
 Attachments for this attempt
 
@@ -26,7 +26,7 @@ Attachments for this attempt
 
 > **attempt**: `number`
 
-Defined in: types.ts:168
+Defined in: [types.ts:168](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L168)
 
 Attempt number (1-indexed)
 
@@ -36,7 +36,7 @@ Attempt number (1-indexed)
 
 > `optional` **duration**: `number`
 
-Defined in: types.ts:172
+Defined in: [types.ts:172](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L172)
 
 Duration of this attempt in milliseconds
 
@@ -46,7 +46,7 @@ Duration of this attempt in milliseconds
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:192
+Defined in: [types.ts:192](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L192)
 
 Custom metadata
 
@@ -56,7 +56,7 @@ Custom metadata
 
 > `optional` **line**: `number`
 
-Defined in: types.ts:178
+Defined in: [types.ts:178](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L178)
 
 Line number
 
@@ -66,7 +66,7 @@ Line number
 
 > `optional` **message**: `string`
 
-Defined in: types.ts:174
+Defined in: [types.ts:174](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L174)
 
 Error message
 
@@ -76,7 +76,7 @@ Error message
 
 > `optional` **snippet**: `string`
 
-Defined in: types.ts:180
+Defined in: [types.ts:180](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L180)
 
 Code snippet
 
@@ -86,7 +86,7 @@ Code snippet
 
 > `optional` **start**: `number`
 
-Defined in: types.ts:186
+Defined in: [types.ts:186](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L186)
 
 Start timestamp
 
@@ -96,7 +96,7 @@ Start timestamp
 
 > **status**: [`TestStatus`](../type-aliases/TestStatus.md)
 
-Defined in: types.ts:170
+Defined in: [types.ts:170](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L170)
 
 Status of this attempt
 
@@ -106,7 +106,7 @@ Status of this attempt
 
 > `optional` **stderr**: `string`[]
 
-Defined in: types.ts:184
+Defined in: [types.ts:184](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L184)
 
 Standard error
 
@@ -116,7 +116,7 @@ Standard error
 
 > `optional` **stdout**: `string`[]
 
-Defined in: types.ts:182
+Defined in: [types.ts:182](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L182)
 
 Standard output
 
@@ -126,7 +126,7 @@ Standard output
 
 > `optional` **stop**: `number`
 
-Defined in: types.ts:188
+Defined in: [types.ts:188](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L188)
 
 Stop timestamp
 
@@ -136,6 +136,6 @@ Stop timestamp
 
 > `optional` **trace**: `string`
 
-Defined in: types.ts:176
+Defined in: [types.ts:176](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L176)
 
 Stack trace

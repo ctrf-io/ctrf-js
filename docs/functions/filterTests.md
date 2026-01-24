@@ -8,7 +8,7 @@
 
 > **filterTests**(`report`, `criteria`): [`Test`](../interfaces/Test.md)[]
 
-Defined in: filter.ts:27
+Defined in: [filter.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L27)
 
 Filter tests in a report by criteria.
 

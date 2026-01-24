@@ -8,7 +8,7 @@
 
 > **generateTestId**(`properties`): `string`
 
-Defined in: id.ts:29
+Defined in: [id.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L29)
 
 Generate a deterministic UUID v5 for a test based on its properties.
 The same inputs will always produce the same UUID, enabling

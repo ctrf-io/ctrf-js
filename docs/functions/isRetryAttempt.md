@@ -8,7 +8,7 @@
 
 > **isRetryAttempt**(`obj`): `obj is { attempt: number; status: string }`
 
-Defined in: validate.ts:181
+Defined in: [validate.ts:181](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L181)
 
 Type guard for RetryAttempt objects.
 

@@ -8,7 +8,7 @@
 
 > **isTestFlaky**(`test`): `boolean`
 
-Defined in: insights.ts:78
+Defined in: [insights.ts:78](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L78)
 
 Determines if a test is flaky based on the CTRF specification.
 

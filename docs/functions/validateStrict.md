@@ -8,7 +8,7 @@
 
 > **validateStrict**(`report`): `asserts report is CTRFReport`
 
-Defined in: validate.ts:100
+Defined in: [validate.ts:100](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L100)
 
 Validate a report and throw if invalid (assertion).
 

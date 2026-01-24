@@ -6,7 +6,7 @@
 
 # Class: FileError
 
-Defined in: errors.ts:73
+Defined in: [errors.ts:73](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L73)
 
 Error thrown when a file read or write operation fails.
 
@@ -20,7 +20,7 @@ Error thrown when a file read or write operation fails.
 
 > **new FileError**(`message`, `filePath`, `cause?`): `FileError`
 
-Defined in: errors.ts:79
+Defined in: [errors.ts:79](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L79)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: errors.ts:79
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: errors.ts:77
+Defined in: [errors.ts:77](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L77)
 
 The original error
 
@@ -64,6 +64,6 @@ The original error
 
 > `readonly` **filePath**: `string`
 
-Defined in: errors.ts:75
+Defined in: [errors.ts:75](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L75)
 
 The file path that caused the error

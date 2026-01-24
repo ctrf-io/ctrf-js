@@ -6,7 +6,7 @@
 
 # Interface: TestInsights
 
-Defined in: types.ts:290
+Defined in: [types.ts:290](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L290)
 
 Test-level insights computed from historical data
 
@@ -16,7 +16,7 @@ Test-level insights computed from historical data
 
 > `optional` **averageTestDuration**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: types.ts:298
+Defined in: [types.ts:298](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L298)
 
 Average test duration metric
 
@@ -26,7 +26,7 @@ Average test duration metric
 
 > `optional` **executedInRuns**: `number`
 
-Defined in: types.ts:302
+Defined in: [types.ts:302](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L302)
 
 Number of runs this test was executed in
 
@@ -36,7 +36,7 @@ Number of runs this test was executed in
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:304
+Defined in: [types.ts:304](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L304)
 
 Custom metadata
 
@@ -46,7 +46,7 @@ Custom metadata
 
 > `optional` **failRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: types.ts:294
+Defined in: [types.ts:294](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L294)
 
 Fail rate metric
 
@@ -56,7 +56,7 @@ Fail rate metric
 
 > `optional` **flakyRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: types.ts:296
+Defined in: [types.ts:296](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L296)
 
 Flaky rate metric
 
@@ -66,7 +66,7 @@ Flaky rate metric
 
 > `optional` **p95TestDuration**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: types.ts:300
+Defined in: [types.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L300)
 
 95th percentile test duration metric
 
@@ -76,6 +76,6 @@ Defined in: types.ts:300
 
 > `optional` **passRate**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: types.ts:292
+Defined in: [types.ts:292](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L292)
 
 Pass rate metric

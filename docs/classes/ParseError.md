@@ -6,7 +6,7 @@
 
 # Class: ParseError
 
-Defined in: errors.ts:38
+Defined in: [errors.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L38)
 
 Error thrown when JSON parsing fails.
 
@@ -20,7 +20,7 @@ Error thrown when JSON parsing fails.
 
 > **new ParseError**(`message`, `cause?`): `ParseError`
 
-Defined in: errors.ts:42
+Defined in: [errors.ts:42](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L42)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: errors.ts:42
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: errors.ts:40
+Defined in: [errors.ts:40](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L40)
 
 The original error that caused the parse failure
 

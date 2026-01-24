@@ -6,7 +6,7 @@
 
 # Interface: FilterCriteria
 
-Defined in: types.ts:382
+Defined in: [types.ts:382](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L382)
 
 Criteria for filtering and finding tests.
 
@@ -16,7 +16,7 @@ Criteria for filtering and finding tests.
 
 > `optional` **browser**: `string`
 
-Defined in: types.ts:396
+Defined in: [types.ts:396](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L396)
 
 Filter by browser
 
@@ -26,7 +26,7 @@ Filter by browser
 
 > `optional` **device**: `string`
 
-Defined in: types.ts:398
+Defined in: [types.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L398)
 
 Filter by device
 
@@ -36,7 +36,7 @@ Filter by device
 
 > `optional` **flaky**: `boolean`
 
-Defined in: types.ts:394
+Defined in: [types.ts:394](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L394)
 
 Filter by flaky flag
 
@@ -46,7 +46,7 @@ Filter by flaky flag
 
 > `optional` **id**: `string`
 
-Defined in: types.ts:384
+Defined in: [types.ts:384](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L384)
 
 Filter by test ID (UUID)
 
@@ -56,7 +56,7 @@ Filter by test ID (UUID)
 
 > `optional` **name**: `string`
 
-Defined in: types.ts:386
+Defined in: [types.ts:386](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L386)
 
 Filter by test name
 
@@ -66,7 +66,7 @@ Filter by test name
 
 > `optional` **status**: [`TestStatus`](../type-aliases/TestStatus.md) \| [`TestStatus`](../type-aliases/TestStatus.md)[]
 
-Defined in: types.ts:388
+Defined in: [types.ts:388](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L388)
 
 Filter by status
 
@@ -76,7 +76,7 @@ Filter by status
 
 > `optional` **suite**: `string` \| `string`[]
 
-Defined in: types.ts:392
+Defined in: [types.ts:392](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L392)
 
 Filter by suite
 
@@ -86,6 +86,6 @@ Filter by suite
 
 > `optional` **tags**: `string` \| `string`[]
 
-Defined in: types.ts:390
+Defined in: [types.ts:390](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L390)
 
 Filter by tags

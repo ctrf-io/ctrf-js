@@ -6,7 +6,7 @@
 
 # Interface: Test
 
-Defined in: types.ts:95
+Defined in: [types.ts:95](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L95)
 
 Individual test result
 
@@ -16,7 +16,7 @@ Individual test result
 
 > `optional` **ai**: `string`
 
-Defined in: types.ts:117
+Defined in: [types.ts:117](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L117)
 
 AI-generated analysis or suggestion
 
@@ -26,7 +26,7 @@ AI-generated analysis or suggestion
 
 > `optional` **attachments**: [`Attachment`](Attachment.md)[]
 
-Defined in: types.ts:147
+Defined in: [types.ts:147](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L147)
 
 File attachments
 
@@ -36,7 +36,7 @@ File attachments
 
 > `optional` **browser**: `string`
 
-Defined in: types.ts:141
+Defined in: [types.ts:141](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L141)
 
 Browser name (for browser tests)
 
@@ -46,7 +46,7 @@ Browser name (for browser tests)
 
 > `optional` **device**: `string`
 
-Defined in: types.ts:143
+Defined in: [types.ts:143](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L143)
 
 Device name (for device tests)
 
@@ -56,7 +56,7 @@ Device name (for device tests)
 
 > **duration**: `number`
 
-Defined in: types.ts:103
+Defined in: [types.ts:103](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L103)
 
 Test duration in milliseconds
 
@@ -66,7 +66,7 @@ Test duration in milliseconds
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:155
+Defined in: [types.ts:155](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L155)
 
 Custom metadata
 
@@ -76,7 +76,7 @@ Custom metadata
 
 > `optional` **filePath**: `string`
 
-Defined in: types.ts:127
+Defined in: [types.ts:127](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L127)
 
 Path to the test file
 
@@ -86,7 +86,7 @@ Path to the test file
 
 > `optional` **flaky**: `boolean`
 
-Defined in: types.ts:133
+Defined in: [types.ts:133](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L133)
 
 Whether the test is flaky
 
@@ -96,7 +96,7 @@ Whether the test is flaky
 
 > `optional` **id**: `string`
 
-Defined in: types.ts:97
+Defined in: [types.ts:97](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L97)
 
 Unique test identifier (UUID)
 
@@ -106,7 +106,7 @@ Unique test identifier (UUID)
 
 > `optional` **insights**: [`TestInsights`](TestInsights.md)
 
-Defined in: types.ts:153
+Defined in: [types.ts:153](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L153)
 
 Test-level insights
 
@@ -116,7 +116,7 @@ Test-level insights
 
 > `optional` **line**: `number`
 
-Defined in: types.ts:119
+Defined in: [types.ts:119](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L119)
 
 Line number where test is defined or failed
 
@@ -126,7 +126,7 @@ Line number where test is defined or failed
 
 > `optional` **message**: `string`
 
-Defined in: types.ts:111
+Defined in: [types.ts:111](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L111)
 
 Error message (for failed tests)
 
@@ -136,7 +136,7 @@ Error message (for failed tests)
 
 > **name**: `string`
 
-Defined in: types.ts:99
+Defined in: [types.ts:99](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L99)
 
 Test name
 
@@ -146,7 +146,7 @@ Test name
 
 > `optional` **parameters**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:149
+Defined in: [types.ts:149](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L149)
 
 Test parameters (for parameterized tests)
 
@@ -156,7 +156,7 @@ Test parameters (for parameterized tests)
 
 > `optional` **rawStatus**: `string`
 
-Defined in: types.ts:121
+Defined in: [types.ts:121](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L121)
 
 Original status from the test framework
 
@@ -166,7 +166,7 @@ Original status from the test framework
 
 > `optional` **retries**: `number`
 
-Defined in: types.ts:129
+Defined in: [types.ts:129](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L129)
 
 Number of retry attempts
 
@@ -176,7 +176,7 @@ Number of retry attempts
 
 > `optional` **retryAttempts**: [`RetryAttempt`](RetryAttempt.md)[]
 
-Defined in: types.ts:131
+Defined in: [types.ts:131](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L131)
 
 Details of each retry attempt
 
@@ -186,7 +186,7 @@ Details of each retry attempt
 
 > `optional` **screenshot**: `string`
 
-Defined in: types.ts:145
+Defined in: [types.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L145)
 
 Base64 encoded screenshot
 
@@ -196,7 +196,7 @@ Base64 encoded screenshot
 
 > `optional` **snippet**: `string`
 
-Defined in: types.ts:115
+Defined in: [types.ts:115](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L115)
 
 Code snippet where failure occurred
 
@@ -206,7 +206,7 @@ Code snippet where failure occurred
 
 > `optional` **start**: `number`
 
-Defined in: types.ts:105
+Defined in: [types.ts:105](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L105)
 
 Start timestamp (Unix epoch milliseconds)
 
@@ -216,7 +216,7 @@ Start timestamp (Unix epoch milliseconds)
 
 > **status**: [`TestStatus`](../type-aliases/TestStatus.md)
 
-Defined in: types.ts:101
+Defined in: [types.ts:101](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L101)
 
 Test execution status
 
@@ -226,7 +226,7 @@ Test execution status
 
 > `optional` **stderr**: `string`[]
 
-Defined in: types.ts:137
+Defined in: [types.ts:137](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L137)
 
 Standard error captured during test
 
@@ -236,7 +236,7 @@ Standard error captured during test
 
 > `optional` **stdout**: `string`[]
 
-Defined in: types.ts:135
+Defined in: [types.ts:135](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L135)
 
 Standard output captured during test
 
@@ -246,7 +246,7 @@ Standard output captured during test
 
 > `optional` **steps**: [`Step`](Step.md)[]
 
-Defined in: types.ts:151
+Defined in: [types.ts:151](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L151)
 
 Test steps
 
@@ -256,7 +256,7 @@ Test steps
 
 > `optional` **stop**: `number`
 
-Defined in: types.ts:107
+Defined in: [types.ts:107](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L107)
 
 Stop timestamp (Unix epoch milliseconds)
 
@@ -266,7 +266,7 @@ Stop timestamp (Unix epoch milliseconds)
 
 > `optional` **suite**: `string`[]
 
-Defined in: types.ts:109
+Defined in: [types.ts:109](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L109)
 
 Test suite hierarchy
 
@@ -276,7 +276,7 @@ Test suite hierarchy
 
 > `optional` **tags**: `string`[]
 
-Defined in: types.ts:123
+Defined in: [types.ts:123](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L123)
 
 Tags for categorization
 
@@ -286,7 +286,7 @@ Tags for categorization
 
 > `optional` **threadId**: `string`
 
-Defined in: types.ts:139
+Defined in: [types.ts:139](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L139)
 
 Thread/worker ID that ran this test
 
@@ -296,7 +296,7 @@ Thread/worker ID that ran this test
 
 > `optional` **trace**: `string`
 
-Defined in: types.ts:113
+Defined in: [types.ts:113](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L113)
 
 Stack trace (for failed tests)
 
@@ -306,6 +306,6 @@ Stack trace (for failed tests)
 
 > `optional` **type**: `string`
 
-Defined in: types.ts:125
+Defined in: [types.ts:125](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L125)
 
 Test type (e.g., 'unit', 'integration', 'e2e')

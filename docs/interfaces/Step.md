@@ -6,7 +6,7 @@
 
 # Interface: Step
 
-Defined in: types.ts:212
+Defined in: [types.ts:212](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L212)
 
 Test step
 
@@ -16,7 +16,7 @@ Test step
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:218
+Defined in: [types.ts:218](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L218)
 
 Custom metadata
 
@@ -26,7 +26,7 @@ Custom metadata
 
 > **name**: `string`
 
-Defined in: types.ts:214
+Defined in: [types.ts:214](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L214)
 
 Step name
 
@@ -36,6 +36,6 @@ Step name
 
 > **status**: [`TestStatus`](../type-aliases/TestStatus.md)
 
-Defined in: types.ts:216
+Defined in: [types.ts:216](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L216)
 
 Step status

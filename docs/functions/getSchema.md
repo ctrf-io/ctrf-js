@@ -8,7 +8,7 @@
 
 > **getSchema**(`version`): `object`
 
-Defined in: schema.ts:65
+Defined in: [schema.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L65)
 
 Get the JSON Schema for a specific CTRF spec version.
 

@@ -6,7 +6,7 @@
 
 # Class: ValidationError
 
-Defined in: errors.ts:23
+Defined in: [errors.ts:23](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L23)
 
 Error thrown when schema validation fails.
 Contains detailed error information for each validation issue.
@@ -21,7 +21,7 @@ Contains detailed error information for each validation issue.
 
 > **new ValidationError**(`message`, `errors`): `ValidationError`
 
-Defined in: errors.ts:27
+Defined in: [errors.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L27)
 
 #### Parameters
 
@@ -47,6 +47,6 @@ Defined in: errors.ts:27
 
 > `readonly` **errors**: [`ValidationErrorDetail`](../interfaces/ValidationErrorDetail.md)[]
 
-Defined in: errors.ts:25
+Defined in: [errors.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L25)
 
 Detailed validation errors

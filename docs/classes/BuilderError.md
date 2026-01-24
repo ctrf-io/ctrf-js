@@ -6,7 +6,7 @@
 
 # Class: BuilderError
 
-Defined in: errors.ts:91
+Defined in: [errors.ts:91](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L91)
 
 Error thrown when building a report or test fails due to missing required fields.
 
@@ -20,7 +20,7 @@ Error thrown when building a report or test fails due to missing required fields
 
 > **new BuilderError**(`message`): `BuilderError`
 
-Defined in: errors.ts:92
+Defined in: [errors.ts:92](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L92)
 
 #### Parameters
 

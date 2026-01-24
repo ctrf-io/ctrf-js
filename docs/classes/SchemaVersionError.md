@@ -6,7 +6,7 @@
 
 # Class: SchemaVersionError
 
-Defined in: errors.ts:53
+Defined in: [errors.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L53)
 
 Error thrown when an unsupported CTRF specification version is encountered.
 
@@ -20,7 +20,7 @@ Error thrown when an unsupported CTRF specification version is encountered.
 
 > **new SchemaVersionError**(`version`, `supportedVersions`): `SchemaVersionError`
 
-Defined in: errors.ts:59
+Defined in: [errors.ts:59](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L59)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: errors.ts:59
 
 > `readonly` **supportedVersions**: `string`[]
 
-Defined in: errors.ts:57
+Defined in: [errors.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L57)
 
 Supported versions
 
@@ -56,6 +56,6 @@ Supported versions
 
 > `readonly` **version**: `string`
 
-Defined in: errors.ts:55
+Defined in: [errors.ts:55](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L55)
 
 The unsupported version

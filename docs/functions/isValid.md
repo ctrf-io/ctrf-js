@@ -8,7 +8,7 @@
 
 > **isValid**(`report`): `report is CTRFReport`
 
-Defined in: validate.ts:77
+Defined in: [validate.ts:77](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L77)
 
 Check if a report is valid (type guard).
 

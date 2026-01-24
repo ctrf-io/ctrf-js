@@ -8,7 +8,7 @@
 
 > **calculateSummary**(`tests`, `options`): [`Summary`](../interfaces/Summary.md)
 
-Defined in: summary.ts:25
+Defined in: [summary.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/summary.ts#L25)
 
 Calculate summary statistics from an array of tests.
 

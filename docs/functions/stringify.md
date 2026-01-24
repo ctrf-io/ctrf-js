@@ -8,7 +8,7 @@
 
 > **stringify**(`report`, `options`): `string`
 
-Defined in: parse.ts:68
+Defined in: [parse.ts:68](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L68)
 
 Serialize a CTRFReport to a JSON string.
 

@@ -6,7 +6,7 @@
 
 # Class: CTRFError
 
-Defined in: errors.ts:11
+Defined in: [errors.ts:11](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L11)
 
 Base error class for all CTRF errors.
 All CTRF-specific errors extend this class.
@@ -29,7 +29,7 @@ All CTRF-specific errors extend this class.
 
 > **new CTRFError**(`message`): `CTRFError`
 
-Defined in: errors.ts:12
+Defined in: [errors.ts:12](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L12)
 
 #### Parameters
 

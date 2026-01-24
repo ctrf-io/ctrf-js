@@ -8,7 +8,7 @@
 
 > **mergeReports**(`reports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [merge.ts:36](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/merge.ts#L36)
+Defined in: [merge.ts:36](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L36)
 
 Merge multiple CTRF reports into a single report.
 Useful for combining results from parallel or sharded test runs.

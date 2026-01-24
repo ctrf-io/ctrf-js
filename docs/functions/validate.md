@@ -8,7 +8,7 @@
 
 > **validate**(`report`, `options`): [`ValidationResult`](../interfaces/ValidationResult.md)
 
-Defined in: validate.ts:35
+Defined in: [validate.ts:35](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L35)
 
 Validate a CTRF report against the JSON schema.
 

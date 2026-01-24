@@ -8,7 +8,7 @@
 
 > **parse**(`json`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: parse.ts:31
+Defined in: [parse.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L31)
 
 Parse a JSON string into a CTRFReport.
 

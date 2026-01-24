@@ -8,6 +8,6 @@
 
 > `const` **REPORT\_FORMAT**: `"CTRF"`
 
-Defined in: [constants.ts:6](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/constants.ts#L6)
+Defined in: [constants.ts:6](https://github.com/ctrf-io/ctrf-js/blob/main/src/constants.ts#L6)
 
 The CTRF report format identifier

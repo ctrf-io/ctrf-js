@@ -8,6 +8,6 @@
 
 > `const` **SUPPORTED\_SPEC\_VERSIONS**: readonly \[`"0.0.0"`\]
 
-Defined in: [constants.ts:21](https://github.com/ctrf-io/ctrf-core-js/blob/main/src/constants.ts#L21)
+Defined in: [constants.ts:21](https://github.com/ctrf-io/ctrf-js/blob/main/src/constants.ts#L21)
 
 Supported specification versions

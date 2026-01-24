@@ -8,7 +8,7 @@
 
 > `const` **schema**: `object`
 
-Defined in: schema.ts:50
+Defined in: [schema.ts:50](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L50)
 
 The current version CTRF JSON Schema object.
 

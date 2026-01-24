@@ -6,7 +6,7 @@
 
 # Interface: Baseline
 
-Defined in: types.ts:322
+Defined in: [types.ts:322](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L322)
 
 Reference to a baseline report
 
@@ -16,7 +16,7 @@ Reference to a baseline report
 
 > `optional` **buildName**: `string`
 
-Defined in: types.ts:332
+Defined in: [types.ts:332](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L332)
 
 Build name of the baseline
 
@@ -26,7 +26,7 @@ Build name of the baseline
 
 > `optional` **buildNumber**: `number`
 
-Defined in: types.ts:330
+Defined in: [types.ts:330](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L330)
 
 Build number of the baseline
 
@@ -36,7 +36,7 @@ Build number of the baseline
 
 > `optional` **buildUrl**: `string`
 
-Defined in: types.ts:334
+Defined in: [types.ts:334](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L334)
 
 Build URL of the baseline
 
@@ -46,7 +46,7 @@ Build URL of the baseline
 
 > `optional` **commit**: `string`
 
-Defined in: types.ts:336
+Defined in: [types.ts:336](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L336)
 
 Git commit of the baseline
 
@@ -56,7 +56,7 @@ Git commit of the baseline
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:338
+Defined in: [types.ts:338](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L338)
 
 Custom metadata
 
@@ -66,7 +66,7 @@ Custom metadata
 
 > **reportId**: `string`
 
-Defined in: types.ts:324
+Defined in: [types.ts:324](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L324)
 
 Report ID of the baseline report
 
@@ -76,7 +76,7 @@ Report ID of the baseline report
 
 > `optional` **source**: `string`
 
-Defined in: types.ts:328
+Defined in: [types.ts:328](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L328)
 
 Source description (e.g., 'main-branch', 'previous-run')
 
@@ -86,6 +86,6 @@ Source description (e.g., 'main-branch', 'previous-run')
 
 > `optional` **timestamp**: `string`
 
-Defined in: types.ts:326
+Defined in: [types.ts:326](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L326)
 
 Timestamp of the baseline report

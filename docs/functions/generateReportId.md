@@ -8,7 +8,7 @@
 
 > **generateReportId**(): `string`
 
-Defined in: id.ts:71
+Defined in: [id.ts:71](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L71)
 
 Generate a random UUID v4 for report identification.
 

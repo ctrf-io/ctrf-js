@@ -8,7 +8,7 @@
 
 > **isTest**(`obj`): `obj is { duration: number; name: string; status: string }`
 
-Defined in: validate.ts:145
+Defined in: [validate.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L145)
 
 Type guard for Test objects.
 

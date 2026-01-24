@@ -8,7 +8,7 @@
 
 > **findTest**(`report`, `criteria`): `undefined` \| [`Test`](../interfaces/Test.md)
 
-Defined in: filter.ts:53
+Defined in: [filter.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L53)
 
 Find a single test in a report.
 

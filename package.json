@@ -1,7 +1,7 @@
 {
   "name": "ctrf",
   "version": "0.0.18-next-1",
-  "description": "CTRF TypeScript SDK for creating and validating CTRF documents.",
+  "description": "CTRF reference implementation in TypeScript for creating and validating CTRF documents.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

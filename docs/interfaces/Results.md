@@ -6,7 +6,7 @@
 
 # Interface: Results
 
-Defined in: types.ts:37
+Defined in: [types.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L37)
 
 Container for test results
 
@@ -16,7 +16,7 @@ Container for test results
 
 > `optional` **environment**: [`Environment`](Environment.md)
 
-Defined in: types.ts:45
+Defined in: [types.ts:45](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L45)
 
 Environment information
 
@@ -26,7 +26,7 @@ Environment information
 
 > `optional` **extra**: `Record`\<`string`, `unknown`\>
 
-Defined in: types.ts:47
+Defined in: [types.ts:47](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L47)
 
 Custom metadata
 
@@ -36,7 +36,7 @@ Custom metadata
 
 > **summary**: [`Summary`](Summary.md)
 
-Defined in: types.ts:41
+Defined in: [types.ts:41](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L41)
 
 Aggregated test statistics
 
@@ -46,7 +46,7 @@ Aggregated test statistics
 
 > **tests**: [`Test`](Test.md)[]
 
-Defined in: types.ts:43
+Defined in: [types.ts:43](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L43)
 
 Array of individual test results
 
@@ -56,6 +56,6 @@ Array of individual test results
 
 > **tool**: [`Tool`](Tool.md)
 
-Defined in: types.ts:39
+Defined in: [types.ts:39](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L39)
 
 Information about the test tool
