@@ -52,7 +52,7 @@ validateStrict(report)
 
 ## API Reference
 
-> 📚 **Full API Documentation:** [API Reference](../docs/README.md)
+> 📚 **Full API Documentation:** [API Reference](/docs/README.md)
 
 ### Types
 

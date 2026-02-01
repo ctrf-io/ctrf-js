@@ -14,6 +14,8 @@ import { calculateSummary } from './summary.js'
 import { generateReportId } from './id.js'
 
 /**
+ *
+ * @group Merge
  * Merge multiple CTRF reports into a single report.
  * Useful for combining results from parallel or sharded test runs.
  *

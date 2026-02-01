@@ -9,6 +9,8 @@
 
 /**
  * The root CTRF report object
+ *
+ * @group Core Types
  */
 export interface CTRFReport {
   /** Must be 'CTRF' */
@@ -33,6 +35,8 @@ export interface CTRFReport {
 
 /**
  * Container for test results
+ *
+ * @group Core Types
  */
 export interface Results {
   /** Information about the test tool */
@@ -49,6 +53,8 @@ export interface Results {
 
 /**
  * Test tool information
+ *
+ * @group Core Types
  */
 export interface Tool {
   /** Name of the test tool (e.g., 'jest', 'playwright') */
@@ -61,6 +67,8 @@ export interface Tool {
 
 /**
  * Aggregated test statistics
+ *
+ * @group Core Types
  */
 export interface Summary {
   /** Total number of tests */
@@ -91,6 +99,8 @@ export interface Summary {
 
 /**
  * Individual test result
+ *
+ * @group Core Types
  */
 export interface Test {
   /** Unique test identifier (UUID) */
@@ -157,11 +167,15 @@ export interface Test {
 
 /**
  * Test status enum
+ *
+ * @group Core Types
  */
 export type TestStatus = 'passed' | 'failed' | 'skipped' | 'pending' | 'other'
 
 /**
  * Details of a test retry attempt
+ *
+ * @group Core Types
  */
 export interface RetryAttempt {
   /** Attempt number (1-indexed) */
@@ -194,6 +208,8 @@ export interface RetryAttempt {
 
 /**
  * File attachment
+ *
+ * @group Core Types
  */
 export interface Attachment {
   /** Attachment name */
@@ -208,6 +224,8 @@ export interface Attachment {
 
 /**
  * Test step
+ *
+ * @group Core Types
  */
 export interface Step {
   /** Step name */
@@ -220,6 +238,8 @@ export interface Step {
 
 /**
  * Environment information
+ *
+ * @group Core Types
  */
 export interface Environment {
   /** Custom report name */
@@ -264,6 +284,8 @@ export interface Environment {
 
 /**
  * Run-level insights computed from historical data
+ *
+ * @group Insights
  */
 export interface Insights {
   /** Pass rate metric */
@@ -286,6 +308,8 @@ export interface Insights {
 
 /**
  * Test-level insights computed from historical data
+ *
+ * @group Insights
  */
 export interface TestInsights {
   /** Pass rate metric */
@@ -306,6 +330,8 @@ export interface TestInsights {
 
 /**
  * Metric with current value, baseline, and change
+ *
+ * @group Insights
  */
 export interface MetricDelta {
   /** Current value */
@@ -318,6 +344,8 @@ export interface MetricDelta {
 
 /**
  * Reference to a baseline report
+ *
+ * @group Core Types
  */
 export interface Baseline {
   /** Report ID of the baseline report */
@@ -344,6 +372,8 @@ export interface Baseline {
 
 /**
  * Result of schema validation
+ *
+ * @group Validation Options
  */
 export interface ValidationResult {
   /** Whether the report is valid */
@@ -354,6 +384,8 @@ export interface ValidationResult {
 
 /**
  * Details of a validation error
+ *
+ * @group Validation Options
  */
 export interface ValidationErrorDetail {
   /** Human-readable error message */
@@ -366,6 +398,8 @@ export interface ValidationErrorDetail {
 
 /**
  * Options for merging reports
+ *
+ * @group Merge Options
  */
 export interface MergeOptions {
   /** Remove duplicate tests by ID */
@@ -378,6 +412,8 @@ export interface MergeOptions {
 
 /**
  * Criteria for filtering and finding tests.
+ *
+ * @group Query & Filter Options
  */
 export interface FilterCriteria {
   /** Filter by test ID (UUID) */
@@ -400,6 +436,8 @@ export interface FilterCriteria {
 
 /**
  * Options for insights calculation
+ *
+ * @group Insights Options
  */
 export interface InsightsOptions {
   /** Baseline report for comparison */
@@ -410,6 +448,8 @@ export interface InsightsOptions {
 
 /**
  * Options for ReportBuilder
+ *
+ * @group Builder Options
  */
 export interface ReportBuilderOptions {
   /** Automatically generate report ID */
@@ -420,6 +460,8 @@ export interface ReportBuilderOptions {
 
 /**
  * Options for TestBuilder
+ *
+ * @group Builder Options
  */
 export interface TestBuilderOptions {
   /** Automatically generate test ID */
@@ -428,6 +470,8 @@ export interface TestBuilderOptions {
 
 /**
  * Options for calculating summary
+ *
+ * @group Core Options
  */
 export interface SummaryOptions {
   /** Start timestamp */
@@ -438,6 +482,8 @@ export interface SummaryOptions {
 
 /**
  * Options for parsing JSON
+ *
+ * @group Core Options
  */
 export interface ParseOptions {
   /** Validate after parsing */
@@ -446,6 +492,8 @@ export interface ParseOptions {
 
 /**
  * Options for stringifying to JSON
+ *
+ * @group Core Options
  */
 export interface StringifyOptions {
   /** Pretty print with indentation */
@@ -456,6 +504,8 @@ export interface StringifyOptions {
 
 /**
  * Options for validation
+ *
+ * @group Validation Options
  */
 export interface ValidateOptions {
   /** Specific spec version to validate against */

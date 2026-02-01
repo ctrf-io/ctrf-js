@@ -2,16 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / mergeReports
+[CTRF](../globals.md) / mergeReports
 
 # Function: mergeReports()
 
 > **mergeReports**(`reports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [merge.ts:36](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L36)
-
-Merge multiple CTRF reports into a single report.
-Useful for combining results from parallel or sharded test runs.
+Defined in: [merge.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L38)
 
 ## Parameters
 

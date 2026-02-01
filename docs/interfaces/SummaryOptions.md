@@ -2,11 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / SummaryOptions
+[CTRF](../globals.md) / SummaryOptions
 
 # Interface: SummaryOptions
 
-Defined in: [types.ts:432](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L432)
+Defined in: [types.ts:476](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L476)
 
 Options for calculating summary
 
@@ -16,7 +16,7 @@ Options for calculating summary
 
 > `optional` **start**: `number`
 
-Defined in: [types.ts:434](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L434)
+Defined in: [types.ts:478](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L478)
 
 Start timestamp
 
@@ -26,6 +26,6 @@ Start timestamp
 
 > `optional` **stop**: `number`
 
-Defined in: [types.ts:436](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L436)
+Defined in: [types.ts:480](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L480)
 
 Stop timestamp

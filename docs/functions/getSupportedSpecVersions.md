@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / getSupportedSpecVersions
+[CTRF](../globals.md) / getSupportedSpecVersions
 
 # Function: getSupportedSpecVersions()
 
 > **getSupportedSpecVersions**(): readonly `string`[]
 
-Defined in: [schema.ts:91](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L91)
-
-Get all supported spec versions.
+Defined in: [schema.ts:99](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L99)
 
 ## Returns
 

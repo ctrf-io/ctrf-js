@@ -2,13 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / BuilderError
+[CTRF](../globals.md) / BuilderError
 
 # Class: BuilderError
 
-Defined in: [errors.ts:91](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L91)
-
-Error thrown when building a report or test fails due to missing required fields.
+Defined in: [errors.ts:103](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L103)
 
 ## Extends
 
@@ -20,7 +18,7 @@ Error thrown when building a report or test fails due to missing required fields
 
 > **new BuilderError**(`message`): `BuilderError`
 
-Defined in: [errors.ts:92](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L92)
+Defined in: [errors.ts:104](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L104)
 
 #### Parameters
 

@@ -2,51 +2,21 @@
 
 ***
 
-[CTRF](../README.md) / FilterCriteria
+[CTRF](../globals.md) / FilterCriteria
 
 # Interface: FilterCriteria
 
-Defined in: [types.ts:382](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L382)
+Defined in: [types.ts:418](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L418)
 
 Criteria for filtering and finding tests.
 
 ## Properties
 
-### browser?
-
-> `optional` **browser**: `string`
-
-Defined in: [types.ts:396](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L396)
-
-Filter by browser
-
-***
-
-### device?
-
-> `optional` **device**: `string`
-
-Defined in: [types.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L398)
-
-Filter by device
-
-***
-
-### flaky?
-
-> `optional` **flaky**: `boolean`
-
-Defined in: [types.ts:394](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L394)
-
-Filter by flaky flag
-
-***
-
 ### id?
 
 > `optional` **id**: `string`
 
-Defined in: [types.ts:384](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L384)
+Defined in: [types.ts:420](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L420)
 
 Filter by test ID (UUID)
 
@@ -56,7 +26,7 @@ Filter by test ID (UUID)
 
 > `optional` **name**: `string`
 
-Defined in: [types.ts:386](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L386)
+Defined in: [types.ts:422](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L422)
 
 Filter by test name
 
@@ -66,19 +36,9 @@ Filter by test name
 
 > `optional` **status**: [`TestStatus`](../type-aliases/TestStatus.md) \| [`TestStatus`](../type-aliases/TestStatus.md)[]
 
-Defined in: [types.ts:388](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L388)
+Defined in: [types.ts:424](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L424)
 
 Filter by status
-
-***
-
-### suite?
-
-> `optional` **suite**: `string` \| `string`[]
-
-Defined in: [types.ts:392](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L392)
-
-Filter by suite
 
 ***
 
@@ -86,6 +46,46 @@ Filter by suite
 
 > `optional` **tags**: `string` \| `string`[]
 
-Defined in: [types.ts:390](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L390)
+Defined in: [types.ts:426](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L426)
 
 Filter by tags
+
+***
+
+### suite?
+
+> `optional` **suite**: `string` \| `string`[]
+
+Defined in: [types.ts:428](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L428)
+
+Filter by suite
+
+***
+
+### flaky?
+
+> `optional` **flaky**: `boolean`
+
+Defined in: [types.ts:430](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L430)
+
+Filter by flaky flag
+
+***
+
+### browser?
+
+> `optional` **browser**: `string`
+
+Defined in: [types.ts:432](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L432)
+
+Filter by browser
+
+***
+
+### device?
+
+> `optional` **device**: `string`
+
+Defined in: [types.ts:434](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L434)
+
+Filter by device

@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / filterTests
+[CTRF](../globals.md) / filterTests
 
 # Function: filterTests()
 
 > **filterTests**(`report`, `criteria`): [`Test`](../interfaces/Test.md)[]
 
-Defined in: [filter.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L27)
-
-Filter tests in a report by criteria.
+Defined in: [filter.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L29)
 
 ## Parameters
 

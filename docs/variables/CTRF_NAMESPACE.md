@@ -2,7 +2,7 @@
 
 ***
 
-[CTRF](../README.md) / CTRF\_NAMESPACE
+[CTRF](../globals.md) / CTRF\_NAMESPACE
 
 # Variable: CTRF\_NAMESPACE
 

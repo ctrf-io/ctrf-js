@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / generateReportId
+[CTRF](../globals.md) / generateReportId
 
 # Function: generateReportId()
 
 > **generateReportId**(): `string`
 
-Defined in: [id.ts:71](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L71)
-
-Generate a random UUID v4 for report identification.
+Defined in: [id.ts:75](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L75)
 
 ## Returns
 

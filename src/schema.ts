@@ -39,6 +39,8 @@ function loadSchemaForVersion(version: string): object {
 }
 
 /**
+ *
+ * @group Schema & Versioning
  * The current version CTRF JSON Schema object.
  *
  * @example
@@ -50,6 +52,8 @@ function loadSchemaForVersion(version: string): object {
 export const schema: object = loadSchemaForVersion(CURRENT_SPEC_VERSION)
 
 /**
+ *
+ * @group Schema & Versioning
  * Get the JSON Schema for a specific CTRF spec version.
  *
  * @param version - The spec version (MAJOR.MINOR.PATCH) to get the schema for
@@ -75,6 +79,8 @@ export function getSchema(version: string): object {
 }
 
 /**
+ *
+ * @group Schema & Versioning
  * Get the current spec version.
  *
  * @returns The current spec version string
@@ -84,6 +90,8 @@ export function getCurrentSpecVersion(): string {
 }
 
 /**
+ *
+ * @group Schema & Versioning
  * Get all supported spec versions.
  *
  * @returns Array of supported version strings

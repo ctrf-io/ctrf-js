@@ -2,7 +2,7 @@
 
 ***
 
-[CTRF](../README.md) / TEST\_STATUSES
+[CTRF](../globals.md) / TEST\_STATUSES
 
 # Variable: TEST\_STATUSES
 
