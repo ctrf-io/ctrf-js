@@ -152,10 +152,10 @@ const testById = findTest(report, { id: 'test-uuid' })
 ### Merging Reports
 
 ```typescript
-import { mergeReports } from 'ctrf'
+import { merge } from 'ctrf'
 
 // Merge multiple reports into one
-const merged = mergeReports([report1, report2, report3], {
+const merged = merge([report1, report2, report3], {
   deduplicateTests: true,  // Remove duplicate tests by ID
 })
 ```

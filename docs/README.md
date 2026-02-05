@@ -68,7 +68,7 @@ The core schema types that define CTRF structure (what consumers import):
 
 ### Merge
 
-- [mergeReports](functions/mergeReports.md) - Combine multiple reports
+- [merge](functions/merge.md) - Combine multiple reports
 
 ### Schema & Versioning
 
@@ -160,7 +160,7 @@ Helper types for using this library's utilities (not part of CTRF schema):
 - [isTestFlaky](functions/isTestFlaky.md)
 - [isTestStatus](functions/isTestStatus.md)
 - [isValid](functions/isValid.md)
-- [mergeReports](functions/mergeReports.md)
+- [merge](functions/merge.md)
 - [parse](functions/parse.md)
 - [stringify](functions/stringify.md)
 - [validate](functions/validate.md)

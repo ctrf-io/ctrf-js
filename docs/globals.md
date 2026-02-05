@@ -161,7 +161,7 @@ A test is considered flaky if:
 Merge multiple CTRF reports into a single report.
 Useful for combining results from parallel or sharded test runs.
 
-- [mergeReports](functions/mergeReports.md)
+- [merge](functions/merge.md)
 
 ## Query & Filter
 Filter tests in a report by criteria.
