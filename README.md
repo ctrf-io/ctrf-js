@@ -18,7 +18,7 @@ You can support the project by giving this repository a star ⭐
 ## Installation
 
 ```sh
-npm install ctrf@0.0.18-next-1
+npm install ctrf
 ```
 
 ## Quick Start
