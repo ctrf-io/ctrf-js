@@ -1,7 +1,3 @@
-**CTRF**
-
-***
-
 <!-- This file is used as the landing page for TypeDoc-generated API documentation.
      It's referenced in typedoc.json and manually maintained.
      When adding new public exports, add them to the appropriate section below. -->

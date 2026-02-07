@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / schema
+[CTRF](../globals.md) / schema
 
 # Variable: schema
 
 > `const` **schema**: `object`
 
-Defined in: [schema.ts:50](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L50)
-
-The current version CTRF JSON Schema object.
+Defined in: [schema.ts:52](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L52)
 
 ## Example
 

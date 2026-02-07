@@ -12,6 +12,8 @@ const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 
 /**
+ *
+ * @group Core Operations
  * Parse a JSON string into a CTRFReport.
  *
  * @param json - JSON string to parse
@@ -48,6 +50,8 @@ export function parse(json: string, options: ParseOptions = {}): CTRFReport {
 }
 
 /**
+ *
+ * @group Core Operations
  * Serialize a CTRFReport to a JSON string.
  *
  * @param report - The CTRF report to serialize

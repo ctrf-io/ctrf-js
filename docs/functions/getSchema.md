@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / getSchema
+[CTRF](../globals.md) / getSchema
 
 # Function: getSchema()
 
 > **getSchema**(`version`): `object`
 
-Defined in: [schema.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L65)
-
-Get the JSON Schema for a specific CTRF spec version.
+Defined in: [schema.ts:69](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L69)
 
 ## Parameters
 

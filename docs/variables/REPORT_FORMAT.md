@@ -2,7 +2,7 @@
 
 ***
 
-[CTRF](../README.md) / REPORT\_FORMAT
+[CTRF](../globals.md) / REPORT\_FORMAT
 
 # Variable: REPORT\_FORMAT
 

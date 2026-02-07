@@ -59,6 +59,8 @@ interface AggregatedTestMetrics extends AggregatedRunMetrics {
 // ============================================================================
 
 /**
+ *
+ * @group Insights
  * Determines if a test is flaky based on the CTRF specification.
  *
  * A test is considered flaky if:
@@ -983,6 +985,8 @@ export function calculateMetricDelta(
 }
 
 /**
+ *
+ * @group Insights
  * Add insights to a CTRF report using historical data.
  *
  * Computes run-level and test-level insights according to the CTRF specification,

@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / calculateSummary
+[CTRF](../globals.md) / calculateSummary
 
 # Function: calculateSummary()
 
 > **calculateSummary**(`tests`, `options`): [`Summary`](../interfaces/Summary.md)
 
-Defined in: [summary.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/summary.ts#L25)
-
-Calculate summary statistics from an array of tests.
+Defined in: [summary.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/summary.ts#L27)
 
 ## Parameters
 

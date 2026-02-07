@@ -2,7 +2,7 @@
 
 ***
 
-[CTRF](../README.md) / CURRENT\_SPEC\_VERSION
+[CTRF](../globals.md) / CURRENT\_SPEC\_VERSION
 
 # Variable: CURRENT\_SPEC\_VERSION
 

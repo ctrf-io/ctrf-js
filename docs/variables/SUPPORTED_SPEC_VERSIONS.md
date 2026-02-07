@@ -2,7 +2,7 @@
 
 ***
 
-[CTRF](../README.md) / SUPPORTED\_SPEC\_VERSIONS
+[CTRF](../globals.md) / SUPPORTED\_SPEC\_VERSIONS
 
 # Variable: SUPPORTED\_SPEC\_VERSIONS
 

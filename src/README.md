@@ -170,7 +170,7 @@ const tags = ctrf.getUniqueTags(report)
 import { ctrf } from 'ctrf'
 
 // Merge multiple reports into one
-const merged = ctrf.mergeReports([report1, report2, report3], {
+const merged = ctrf.merge([report1, report2, report3], {
   deduplicateTests: true,  // Remove duplicate tests by ID
 })
 ```

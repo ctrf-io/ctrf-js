@@ -2,13 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / ParseError
+[CTRF](../globals.md) / ParseError
 
 # Class: ParseError
 
-Defined in: [errors.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L38)
-
-Error thrown when JSON parsing fails.
+Defined in: [errors.ts:44](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L44)
 
 ## Extends
 
@@ -20,7 +18,7 @@ Error thrown when JSON parsing fails.
 
 > **new ParseError**(`message`, `cause?`): `ParseError`
 
-Defined in: [errors.ts:42](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L42)
+Defined in: [errors.ts:48](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L48)
 
 #### Parameters
 
@@ -46,7 +44,7 @@ Defined in: [errors.ts:42](https://github.com/ctrf-io/ctrf-js/blob/main/src/erro
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: [errors.ts:40](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L40)
+Defined in: [errors.ts:46](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L46)
 
 The original error that caused the parse failure
 

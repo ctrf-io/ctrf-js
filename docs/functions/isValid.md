@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / isValid
+[CTRF](../globals.md) / isValid
 
 # Function: isValid()
 
 > **isValid**(`report`): `report is CTRFReport`
 
-Defined in: [validate.ts:77](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L77)
-
-Check if a report is valid (type guard).
+Defined in: [validate.ts:80](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L80)
 
 ## Parameters
 

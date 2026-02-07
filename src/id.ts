@@ -6,6 +6,8 @@ import { createHash, randomUUID } from 'crypto'
 import { CTRF_NAMESPACE } from './constants.js'
 
 /**
+ *
+ * @group ID Generation
  * Generate a deterministic UUID v5 for a test based on its properties.
  * The same inputs will always produce the same UUID, enabling
  * cross-run analysis and test identification.
@@ -58,6 +60,8 @@ export function generateTestId(properties: {
 }
 
 /**
+ *
+ * @group ID Generation
  * Generate a random UUID v4 for report identification.
  *
  * @returns A random UUID v4 string

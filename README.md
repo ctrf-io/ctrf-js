@@ -18,7 +18,7 @@ You can support the project by giving this repository a star ⭐
 ## Installation
 
 ```sh
-npm install ctrf@0.0.18-next-1
+npm install ctrf
 ```
 
 ## Quick Start
@@ -52,7 +52,7 @@ validateStrict(report)
 
 ## API Reference
 
-> 📚 **Full API Documentation:** [API Reference](../docs/README.md)
+> 📚 **Full API Documentation:** [API Reference](/docs/README.md)
 
 ### Types
 
@@ -152,10 +152,10 @@ const testById = findTest(report, { id: 'test-uuid' })
 ### Merging Reports
 
 ```typescript
-import { mergeReports } from 'ctrf'
+import { merge } from 'ctrf'
 
 // Merge multiple reports into one
-const merged = mergeReports([report1, report2, report3], {
+const merged = merge([report1, report2, report3], {
   deduplicateTests: true,  // Remove duplicate tests by ID
 })
 ```

@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / parse
+[CTRF](../globals.md) / parse
 
 # Function: parse()
 
 > **parse**(`json`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [parse.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L31)
-
-Parse a JSON string into a CTRFReport.
+Defined in: [parse.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L33)
 
 ## Parameters
 

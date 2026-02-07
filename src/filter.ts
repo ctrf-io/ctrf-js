@@ -5,6 +5,8 @@
 import type { CTRFReport, Test, FilterCriteria, TestStatus } from './types.js'
 
 /**
+ *
+ * @group Query & Filter
  * Filter tests in a report by criteria.
  *
  * @param report - The CTRF report containing tests to filter
@@ -32,6 +34,8 @@ export function filterTests(
 }
 
 /**
+ *
+ * @group Query & Filter
  * Find a single test in a report.
  *
  * @param report - The CTRF report to search

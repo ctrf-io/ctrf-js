@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / validateStrict
+[CTRF](../globals.md) / validateStrict
 
 # Function: validateStrict()
 
 > **validateStrict**(`report`): `asserts report is CTRFReport`
 
-Defined in: [validate.ts:100](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L100)
-
-Validate a report and throw if invalid (assertion).
+Defined in: [validate.ts:105](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L105)
 
 ## Parameters
 

@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / findTest
+[CTRF](../globals.md) / findTest
 
 # Function: findTest()
 
 > **findTest**(`report`, `criteria`): `undefined` \| [`Test`](../interfaces/Test.md)
 
-Defined in: [filter.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L53)
-
-Find a single test in a report.
+Defined in: [filter.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L57)
 
 ## Parameters
 
