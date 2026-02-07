@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / hasInsights
+[CTRF](../globals.md) / hasInsights
 
 # Function: hasInsights()
 
 > **hasInsights**(`report`): `boolean`
 
-Defined in: [validate.ts:200](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L200)
-
-Check if a report has insights.
+Defined in: [validate.ts:215](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L215)
 
 ## Parameters
 

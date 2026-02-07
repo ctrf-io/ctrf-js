@@ -2,11 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / ParseOptions
+[CTRF](../globals.md) / ParseOptions
 
 # Interface: ParseOptions
 
-Defined in: [types.ts:442](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L442)
+Defined in: [types.ts:488](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L488)
 
 Options for parsing JSON
 
@@ -16,6 +16,6 @@ Options for parsing JSON
 
 > `optional` **validate**: `boolean`
 
-Defined in: [types.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L444)
+Defined in: [types.ts:490](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L490)
 
 Validate after parsing

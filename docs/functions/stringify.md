@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / stringify
+[CTRF](../globals.md) / stringify
 
 # Function: stringify()
 
 > **stringify**(`report`, `options`): `string`
 
-Defined in: [parse.ts:68](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L68)
-
-Serialize a CTRFReport to a JSON string.
+Defined in: [parse.ts:72](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L72)
 
 ## Parameters
 

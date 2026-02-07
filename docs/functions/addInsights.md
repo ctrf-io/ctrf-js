@@ -2,18 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / addInsights
+[CTRF](../globals.md) / addInsights
 
 # Function: addInsights()
 
 > **addInsights**(`report`, `historicalReports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [insights.ts:1007](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L1007)
-
-Add insights to a CTRF report using historical data.
-
-Computes run-level and test-level insights according to the CTRF specification,
-including pass rate, fail rate, flaky rate, and duration metrics.
+Defined in: [insights.ts:1011](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L1011)
 
 ## Parameters
 

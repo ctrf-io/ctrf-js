@@ -2,13 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / TestBuilder
+[CTRF](../globals.md) / TestBuilder
 
 # Class: TestBuilder
 
-Defined in: [builder.ts:247](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L247)
-
-Fluent builder for constructing Test objects.
+Defined in: [builder.ts:251](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L251)
 
 ## Example
 
@@ -27,7 +25,7 @@ const test = new TestBuilder()
 
 > **new TestBuilder**(`options`): `TestBuilder`
 
-Defined in: [builder.ts:279](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L279)
+Defined in: [builder.ts:283](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L283)
 
 #### Parameters
 
@@ -41,229 +39,11 @@ Defined in: [builder.ts:279](https://github.com/ctrf-io/ctrf-js/blob/main/src/bu
 
 ## Methods
 
-### addAttachment()
-
-> **addAttachment**(`attachment`): `this`
-
-Defined in: [builder.ts:488](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L488)
-
-Add an attachment.
-
-#### Parameters
-
-##### attachment
-
-[`Attachment`](../interfaces/Attachment.md)
-
-#### Returns
-
-`this`
-
-***
-
-### addRetryAttempt()
-
-> **addRetryAttempt**(`attempt`): `this`
-
-Defined in: [builder.ts:421](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L421)
-
-Add a retry attempt.
-
-#### Parameters
-
-##### attempt
-
-[`RetryAttempt`](../interfaces/RetryAttempt.md)
-
-#### Returns
-
-`this`
-
-***
-
-### addStep()
-
-> **addStep**(`step`): `this`
-
-Defined in: [builder.ts:507](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L507)
-
-Add a step.
-
-#### Parameters
-
-##### step
-
-[`Step`](../interfaces/Step.md)
-
-#### Returns
-
-`this`
-
-***
-
-### ai()
-
-> **ai**(`analysis`): `this`
-
-Defined in: [builder.ts:365](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L365)
-
-Set AI-generated analysis.
-
-#### Parameters
-
-##### analysis
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### browser()
-
-> **browser**(`name`): `this`
-
-Defined in: [builder.ts:464](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L464)
-
-Set browser name.
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### build()
-
-> **build**(): [`Test`](../interfaces/Test.md)
-
-Defined in: [builder.ts:535](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L535)
-
-Build and return the Test object.
-
-#### Returns
-
-[`Test`](../interfaces/Test.md)
-
-#### Throws
-
-BuilderError if required fields are missing
-
-***
-
-### device()
-
-> **device**(`name`): `this`
-
-Defined in: [builder.ts:472](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L472)
-
-Set device name.
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### duration()
-
-> **duration**(`ms`): `this`
-
-Defined in: [builder.ts:309](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L309)
-
-Set the duration in milliseconds.
-
-#### Parameters
-
-##### ms
-
-`number`
-
-#### Returns
-
-`this`
-
-***
-
-### extra()
-
-> **extra**(`data`): `this`
-
-Defined in: [builder.ts:526](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L526)
-
-Set extra metadata.
-
-#### Parameters
-
-##### data
-
-`Record`\<`string`, `unknown`\>
-
-#### Returns
-
-`this`
-
-***
-
-### filePath()
-
-> **filePath**(`path`): `this`
-
-Defined in: [builder.ts:405](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L405)
-
-Set file path.
-
-#### Parameters
-
-##### path
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### flaky()
-
-> **flaky**(`isFlaky`): `this`
-
-Defined in: [builder.ts:432](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L432)
-
-Mark as flaky.
-
-#### Parameters
-
-##### isFlaky
-
-`boolean` = `true`
-
-#### Returns
-
-`this`
-
-***
-
 ### id()
 
 > **id**(`uuid?`): `this`
 
-Defined in: [builder.ts:285](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L285)
+Defined in: [builder.ts:289](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L289)
 
 Set or generate the test ID.
 
@@ -281,71 +61,11 @@ UUID to use, or undefined to auto-generate based on properties
 
 ***
 
-### insights()
-
-> **insights**(`insights`): `this`
-
-Defined in: [builder.ts:518](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L518)
-
-Set test-level insights.
-
-#### Parameters
-
-##### insights
-
-[`TestInsights`](../interfaces/TestInsights.md)
-
-#### Returns
-
-`this`
-
-***
-
-### line()
-
-> **line**(`num`): `this`
-
-Defined in: [builder.ts:373](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L373)
-
-Set the line number.
-
-#### Parameters
-
-##### num
-
-`number`
-
-#### Returns
-
-`this`
-
-***
-
-### message()
-
-> **message**(`msg`): `this`
-
-Defined in: [builder.ts:341](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L341)
-
-Set the error message.
-
-#### Parameters
-
-##### msg
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
 ### name()
 
 > **name**(`name`): `this`
 
-Defined in: [builder.ts:293](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L293)
+Defined in: [builder.ts:297](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L297)
 
 Set the test name.
 
@@ -361,131 +81,11 @@ Set the test name.
 
 ***
 
-### parameters()
-
-> **parameters**(`params`): `this`
-
-Defined in: [builder.ts:499](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L499)
-
-Set parameters.
-
-#### Parameters
-
-##### params
-
-`Record`\<`string`, `unknown`\>
-
-#### Returns
-
-`this`
-
-***
-
-### rawStatus()
-
-> **rawStatus**(`status`): `this`
-
-Defined in: [builder.ts:381](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L381)
-
-Set the raw status from the test framework.
-
-#### Parameters
-
-##### status
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### retries()
-
-> **retries**(`count`): `this`
-
-Defined in: [builder.ts:413](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L413)
-
-Set retry count.
-
-#### Parameters
-
-##### count
-
-`number`
-
-#### Returns
-
-`this`
-
-***
-
-### screenshot()
-
-> **screenshot**(`base64`): `this`
-
-Defined in: [builder.ts:480](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L480)
-
-Set screenshot (base64).
-
-#### Parameters
-
-##### base64
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### snippet()
-
-> **snippet**(`code`): `this`
-
-Defined in: [builder.ts:357](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L357)
-
-Set the code snippet.
-
-#### Parameters
-
-##### code
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
-### start()
-
-> **start**(`timestamp`): `this`
-
-Defined in: [builder.ts:317](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L317)
-
-Set the start timestamp.
-
-#### Parameters
-
-##### timestamp
-
-`number`
-
-#### Returns
-
-`this`
-
-***
-
 ### status()
 
 > **status**(`status`): `this`
 
-Defined in: [builder.ts:301](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L301)
+Defined in: [builder.ts:305](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L305)
 
 Set the test status.
 
@@ -501,19 +101,19 @@ Set the test status.
 
 ***
 
-### stderr()
+### duration()
 
-> **stderr**(`lines`): `this`
+> **duration**(`ms`): `this`
 
-Defined in: [builder.ts:448](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L448)
+Defined in: [builder.ts:313](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L313)
 
-Set stderr.
+Set the duration in milliseconds.
 
 #### Parameters
 
-##### lines
+##### ms
 
-`string`[]
+`number`
 
 #### Returns
 
@@ -521,19 +121,19 @@ Set stderr.
 
 ***
 
-### stdout()
+### start()
 
-> **stdout**(`lines`): `this`
+> **start**(`timestamp`): `this`
 
-Defined in: [builder.ts:440](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L440)
+Defined in: [builder.ts:321](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L321)
 
-Set stdout.
+Set the start timestamp.
 
 #### Parameters
 
-##### lines
+##### timestamp
 
-`string`[]
+`number`
 
 #### Returns
 
@@ -545,7 +145,7 @@ Set stdout.
 
 > **stop**(`timestamp`): `this`
 
-Defined in: [builder.ts:325](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L325)
+Defined in: [builder.ts:329](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L329)
 
 Set the stop timestamp.
 
@@ -565,7 +165,7 @@ Set the stop timestamp.
 
 > **suite**(`suites`): `this`
 
-Defined in: [builder.ts:333](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L333)
+Defined in: [builder.ts:337](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L337)
 
 Set the suite hierarchy.
 
@@ -581,37 +181,17 @@ Set the suite hierarchy.
 
 ***
 
-### tags()
+### message()
 
-> **tags**(`tags`): `this`
+> **message**(`msg`): `this`
 
-Defined in: [builder.ts:389](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L389)
+Defined in: [builder.ts:345](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L345)
 
-Set tags.
-
-#### Parameters
-
-##### tags
-
-`string`[]
-
-#### Returns
-
-`this`
-
-***
-
-### threadId()
-
-> **threadId**(`id`): `this`
-
-Defined in: [builder.ts:456](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L456)
-
-Set thread ID.
+Set the error message.
 
 #### Parameters
 
-##### id
+##### msg
 
 `string`
 
@@ -625,7 +205,7 @@ Set thread ID.
 
 > **trace**(`trace`): `this`
 
-Defined in: [builder.ts:349](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L349)
+Defined in: [builder.ts:353](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L353)
 
 Set the stack trace.
 
@@ -641,11 +221,111 @@ Set the stack trace.
 
 ***
 
+### snippet()
+
+> **snippet**(`code`): `this`
+
+Defined in: [builder.ts:361](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L361)
+
+Set the code snippet.
+
+#### Parameters
+
+##### code
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### ai()
+
+> **ai**(`analysis`): `this`
+
+Defined in: [builder.ts:369](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L369)
+
+Set AI-generated analysis.
+
+#### Parameters
+
+##### analysis
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### line()
+
+> **line**(`num`): `this`
+
+Defined in: [builder.ts:377](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L377)
+
+Set the line number.
+
+#### Parameters
+
+##### num
+
+`number`
+
+#### Returns
+
+`this`
+
+***
+
+### rawStatus()
+
+> **rawStatus**(`status`): `this`
+
+Defined in: [builder.ts:385](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L385)
+
+Set the raw status from the test framework.
+
+#### Parameters
+
+##### status
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### tags()
+
+> **tags**(`tags`): `this`
+
+Defined in: [builder.ts:393](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L393)
+
+Set tags.
+
+#### Parameters
+
+##### tags
+
+`string`[]
+
+#### Returns
+
+`this`
+
+***
+
 ### type()
 
 > **type**(`type`): `this`
 
-Defined in: [builder.ts:397](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L397)
+Defined in: [builder.ts:401](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L401)
 
 Set test type.
 
@@ -658,3 +338,321 @@ Set test type.
 #### Returns
 
 `this`
+
+***
+
+### filePath()
+
+> **filePath**(`path`): `this`
+
+Defined in: [builder.ts:409](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L409)
+
+Set file path.
+
+#### Parameters
+
+##### path
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### retries()
+
+> **retries**(`count`): `this`
+
+Defined in: [builder.ts:417](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L417)
+
+Set retry count.
+
+#### Parameters
+
+##### count
+
+`number`
+
+#### Returns
+
+`this`
+
+***
+
+### addRetryAttempt()
+
+> **addRetryAttempt**(`attempt`): `this`
+
+Defined in: [builder.ts:425](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L425)
+
+Add a retry attempt.
+
+#### Parameters
+
+##### attempt
+
+[`RetryAttempt`](../interfaces/RetryAttempt.md)
+
+#### Returns
+
+`this`
+
+***
+
+### flaky()
+
+> **flaky**(`isFlaky`): `this`
+
+Defined in: [builder.ts:436](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L436)
+
+Mark as flaky.
+
+#### Parameters
+
+##### isFlaky
+
+`boolean` = `true`
+
+#### Returns
+
+`this`
+
+***
+
+### stdout()
+
+> **stdout**(`lines`): `this`
+
+Defined in: [builder.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L444)
+
+Set stdout.
+
+#### Parameters
+
+##### lines
+
+`string`[]
+
+#### Returns
+
+`this`
+
+***
+
+### stderr()
+
+> **stderr**(`lines`): `this`
+
+Defined in: [builder.ts:452](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L452)
+
+Set stderr.
+
+#### Parameters
+
+##### lines
+
+`string`[]
+
+#### Returns
+
+`this`
+
+***
+
+### threadId()
+
+> **threadId**(`id`): `this`
+
+Defined in: [builder.ts:460](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L460)
+
+Set thread ID.
+
+#### Parameters
+
+##### id
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### browser()
+
+> **browser**(`name`): `this`
+
+Defined in: [builder.ts:468](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L468)
+
+Set browser name.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### device()
+
+> **device**(`name`): `this`
+
+Defined in: [builder.ts:476](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L476)
+
+Set device name.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### screenshot()
+
+> **screenshot**(`base64`): `this`
+
+Defined in: [builder.ts:484](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L484)
+
+Set screenshot (base64).
+
+#### Parameters
+
+##### base64
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### addAttachment()
+
+> **addAttachment**(`attachment`): `this`
+
+Defined in: [builder.ts:492](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L492)
+
+Add an attachment.
+
+#### Parameters
+
+##### attachment
+
+[`Attachment`](../interfaces/Attachment.md)
+
+#### Returns
+
+`this`
+
+***
+
+### parameters()
+
+> **parameters**(`params`): `this`
+
+Defined in: [builder.ts:503](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L503)
+
+Set parameters.
+
+#### Parameters
+
+##### params
+
+`Record`\<`string`, `unknown`\>
+
+#### Returns
+
+`this`
+
+***
+
+### addStep()
+
+> **addStep**(`step`): `this`
+
+Defined in: [builder.ts:511](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L511)
+
+Add a step.
+
+#### Parameters
+
+##### step
+
+[`Step`](../interfaces/Step.md)
+
+#### Returns
+
+`this`
+
+***
+
+### insights()
+
+> **insights**(`insights`): `this`
+
+Defined in: [builder.ts:522](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L522)
+
+Set test-level insights.
+
+#### Parameters
+
+##### insights
+
+[`TestInsights`](../interfaces/TestInsights.md)
+
+#### Returns
+
+`this`
+
+***
+
+### extra()
+
+> **extra**(`data`): `this`
+
+Defined in: [builder.ts:530](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L530)
+
+Set extra metadata.
+
+#### Parameters
+
+##### data
+
+`Record`\<`string`, `unknown`\>
+
+#### Returns
+
+`this`
+
+***
+
+### build()
+
+> **build**(): [`Test`](../interfaces/Test.md)
+
+Defined in: [builder.ts:539](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L539)
+
+Build and return the Test object.
+
+#### Returns
+
+[`Test`](../interfaces/Test.md)
+
+#### Throws
+
+BuilderError if required fields are missing

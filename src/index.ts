@@ -85,7 +85,7 @@ export { parse, stringify } from './parse.js'
 // Merging
 // ============================================================================
 
-export { mergeReports } from './merge.js'
+export { merge } from './merge.js'
 
 // ============================================================================
 // Filtering & Querying

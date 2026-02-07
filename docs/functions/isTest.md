@@ -2,15 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / isTest
+[CTRF](../globals.md) / isTest
 
 # Function: isTest()
 
-> **isTest**(`obj`): `obj is { duration: number; name: string; status: string }`
+> **isTest**(`obj`): `obj is { name: string; status: string; duration: number }`
 
-Defined in: [validate.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L145)
-
-Type guard for Test objects.
+Defined in: [validate.ts:154](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L154)
 
 ## Parameters
 
@@ -22,6 +20,6 @@ Object to check
 
 ## Returns
 
-`obj is { duration: number; name: string; status: string }`
+`obj is { name: string; status: string; duration: number }`
 
 true if the object is a Test

@@ -5,6 +5,8 @@
 import type { ValidationErrorDetail } from './types.js'
 
 /**
+ *
+ * @group Errors
  * Base error class for all CTRF errors.
  * All CTRF-specific errors extend this class.
  */
@@ -17,6 +19,8 @@ export class CTRFError extends Error {
 }
 
 /**
+ *
+ * @group Errors
  * Error thrown when schema validation fails.
  * Contains detailed error information for each validation issue.
  */
@@ -33,6 +37,8 @@ export class ValidationError extends CTRFError {
 }
 
 /**
+ *
+ * @group Errors
  * Error thrown when JSON parsing fails.
  */
 export class ParseError extends CTRFError {
@@ -48,6 +54,8 @@ export class ParseError extends CTRFError {
 }
 
 /**
+ *
+ * @group Errors
  * Error thrown when an unsupported CTRF specification version is encountered.
  */
 export class SchemaVersionError extends CTRFError {
@@ -68,6 +76,8 @@ export class SchemaVersionError extends CTRFError {
 }
 
 /**
+ *
+ * @group Errors
  * Error thrown when a file read or write operation fails.
  */
 export class FileError extends CTRFError {
@@ -86,6 +96,8 @@ export class FileError extends CTRFError {
 }
 
 /**
+ *
+ * @group Errors
  * Error thrown when building a report or test fails due to missing required fields.
  */
 export class BuilderError extends CTRFError {

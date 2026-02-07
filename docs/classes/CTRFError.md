@@ -2,14 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / CTRFError
+[CTRF](../globals.md) / CTRFError
 
 # Class: CTRFError
 
-Defined in: [errors.ts:11](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L11)
-
-Base error class for all CTRF errors.
-All CTRF-specific errors extend this class.
+Defined in: [errors.ts:13](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L13)
 
 ## Extends
 
@@ -29,7 +26,7 @@ All CTRF-specific errors extend this class.
 
 > **new CTRFError**(`message`): `CTRFError`
 
-Defined in: [errors.ts:12](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L12)
+Defined in: [errors.ts:14](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L14)
 
 #### Parameters
 

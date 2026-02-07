@@ -17,6 +17,7 @@ import { REPORT_FORMAT, TEST_STATUSES } from './constants.js'
 /**
  * Validate a CTRF report against the JSON schema.
  *
+ * @group Core Operations
  * @param report - The object to validate
  * @param options - Validation options (e.g., specific spec version)
  * @returns Validation result containing `valid` boolean and `errors` array
@@ -61,6 +62,8 @@ export function validate(
 }
 
 /**
+ *
+ * @group Core Operations
  * Check if a report is valid (type guard).
  *
  * @param report - The object to validate
@@ -80,6 +83,8 @@ export function isValid(report: unknown): report is CTRFReport {
 }
 
 /**
+ *
+ * @group Core Operations
  * Validate a report and throw if invalid (assertion).
  *
  * @param report - The object to validate
@@ -112,6 +117,8 @@ export function validateStrict(report: unknown): asserts report is CTRFReport {
 }
 
 /**
+ *
+ * @group Type Guards
  * Checks if an object has the basic structure of a CTRF report.
  * This is a quick, lightweight check that doesn't validate against the full schema.
  *
@@ -137,6 +144,8 @@ export function isCTRFReport(
 }
 
 /**
+ *
+ * @group Type Guards
  * Type guard for Test objects.
  *
  * @param obj - Object to check
@@ -158,6 +167,8 @@ export function isTest(
 }
 
 /**
+ *
+ * @group Type Guards
  * Type guard for TestStatus values.
  *
  * @param value - Value to check
@@ -173,6 +184,8 @@ export function isTestStatus(
 }
 
 /**
+ *
+ * @group Type Guards
  * Type guard for RetryAttempt objects.
  *
  * @param obj - Object to check
@@ -192,6 +205,8 @@ export function isRetryAttempt(
 }
 
 /**
+ *
+ * @group Type Guards
  * Check if a report has insights.
  *
  * @param report - The report to check

@@ -2,13 +2,11 @@
 
 ***
 
-[CTRF](../README.md) / ReportBuilder
+[CTRF](../globals.md) / ReportBuilder
 
 # Class: ReportBuilder
 
-Defined in: [builder.ts:47](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L47)
-
-Fluent builder for constructing CTRF reports.
+Defined in: [builder.ts:49](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L49)
 
 ## Example
 
@@ -33,7 +31,7 @@ const report = new ReportBuilder()
 
 > **new ReportBuilder**(`options`): `ReportBuilder`
 
-Defined in: [builder.ts:60](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L60)
+Defined in: [builder.ts:62](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L62)
 
 #### Parameters
 
@@ -47,11 +45,135 @@ Defined in: [builder.ts:60](https://github.com/ctrf-io/ctrf-js/blob/main/src/bui
 
 ## Methods
 
+### specVersion()
+
+> **specVersion**(`version`): `this`
+
+Defined in: [builder.ts:74](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L74)
+
+Set the spec version.
+
+#### Parameters
+
+##### version
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### reportId()
+
+> **reportId**(`uuid?`): `this`
+
+Defined in: [builder.ts:83](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L83)
+
+Set or generate the report ID.
+
+#### Parameters
+
+##### uuid?
+
+`string`
+
+UUID to use, or undefined to auto-generate
+
+#### Returns
+
+`this`
+
+***
+
+### timestamp()
+
+> **timestamp**(`date?`): `this`
+
+Defined in: [builder.ts:92](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L92)
+
+Set the timestamp.
+
+#### Parameters
+
+##### date?
+
+Date to use, or undefined for current time
+
+`string` | `Date`
+
+#### Returns
+
+`this`
+
+***
+
+### generatedBy()
+
+> **generatedBy**(`name`): `this`
+
+Defined in: [builder.ts:106](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L106)
+
+Set the generator name.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### tool()
+
+> **tool**(`tool`): `this`
+
+Defined in: [builder.ts:114](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L114)
+
+Set the tool information.
+
+#### Parameters
+
+##### tool
+
+[`Tool`](../interfaces/Tool.md)
+
+#### Returns
+
+`this`
+
+***
+
+### environment()
+
+> **environment**(`env`): `this`
+
+Defined in: [builder.ts:122](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L122)
+
+Set the environment information.
+
+#### Parameters
+
+##### env
+
+[`Environment`](../interfaces/Environment.md)
+
+#### Returns
+
+`this`
+
+***
+
 ### addTest()
 
 > **addTest**(`test`): `this`
 
-Defined in: [builder.ts:128](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L128)
+Defined in: [builder.ts:130](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L130)
 
 Add a single test.
 
@@ -71,7 +193,7 @@ Add a single test.
 
 > **addTests**(`tests`): `this`
 
-Defined in: [builder.ts:136](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L136)
+Defined in: [builder.ts:138](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L138)
 
 Add multiple tests.
 
@@ -87,109 +209,11 @@ Add multiple tests.
 
 ***
 
-### baseline()
-
-> **baseline**(`baseline`): `this`
-
-Defined in: [builder.ts:152](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L152)
-
-Set the baseline reference.
-
-#### Parameters
-
-##### baseline
-
-[`Baseline`](../interfaces/Baseline.md)
-
-#### Returns
-
-`this`
-
-***
-
-### build()
-
-> **build**(): [`CTRFReport`](../interfaces/CTRFReport.md)
-
-Defined in: [builder.ts:178](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L178)
-
-Build and return the CTRF report.
-
-#### Returns
-
-[`CTRFReport`](../interfaces/CTRFReport.md)
-
-#### Throws
-
-BuilderError if required fields are missing
-
-***
-
-### environment()
-
-> **environment**(`env`): `this`
-
-Defined in: [builder.ts:120](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L120)
-
-Set the environment information.
-
-#### Parameters
-
-##### env
-
-[`Environment`](../interfaces/Environment.md)
-
-#### Returns
-
-`this`
-
-***
-
-### extra()
-
-> **extra**(`data`): `this`
-
-Defined in: [builder.ts:160](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L160)
-
-Set extra metadata.
-
-#### Parameters
-
-##### data
-
-`Record`\<`string`, `unknown`\>
-
-#### Returns
-
-`this`
-
-***
-
-### generatedBy()
-
-> **generatedBy**(`name`): `this`
-
-Defined in: [builder.ts:104](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L104)
-
-Set the generator name.
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`this`
-
-***
-
 ### insights()
 
 > **insights**(`insights`): `this`
 
-Defined in: [builder.ts:144](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L144)
+Defined in: [builder.ts:146](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L146)
 
 Set run-level insights.
 
@@ -205,21 +229,19 @@ Set run-level insights.
 
 ***
 
-### reportId()
+### baseline()
 
-> **reportId**(`uuid?`): `this`
+> **baseline**(`baseline`): `this`
 
-Defined in: [builder.ts:81](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L81)
+Defined in: [builder.ts:154](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L154)
 
-Set or generate the report ID.
+Set the baseline reference.
 
 #### Parameters
 
-##### uuid?
+##### baseline
 
-`string`
-
-UUID to use, or undefined to auto-generate
+[`Baseline`](../interfaces/Baseline.md)
 
 #### Returns
 
@@ -227,19 +249,19 @@ UUID to use, or undefined to auto-generate
 
 ***
 
-### specVersion()
+### extra()
 
-> **specVersion**(`version`): `this`
+> **extra**(`data`): `this`
 
-Defined in: [builder.ts:72](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L72)
+Defined in: [builder.ts:162](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L162)
 
-Set the spec version.
+Set extra metadata.
 
 #### Parameters
 
-##### version
+##### data
 
-`string`
+`Record`\<`string`, `unknown`\>
 
 #### Returns
 
@@ -251,7 +273,7 @@ Set the spec version.
 
 > **summaryOverrides**(`overrides`): `this`
 
-Defined in: [builder.ts:169](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L169)
+Defined in: [builder.ts:171](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L171)
 
 Override specific summary fields.
 Useful when you want to set specific timing or counts.
@@ -268,42 +290,18 @@ Useful when you want to set specific timing or counts.
 
 ***
 
-### timestamp()
+### build()
 
-> **timestamp**(`date?`): `this`
+> **build**(): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [builder.ts:90](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L90)
+Defined in: [builder.ts:180](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L180)
 
-Set the timestamp.
-
-#### Parameters
-
-##### date?
-
-Date to use, or undefined for current time
-
-`string` | `Date`
+Build and return the CTRF report.
 
 #### Returns
 
-`this`
+[`CTRFReport`](../interfaces/CTRFReport.md)
 
-***
+#### Throws
 
-### tool()
-
-> **tool**(`tool`): `this`
-
-Defined in: [builder.ts:112](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L112)
-
-Set the tool information.
-
-#### Parameters
-
-##### tool
-
-[`Tool`](../interfaces/Tool.md)
-
-#### Returns
-
-`this`
+BuilderError if required fields are missing

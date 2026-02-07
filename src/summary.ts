@@ -5,6 +5,8 @@
 import type { Test, Summary, SummaryOptions, TestStatus } from './types.js'
 
 /**
+ *
+ * @group Core Operations
  * Calculate summary statistics from an array of tests.
  *
  * @param tests - Array of test results

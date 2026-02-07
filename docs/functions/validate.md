@@ -2,13 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / validate
+[CTRF](../globals.md) / validate
 
 # Function: validate()
 
 > **validate**(`report`, `options`): [`ValidationResult`](../interfaces/ValidationResult.md)
 
-Defined in: [validate.ts:35](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L35)
+Defined in: [validate.ts:36](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L36)
 
 Validate a CTRF report against the JSON schema.
 

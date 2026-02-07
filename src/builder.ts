@@ -26,6 +26,8 @@ import { calculateSummary } from './summary.js'
 import { BuilderError } from './errors.js'
 
 /**
+ *
+ * @group Builders
  * Fluent builder for constructing CTRF reports.
  *
  * @example
@@ -232,6 +234,8 @@ export class ReportBuilder {
 }
 
 /**
+ *
+ * @group Builders
  * Fluent builder for constructing Test objects.
  *
  * @example

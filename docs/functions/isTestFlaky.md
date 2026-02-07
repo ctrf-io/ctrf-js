@@ -2,19 +2,13 @@
 
 ***
 
-[CTRF](../README.md) / isTestFlaky
+[CTRF](../globals.md) / isTestFlaky
 
 # Function: isTestFlaky()
 
 > **isTestFlaky**(`test`): `boolean`
 
-Defined in: [insights.ts:78](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L78)
-
-Determines if a test is flaky based on the CTRF specification.
-
-A test is considered flaky if:
-- The `flaky` field is explicitly set to `true`, OR
-- The test has retries > 0 AND final status is 'passed'
+Defined in: [insights.ts:80](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L80)
 
 ## Parameters
 
