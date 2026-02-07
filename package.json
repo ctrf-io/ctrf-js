@@ -1,6 +1,6 @@
 {
   "name": "ctrf",
-  "version": "0.0.18",
+  "version": "0.1.0",
   "description": "CTRF reference implementation in TypeScript for creating and validating CTRF documents.",
   "type": "module",
   "main": "dist/index.js",
@@ -42,8 +42,26 @@
     "provenance": true
   },
   "homepage": "https://ctrf.io",
-  "author": "Matthew Thomas",
+  "author": "Matthew Poulton-White",
   "license": "MIT",
+  "security": {
+    "email": "security@ctrf.io",
+    "url": "https://github.com/ctrf-io/security/blob/main/SECURITY.md"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "ctrf",
+    "reporter",
+    "report",
+    "json",
+    "standard",
+    "typescript",
+    "reference-implementation",
+    "test-results",
+    "validation",
+    "schema"
+  ],
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
