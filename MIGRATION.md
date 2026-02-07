@@ -21,6 +21,7 @@ This rewrite prioritizes clarity, consistency, and correctness over backward com
 ### Key Changes in v0.1.0
 
 Version 0.1.0 introduces significant breaking changes focused on:
+
 - **Improved API design** with consistent naming conventions
 - **Builder pattern** for creating reports and tests
 - **Enhanced type safety** with better TypeScript support
@@ -47,26 +48,20 @@ Version 0.1.0 introduces significant breaking changes focused on:
 
 ```typescript
 // ❌ OLD (v0.0.17)
-import { 
-  validateReport, 
-  validateReportStrict, 
-  isValidCtrfReport 
-} from 'ctrf'
+import { validateReport, validateReportStrict, isValidCtrfReport } from 'ctrf'
 
 const result = validateReport(report)
 validateReportStrict(report)
-if (isValidCtrfReport(data)) { }
+if (isValidCtrfReport(data)) {
+}
 
 // ✅ NEW (v0.1.0)
-import { 
-  validate, 
-  validateStrict, 
-  isValid 
-} from 'ctrf'
+import { validate, validateStrict, isValid } from 'ctrf'
 
 const result = validate(report)
 validateStrict(report)
-if (isValid(data)) { }
+if (isValid(data)) {
+}
 ```
 
 ### 2. File Operations (REMOVED)
@@ -75,10 +70,10 @@ File I/O operations have been removed. Use file system libraries directly or ded
 
 ```typescript
 // ❌ OLD (v0.0.17)
-import { 
+import {
   readReportFromFile,
   readReportsFromDirectory,
-  readReportsFromGlobPattern 
+  readReportsFromGlobPattern,
 } from 'ctrf'
 
 const report = await readReportFromFile('ctrf-report.json')
@@ -107,18 +102,18 @@ const reports = matches.map(f => parse(readFileSync(f, 'utf8')))
 
 ```typescript
 // ❌ OLD (v0.0.17)
-import { 
+import {
   generateTestIdFromProperties,
   setTestId,
   getTestId,
   setTestIdsForReport,
-  findTestById 
+  findTestById,
 } from 'ctrf'
 
 const id = generateTestIdFromProperties({
   name: 'should work',
   suite: ['unit'],
-  filePath: 'test.js'
+  filePath: 'test.js',
 })
 setTestId(test, id)
 const existingId = getTestId(test)
@@ -131,10 +126,10 @@ import { generateTestId, findTest } from 'ctrf'
 const id = generateTestId({
   name: 'should work',
   suite: ['unit'],
-  filePath: 'test.js'
+  filePath: 'test.js',
 })
-test.id = id  // Direct assignment
-const existingId = test.id  // Direct access
+test.id = id // Direct assignment
+const existingId = test.id // Direct access
 
 // Generate IDs for all tests
 report.results.tests.forEach(test => {
@@ -177,7 +172,7 @@ enrichReportWithInsights(report, historicalReports)
 import { addInsights } from 'ctrf'
 
 const enriched = addInsights(report, historicalReports, {
-  baseline: baselineReport  // Optional
+  baseline: baselineReport, // Optional
 })
 
 // Access insights
@@ -191,17 +186,19 @@ Tree and suite organization functions have been removed. If you need hierarchica
 
 ```typescript
 // ❌ OLD (v0.0.17)
-import { 
+import {
   organizeTestsBySuite,
   traverseTree,
   findSuiteByName,
   flattenTree,
   getAllTests,
-  getSuiteStats 
+  getSuiteStats,
 } from 'ctrf'
 
 const tree = organizeTestsBySuite(report)
-traverseTree(tree, (node) => { /* ... */ })
+traverseTree(tree, node => {
+  /* ... */
+})
 const suite = findSuiteByName(tree, 'unit')
 const tests = getAllTests(tree)
 
@@ -212,12 +209,15 @@ import { filterTests } from 'ctrf'
 const unitTests = filterTests(report, { suite: ['unit'] })
 
 // Group tests by suite manually
-const testsBySuite = report.results.tests.reduce((acc, test) => {
-  const suiteKey = test.suite?.join('/') || 'root'
-  if (!acc[suiteKey]) acc[suiteKey] = []
-  acc[suiteKey].push(test)
-  return acc
-}, {} as Record<string, Test[]>)
+const testsBySuite = report.results.tests.reduce(
+  (acc, test) => {
+    const suiteKey = test.suite?.join('/') || 'root'
+    if (!acc[suiteKey]) acc[suiteKey] = []
+    acc[suiteKey].push(test)
+    return acc
+  },
+  {} as Record<string, Test[]>
+)
 ```
 
 ### 7. Report Sorting (REMOVED)
@@ -232,7 +232,7 @@ const sorted = sortReportsByTimestamp(reports, SortOrder.DESC)
 const sorted = [...reports].sort((a, b) => {
   const timeA = a.results.summary.start || 0
   const timeB = b.results.summary.start || 0
-  return timeB - timeA  // DESC
+  return timeB - timeA // DESC
 })
 ```
 
@@ -259,20 +259,20 @@ writeFileSync(
 
 ```typescript
 // ❌ OLD (v0.0.17)
-import type { 
+import type {
   Report,
   RootInsights,
   InsightsMetric,
   TreeNode,
   TreeTest,
-  TestTree 
+  TestTree,
 } from 'ctrf'
 
 // ✅ NEW (v0.1.0)
-import type { 
-  CTRFReport,    // Was: Report
-  Insights,      // Was: RootInsights
-  MetricDelta,   // Was: InsightsMetric
+import type {
+  CTRFReport, // Was: Report
+  Insights, // Was: RootInsights
+  MetricDelta, // Was: InsightsMetric
   // TreeNode, TreeTest, TestTree - REMOVED
 } from 'ctrf'
 ```
@@ -301,7 +301,7 @@ const report = new ReportBuilder()
       .browser('chrome')
       .build()
   )
-  .addTests([test1, test2, test3])  // Batch add
+  .addTests([test1, test2, test3]) // Batch add
   .build()
 ```
 
@@ -316,7 +316,7 @@ const filtered = filterTests(report, {
   suite: ['unit', 'integration'],
   tags: ['critical'],
   browser: 'chrome',
-  filePath: 'auth',  // Partial match
+  filePath: 'auth', // Partial match
 })
 ```
 
@@ -335,11 +335,11 @@ const json = stringify(report, { pretty: true, indent: 2 })
 ### 4. Error Classes
 
 ```typescript
-import { 
-  ValidationError, 
-  ParseError, 
+import {
+  ValidationError,
+  ParseError,
   SchemaVersionError,
-  BuilderError 
+  BuilderError,
 } from 'ctrf'
 
 try {
@@ -356,12 +356,12 @@ try {
 ### 5. Type Guards
 
 ```typescript
-import { 
-  isCTRFReport, 
-  isTest, 
+import {
+  isCTRFReport,
+  isTest,
   isTestStatus,
   isRetryAttempt,
-  hasInsights 
+  hasInsights,
 } from 'ctrf'
 
 if (isCTRFReport(data)) {
@@ -376,17 +376,17 @@ if (hasInsights(report)) {
 ### 6. Schema Access
 
 ```typescript
-import { 
+import {
   schema,
-  getSchema, 
+  getSchema,
   getCurrentSpecVersion,
-  getSupportedSpecVersions 
+  getSupportedSpecVersions,
 } from 'ctrf'
 
-console.log(schema)  // Current version schema
+console.log(schema) // Current version schema
 const oldSchema = getSchema('0.0.0')
-console.log(getCurrentSpecVersion())  // '0.0'
-console.log(getSupportedSpecVersions())  // ['0.0']
+console.log(getCurrentSpecVersion()) // '0.0'
+console.log(getSupportedSpecVersions()) // ['0.0']
 ```
 
 ### 7. Summary Calculation
@@ -396,7 +396,7 @@ import { calculateSummary } from 'ctrf'
 
 // Auto-calculate summary from tests
 const summary = calculateSummary(tests, {
-  includeOther: true  // Include 'other' status in counts
+  includeOther: true, // Include 'other' status in counts
 })
 
 report.results.summary = summary
@@ -409,14 +409,14 @@ report.results.summary = summary
 ### Before (v0.0.17)
 
 ```typescript
-import { 
+import {
   readReportsFromDirectory,
   validateReportStrict,
   enrichReportWithInsights,
   mergeReports,
   findTestById,
   setTestIdsForReport,
-  organizeTestsBySuite
+  organizeTestsBySuite,
 } from 'ctrf'
 
 // Read reports
@@ -444,21 +444,19 @@ const tree = organizeTestsBySuite(merged)
 ### After (v0.1.0)
 
 ```typescript
-import { 
+import {
   parse,
   validateStrict,
   addInsights,
   mergeReports,
   findTest,
-  generateTestId
+  generateTestId,
 } from 'ctrf'
 import { readdirSync, readFileSync } from 'fs'
 
 // Read reports
 const files = readdirSync('./reports').filter(f => f.endsWith('.json'))
-const reports = files.map(f => 
-  parse(readFileSync(`./reports/${f}`, 'utf8'))
-)
+const reports = files.map(f => parse(readFileSync(`./reports/${f}`, 'utf8')))
 
 // Validate
 reports.forEach(report => validateStrict(report))
@@ -483,12 +481,15 @@ const enriched = addInsights(merged, historical)
 const test = findTest(enriched, { id: 'test-123' })
 
 // Group by suite (custom logic)
-const testsBySuite = enriched.results.tests.reduce((acc, test) => {
-  const suiteKey = test.suite?.join('/') || 'root'
-  if (!acc[suiteKey]) acc[suiteKey] = []
-  acc[suiteKey].push(test)
-  return acc
-}, {} as Record<string, typeof enriched.results.tests[0][]>)
+const testsBySuite = enriched.results.tests.reduce(
+  (acc, test) => {
+    const suiteKey = test.suite?.join('/') || 'root'
+    if (!acc[suiteKey]) acc[suiteKey] = []
+    acc[suiteKey].push(test)
+    return acc
+  },
+  {} as Record<string, (typeof enriched.results.tests)[0][]>
+)
 ```
 
 ---
@@ -496,6 +497,7 @@ const testsBySuite = enriched.results.tests.reduce((acc, test) => {
 ## Testing Your Migration
 
 1. **Update your package.json:**
+
    ```json
    {
      "dependencies": {
@@ -505,12 +507,14 @@ const testsBySuite = enriched.results.tests.reduce((acc, test) => {
    ```
 
 2. **Run your tests:**
+
    ```bash
    npm install
    npm test
    ```
 
 3. **Check for TypeScript errors:**
+
    ```bash
    npx tsc --noEmit
    ```

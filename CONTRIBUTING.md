@@ -39,21 +39,25 @@ Feature requests are welcome. But take a moment to find out whether your idea fi
 To set up the project for local development:
 
 1. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Run linting checks**:
+
    ```bash
    npm run lint:check
    ```
 
 3. **Run formatting checks**:
+
    ```bash
    npm run format:check
    ```
 
 4. **Run tests**:
+
    ```bash
    npm test
    ```
