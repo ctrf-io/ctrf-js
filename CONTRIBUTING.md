@@ -34,6 +34,41 @@ If you find a bug, please report it in the issue tracker with a detailed descrip
 
 Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. Please provide as much detail and context as possible.
 
+## Local Development
+
+To set up the project for local development:
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run linting checks**:
+   ```bash
+   npm run lint:check
+   ```
+
+3. **Run formatting checks**:
+   ```bash
+   npm run format:check
+   ```
+
+4. **Run tests**:
+   ```bash
+   npm test
+   ```
+
+5. **Build the package**:
+   ```bash
+   npm run build
+   ```
+
+Make sure all checks pass before submitting a pull request.
+
+## Contributing to the CTRF Specification
+
+If you'd like to contribute to the CTRF specification itself, please see the [main CTRF repository](https://github.com/ctrf-io/ctrf).
+
 ## License
 
 By contributing to this project, you agree that your contributions will be licensed under MIT.

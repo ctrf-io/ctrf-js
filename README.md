@@ -2,23 +2,25 @@
 
 The reference implementation in TypeScript for the [Common Test Report Format (CTRF)](https://github.com/ctrf-io/ctrf) specification.
 
-## Open Standard
+## CTRF Open Standard
 
-[CTRF](https://github.com/ctrf-io/ctrf) is an open standard built and shaped by community contributions.
+CTRF is a community-driven open standard for test reporting.
 
-Your feedback and contributions are essential to the project's success:
+By standardizing test results, reports can be validated, merged, compared, and analyzed consistently across languages and frameworks.
 
-- [Contribute](CONTRIBUTING.md)
-- [Discuss](https://github.com/orgs/ctrf-io/discussions)
+- **CTRF Specification**: https://github.com/ctrf-io/ctrf  
+  The official specification defining the format and semantics
+- **Discussions**: https://github.com/orgs/ctrf-io/discussions  
+  Community forum for questions, ideas, and support
 
-## Support
-
-You can support the project by giving this repository a star ⭐
+> [!NOTE]  
+> ⭐ Starring the **CTRF specification repository** (https://github.com/ctrf-io/ctrf)
+> helps support the standard.
 
 ## Installation
 
 ```sh
-npm install ctrf@0.0.18-next-1
+npm install ctrf
 ```
 
 ## Quick Start
@@ -261,3 +263,7 @@ const v0_0Schema = getSchema('0.0.0')
 const version = getCurrentSpecVersion()      // '0.0.0'
 const supported = getSupportedSpecVersions() // ['0.0.0']
 ```
+
+## ⚠️ Upgrading from v0.0.17?
+
+**Version 0.1.0 contains breaking changes.** See the [Migration Guide](MIGRATION.md) for detailed upgrade instructions.

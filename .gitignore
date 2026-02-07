@@ -5,3 +5,10 @@ coverage
 dist
 node_modules
 ctrf
+agent
+agent.*
+skills
+skills.*
+instructions
+instructions.*
+.DS_Store
