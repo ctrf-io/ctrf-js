@@ -1,6 +1,6 @@
 {
   "name": "ctrf",
-  "version": "0.2.0-next-0",
+  "version": "0.2.0-next-1",
   "description": "CTRF reference implementation in TypeScript for creating and validating CTRF documents.",
   "type": "module",
   "main": "dist/index.cjs",
@@ -80,7 +80,6 @@
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "glob": "^13.0.0",
-    "typescript": "^5.8.3",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
