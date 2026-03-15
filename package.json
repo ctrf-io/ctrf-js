@@ -38,6 +38,7 @@
     "docs": "typedoc",
     "docs:watch": "typedoc --watch",
     "update-readme": "npx tsx update-readme.ts",
+    "attw": "npm pack && attw ctrf-*.tgz && rm ctrf-*.tgz",
     "all": "npm run build:check && npm run test:coverage && npm run lint && npm run format && npm run docs && npm run build"
   },
   "files": [
@@ -83,6 +84,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@d2t/vitest-ctrf-json-reporter": "^1.2.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^20.12.7",
