@@ -3,8 +3,21 @@
   "version": "0.1.0",
   "description": "CTRF reference implementation in TypeScript for creating and validating CTRF documents.",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "bin": {
     "ctrf": "dist/cli/cli.js"
   },
@@ -12,9 +25,9 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "build": "tsc -p . && cp src/ctrf-schema-*.json dist/",
-    "build:check": "tsc -p . -noEmit",
-    "build:watch": "tsc -p . --watch",
+    "build": "tsup && cp src/ctrf-schema-*.json dist/",
+    "build:check": "tsc -p . --noEmit",
+    "build:watch": "tsup --watch",
     "clean": "rm -rf dist && rm -rf coverage && rm -rf ctrf",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -25,6 +38,7 @@
     "docs": "typedoc",
     "docs:watch": "typedoc --watch",
     "update-readme": "npx tsx update-readme.ts",
+    "attw": "npm pack && attw ctrf-*.tgz && rm ctrf-*.tgz",
     "all": "npm run build:check && npm run test:coverage && npm run lint && npm run format && npm run docs && npm run build"
   },
   "files": [
@@ -70,6 +84,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@d2t/vitest-ctrf-json-reporter": "^1.2.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^20.12.7",
@@ -77,6 +92,7 @@
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.2",
     "prettier": "^3.5.3",
+    "tsup": "^8.5.1",
     "typedoc": "^0.28.9",
     "typedoc-plugin-markdown": "^4.8.0",
     "typescript": "^5.8.3",
