@@ -6,7 +6,7 @@
 
 # Function: calculateSummary()
 
-> **calculateSummary**(`tests`, `options`): [`Summary`](../interfaces/Summary.md)
+> **calculateSummary**(`tests`, `options?`): [`Summary`](../interfaces/Summary.md)
 
 Defined in: [summary.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/summary.ts#L27)
 
@@ -18,7 +18,7 @@ Defined in: [summary.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/sum
 
 Array of test results
 
-### options
+### options?
 
 [`SummaryOptions`](../interfaces/SummaryOptions.md) = `{}`
 

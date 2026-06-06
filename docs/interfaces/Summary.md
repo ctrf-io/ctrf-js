@@ -74,7 +74,7 @@ Number of tests with other status
 
 ### flaky?
 
-> `optional` **flaky**: `number`
+> `optional` **flaky?**: `number`
 
 Defined in: [types.ts:87](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L87)
 
@@ -84,7 +84,7 @@ Number of flaky tests
 
 ### suites?
 
-> `optional` **suites**: `number`
+> `optional` **suites?**: `number`
 
 Defined in: [types.ts:89](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L89)
 
@@ -114,7 +114,7 @@ Stop timestamp (Unix epoch milliseconds)
 
 ### duration?
 
-> `optional` **duration**: `number`
+> `optional` **duration?**: `number`
 
 Defined in: [types.ts:95](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L95)
 
@@ -124,7 +124,7 @@ Total duration in milliseconds
 
 ### extra?
 
-> `optional` **extra**: `Record`\<`string`, `unknown`\>
+> `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
 Defined in: [types.ts:97](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L97)
 

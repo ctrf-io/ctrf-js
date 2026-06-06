@@ -6,7 +6,7 @@
 
 # Function: addInsights()
 
-> **addInsights**(`report`, `historicalReports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
+> **addInsights**(`report`, `historicalReports?`, `options?`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
 Defined in: [insights.ts:1011](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L1011)
 
@@ -18,13 +18,13 @@ Defined in: [insights.ts:1011](https://github.com/ctrf-io/ctrf-js/blob/main/src/
 
 The current report to enrich with insights
 
-### historicalReports
+### historicalReports?
 
 [`CTRFReport`](../interfaces/CTRFReport.md)[] = `[]`
 
 Array of previous reports for trend analysis
 
-### options
+### options?
 
 [`InsightsOptions`](../interfaces/InsightsOptions.md) = `{}`
 

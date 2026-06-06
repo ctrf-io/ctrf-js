@@ -14,7 +14,7 @@ Run-level insights computed from historical data
 
 ### passRate?
 
-> `optional` **passRate**: [`MetricDelta`](MetricDelta.md)
+> `optional` **passRate?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:292](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L292)
 
@@ -24,7 +24,7 @@ Pass rate metric
 
 ### failRate?
 
-> `optional` **failRate**: [`MetricDelta`](MetricDelta.md)
+> `optional` **failRate?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:294](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L294)
 
@@ -34,7 +34,7 @@ Fail rate metric
 
 ### flakyRate?
 
-> `optional` **flakyRate**: [`MetricDelta`](MetricDelta.md)
+> `optional` **flakyRate?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:296](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L296)
 
@@ -44,7 +44,7 @@ Flaky rate metric
 
 ### averageRunDuration?
 
-> `optional` **averageRunDuration**: [`MetricDelta`](MetricDelta.md)
+> `optional` **averageRunDuration?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:298](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L298)
 
@@ -54,7 +54,7 @@ Average run duration metric
 
 ### p95RunDuration?
 
-> `optional` **p95RunDuration**: [`MetricDelta`](MetricDelta.md)
+> `optional` **p95RunDuration?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L300)
 
@@ -64,7 +64,7 @@ Defined in: [types.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/type
 
 ### averageTestDuration?
 
-> `optional` **averageTestDuration**: [`MetricDelta`](MetricDelta.md)
+> `optional` **averageTestDuration?**: [`MetricDelta`](MetricDelta.md)
 
 Defined in: [types.ts:302](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L302)
 
@@ -74,7 +74,7 @@ Average test duration metric
 
 ### runsAnalyzed?
 
-> `optional` **runsAnalyzed**: `number`
+> `optional` **runsAnalyzed?**: `number`
 
 Defined in: [types.ts:304](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L304)
 
@@ -84,7 +84,7 @@ Number of historical runs analyzed
 
 ### extra?
 
-> `optional` **extra**: `Record`\<`string`, `unknown`\>
+> `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
 Defined in: [types.ts:306](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L306)
 

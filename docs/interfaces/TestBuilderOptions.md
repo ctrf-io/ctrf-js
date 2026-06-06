@@ -14,7 +14,7 @@ Options for TestBuilder
 
 ### autoGenerateId?
 
-> `optional` **autoGenerateId**: `boolean`
+> `optional` **autoGenerateId?**: `boolean`
 
 Defined in: [types.ts:468](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L468)
 

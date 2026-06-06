@@ -42,7 +42,7 @@ Defined in: [errors.ts:48](https://github.com/ctrf-io/ctrf-js/blob/main/src/erro
 
 ### cause?
 
-> `readonly` `optional` **cause**: `Error`
+> `readonly` `optional` **cause?**: `Error`
 
 Defined in: [errors.ts:46](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L46)
 

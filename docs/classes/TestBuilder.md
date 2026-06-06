@@ -23,13 +23,13 @@ const test = new TestBuilder()
 
 ### Constructor
 
-> **new TestBuilder**(`options`): `TestBuilder`
+> **new TestBuilder**(`options?`): `TestBuilder`
 
 Defined in: [builder.ts:283](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L283)
 
 #### Parameters
 
-##### options
+##### options?
 
 [`TestBuilderOptions`](../interfaces/TestBuilderOptions.md) = `{}`
 
@@ -403,7 +403,7 @@ Add a retry attempt.
 
 ### flaky()
 
-> **flaky**(`isFlaky`): `this`
+> **flaky**(`isFlaky?`): `this`
 
 Defined in: [builder.ts:436](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L436)
 
@@ -411,7 +411,7 @@ Mark as flaky.
 
 #### Parameters
 
-##### isFlaky
+##### isFlaky?
 
 `boolean` = `true`
 

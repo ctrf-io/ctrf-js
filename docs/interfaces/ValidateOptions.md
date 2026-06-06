@@ -14,7 +14,7 @@ Options for validation
 
 ### specVersion?
 
-> `optional` **specVersion**: `string`
+> `optional` **specVersion?**: `string`
 
 Defined in: [types.ts:512](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L512)
 
