@@ -16,7 +16,7 @@ Defined in: [errors.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/erro
 
 ### Constructor
 
-> **new ValidationError**(`message`, `errors`): `ValidationError`
+> **new ValidationError**(`message`, `errors?`): `ValidationError`
 
 Defined in: [errors.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L31)
 
@@ -26,7 +26,7 @@ Defined in: [errors.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/erro
 
 `string`
 
-##### errors
+##### errors?
 
 [`ValidationErrorDetail`](../interfaces/ValidationErrorDetail.md)[] = `[]`
 

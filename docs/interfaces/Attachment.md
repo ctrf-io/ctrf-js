@@ -44,7 +44,7 @@ Path to the attachment file
 
 ### extra?
 
-> `optional` **extra**: `Record`\<`string`, `unknown`\>
+> `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
 Defined in: [types.ts:222](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L222)
 

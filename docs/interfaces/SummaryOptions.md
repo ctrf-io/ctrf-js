@@ -14,7 +14,7 @@ Options for calculating summary
 
 ### start?
 
-> `optional` **start**: `number`
+> `optional` **start?**: `number`
 
 Defined in: [types.ts:478](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L478)
 
@@ -24,7 +24,7 @@ Start timestamp
 
 ### stop?
 
-> `optional` **stop**: `number`
+> `optional` **stop?**: `number`
 
 Defined in: [types.ts:480](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L480)
 

@@ -6,7 +6,7 @@
 
 # Function: validate()
 
-> **validate**(`report`, `options`): [`ValidationResult`](../interfaces/ValidationResult.md)
+> **validate**(`report`, `options?`): [`ValidationResult`](../interfaces/ValidationResult.md)
 
 Defined in: [validate.ts:36](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L36)
 
@@ -20,7 +20,7 @@ Validate a CTRF report against the JSON schema.
 
 The object to validate
 
-### options
+### options?
 
 [`ValidateOptions`](../interfaces/ValidateOptions.md) = `{}`
 

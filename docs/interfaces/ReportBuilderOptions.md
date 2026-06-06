@@ -14,7 +14,7 @@ Options for ReportBuilder
 
 ### autoGenerateId?
 
-> `optional` **autoGenerateId**: `boolean`
+> `optional` **autoGenerateId?**: `boolean`
 
 Defined in: [types.ts:456](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L456)
 
@@ -24,7 +24,7 @@ Automatically generate report ID
 
 ### autoTimestamp?
 
-> `optional` **autoTimestamp**: `boolean`
+> `optional` **autoTimestamp?**: `boolean`
 
 Defined in: [types.ts:458](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L458)
 

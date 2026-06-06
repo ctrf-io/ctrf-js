@@ -34,7 +34,7 @@ Status of this attempt
 
 ### duration?
 
-> `optional` **duration**: `number`
+> `optional` **duration?**: `number`
 
 Defined in: [types.ts:186](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L186)
 
@@ -44,7 +44,7 @@ Duration of this attempt in milliseconds
 
 ### message?
 
-> `optional` **message**: `string`
+> `optional` **message?**: `string`
 
 Defined in: [types.ts:188](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L188)
 
@@ -54,7 +54,7 @@ Error message
 
 ### trace?
 
-> `optional` **trace**: `string`
+> `optional` **trace?**: `string`
 
 Defined in: [types.ts:190](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L190)
 
@@ -64,7 +64,7 @@ Stack trace
 
 ### line?
 
-> `optional` **line**: `number`
+> `optional` **line?**: `number`
 
 Defined in: [types.ts:192](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L192)
 
@@ -74,7 +74,7 @@ Line number
 
 ### snippet?
 
-> `optional` **snippet**: `string`
+> `optional` **snippet?**: `string`
 
 Defined in: [types.ts:194](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L194)
 
@@ -84,7 +84,7 @@ Code snippet
 
 ### stdout?
 
-> `optional` **stdout**: `string`[]
+> `optional` **stdout?**: `string`[]
 
 Defined in: [types.ts:196](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L196)
 
@@ -94,7 +94,7 @@ Standard output
 
 ### stderr?
 
-> `optional` **stderr**: `string`[]
+> `optional` **stderr?**: `string`[]
 
 Defined in: [types.ts:198](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L198)
 
@@ -104,7 +104,7 @@ Standard error
 
 ### start?
 
-> `optional` **start**: `number`
+> `optional` **start?**: `number`
 
 Defined in: [types.ts:200](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L200)
 
@@ -114,7 +114,7 @@ Start timestamp
 
 ### stop?
 
-> `optional` **stop**: `number`
+> `optional` **stop?**: `number`
 
 Defined in: [types.ts:202](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L202)
 
@@ -124,7 +124,7 @@ Stop timestamp
 
 ### attachments?
 
-> `optional` **attachments**: [`Attachment`](Attachment.md)[]
+> `optional` **attachments?**: [`Attachment`](Attachment.md)[]
 
 Defined in: [types.ts:204](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L204)
 
@@ -134,7 +134,7 @@ Attachments for this attempt
 
 ### extra?
 
-> `optional` **extra**: `Record`\<`string`, `unknown`\>
+> `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
 Defined in: [types.ts:206](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L206)
 

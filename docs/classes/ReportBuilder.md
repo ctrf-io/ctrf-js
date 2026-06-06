@@ -29,13 +29,13 @@ const report = new ReportBuilder()
 
 ### Constructor
 
-> **new ReportBuilder**(`options`): `ReportBuilder`
+> **new ReportBuilder**(`options?`): `ReportBuilder`
 
 Defined in: [builder.ts:62](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L62)
 
 #### Parameters
 
-##### options
+##### options?
 
 [`ReportBuilderOptions`](../interfaces/ReportBuilderOptions.md) = `{}`
 
@@ -99,9 +99,9 @@ Set the timestamp.
 
 ##### date?
 
-Date to use, or undefined for current time
+`string` \| `Date`
 
-`string` | `Date`
+Date to use, or undefined for current time
 
 #### Returns
 

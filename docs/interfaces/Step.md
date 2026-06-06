@@ -34,7 +34,7 @@ Step status
 
 ### extra?
 
-> `optional` **extra**: `Record`\<`string`, `unknown`\>
+> `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
 Defined in: [types.ts:236](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L236)
 

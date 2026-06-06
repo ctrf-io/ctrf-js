@@ -14,7 +14,7 @@ Options for parsing JSON
 
 ### validate?
 
-> `optional` **validate**: `boolean`
+> `optional` **validate?**: `boolean`
 
 Defined in: [types.ts:490](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L490)
 

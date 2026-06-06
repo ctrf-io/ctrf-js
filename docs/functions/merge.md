@@ -6,7 +6,7 @@
 
 # Function: merge()
 
-> **merge**(`reports`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
+> **merge**(`reports`, `options?`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
 Defined in: [merge.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L38)
 
@@ -18,7 +18,7 @@ Defined in: [merge.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge
 
 Array of CTRF reports to merge
 
-### options
+### options?
 
 [`MergeOptions`](../interfaces/MergeOptions.md) = `{}`
 

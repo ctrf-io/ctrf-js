@@ -6,7 +6,7 @@
 
 # Function: parse()
 
-> **parse**(`json`, `options`): [`CTRFReport`](../interfaces/CTRFReport.md)
+> **parse**(`json`, `options?`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
 Defined in: [parse.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L33)
 
@@ -18,7 +18,7 @@ Defined in: [parse.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse
 
 JSON string to parse
 
-### options
+### options?
 
 [`ParseOptions`](../interfaces/ParseOptions.md) = `{}`
 

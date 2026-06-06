@@ -56,7 +56,7 @@ The file path that caused the error
 
 ### cause?
 
-> `readonly` `optional` **cause**: `Error`
+> `readonly` `optional` **cause?**: `Error`
 
 Defined in: [errors.ts:87](https://github.com/ctrf-io/ctrf-js/blob/main/src/errors.ts#L87)
 

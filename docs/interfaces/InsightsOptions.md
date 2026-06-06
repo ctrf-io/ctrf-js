@@ -14,7 +14,7 @@ Options for insights calculation
 
 ### baseline?
 
-> `optional` **baseline**: [`CTRFReport`](CTRFReport.md)
+> `optional` **baseline?**: [`CTRFReport`](CTRFReport.md)
 
 Defined in: [types.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L444)
 
@@ -24,7 +24,7 @@ Baseline report for comparison
 
 ### window?
 
-> `optional` **window**: `number`
+> `optional` **window?**: `number`
 
 Defined in: [types.ts:446](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L446)
 

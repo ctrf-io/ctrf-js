@@ -14,7 +14,7 @@ Options for stringifying to JSON
 
 ### pretty?
 
-> `optional` **pretty**: `boolean`
+> `optional` **pretty?**: `boolean`
 
 Defined in: [types.ts:500](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L500)
 
@@ -24,7 +24,7 @@ Pretty print with indentation
 
 ### indent?
 
-> `optional` **indent**: `number`
+> `optional` **indent?**: `number`
 
 Defined in: [types.ts:502](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L502)
 

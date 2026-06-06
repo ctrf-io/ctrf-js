@@ -6,7 +6,7 @@
 
 # Function: stringify()
 
-> **stringify**(`report`, `options`): `string`
+> **stringify**(`report`, `options?`): `string`
 
 Defined in: [parse.ts:72](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse.ts#L72)
 
@@ -18,7 +18,7 @@ Defined in: [parse.ts:72](https://github.com/ctrf-io/ctrf-js/blob/main/src/parse
 
 The CTRF report to serialize
 
-### options
+### options?
 
 [`StringifyOptions`](../interfaces/StringifyOptions.md) = `{}`
 

@@ -6,7 +6,7 @@
 
 # Function: findTest()
 
-> **findTest**(`report`, `criteria`): `undefined` \| [`Test`](../interfaces/Test.md)
+> **findTest**(`report`, `criteria`): [`Test`](../interfaces/Test.md) \| `undefined`
 
 Defined in: [filter.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/filter.ts#L57)
 
@@ -26,7 +26,7 @@ Filter criteria including id, name, status, tags, etc.
 
 ## Returns
 
-`undefined` \| [`Test`](../interfaces/Test.md)
+[`Test`](../interfaces/Test.md) \| `undefined`
 
 The first matching test, or undefined if not found
 
