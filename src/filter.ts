@@ -2,7 +2,7 @@
  * CTRF Filtering and Querying
  */
 
-import type { CTRFReport, Test, FilterCriteria, TestStatus } from './types.js'
+import type { CTRFReport, Test, FilterCriteria, TestStatus } from "./types.js";
 
 /**
  *
@@ -27,10 +27,10 @@ import type { CTRFReport, Test, FilterCriteria, TestStatus } from './types.js'
  * ```
  */
 export function filterTests(
-  report: CTRFReport,
-  criteria: FilterCriteria
+	report: CTRFReport,
+	criteria: FilterCriteria,
 ): Test[] {
-  return report.results.tests.filter(test => matchesCriteria(test, criteria))
+	return report.results.tests.filter((test) => matchesCriteria(test, criteria));
 }
 
 /**
@@ -55,22 +55,22 @@ export function filterTests(
  * ```
  */
 export function findTest(
-  report: CTRFReport,
-  criteria: FilterCriteria
+	report: CTRFReport,
+	criteria: FilterCriteria,
 ): Test | undefined {
-  const { id, name, ...filterCriteria } = criteria
+	const { id, name, ...filterCriteria } = criteria;
 
-  return report.results.tests.find(test => {
-    if (id !== undefined && test.id !== id) {
-      return false
-    }
+	return report.results.tests.find((test) => {
+		if (id !== undefined && test.id !== id) {
+			return false;
+		}
 
-    if (name !== undefined && test.name !== name) {
-      return false
-    }
+		if (name !== undefined && test.name !== name) {
+			return false;
+		}
 
-    return matchesCriteria(test, filterCriteria)
-  })
+		return matchesCriteria(test, filterCriteria);
+	});
 }
 
 /**
@@ -90,37 +90,37 @@ export function findTest(
  * ```
  */
 export function groupBy<K extends keyof Test>(
-  tests: Test[],
-  field: K
+	tests: Test[],
+	field: K,
 ): Record<string, Test[]> {
-  const groups: Record<string, Test[]> = {}
+	const groups: Record<string, Test[]> = {};
 
-  for (const test of tests) {
-    let key: string
+	for (const test of tests) {
+		let key: string;
 
-    if (field === 'suite') {
-      key = test.suite?.[0] ?? 'root'
-    } else if (field === 'tags') {
-      const tags = test.tags ?? ['untagged']
-      for (const tag of tags) {
-        if (!groups[tag]) {
-          groups[tag] = []
-        }
-        groups[tag].push(test)
-      }
-      continue
-    } else {
-      const value = test[field]
-      key = value !== undefined ? String(value) : 'undefined'
-    }
+		if (field === "suite") {
+			key = test.suite?.[0] ?? "root";
+		} else if (field === "tags") {
+			const tags = test.tags ?? ["untagged"];
+			for (const tag of tags) {
+				if (!groups[tag]) {
+					groups[tag] = [];
+				}
+				groups[tag].push(test);
+			}
+			continue;
+		} else {
+			const value = test[field];
+			key = value !== undefined ? String(value) : "undefined";
+		}
 
-    if (!groups[key]) {
-      groups[key] = []
-    }
-    groups[key].push(test)
-  }
+		if (!groups[key]) {
+			groups[key] = [];
+		}
+		groups[key].push(test);
+	}
 
-  return groups
+	return groups;
 }
 
 /**
@@ -131,10 +131,10 @@ export function groupBy<K extends keyof Test>(
  * @returns Array of tests with the given status
  */
 export function getTestsByStatus(
-  report: CTRFReport,
-  status: TestStatus
+	report: CTRFReport,
+	status: TestStatus,
 ): Test[] {
-  return report.results.tests.filter(test => test.status === status)
+	return report.results.tests.filter((test) => test.status === status);
 }
 
 /**
@@ -144,7 +144,7 @@ export function getTestsByStatus(
  * @returns Array of failed tests
  */
 export function getFailedTests(report: CTRFReport): Test[] {
-  return getTestsByStatus(report, 'failed')
+	return getTestsByStatus(report, "failed");
 }
 
 /**
@@ -154,7 +154,7 @@ export function getFailedTests(report: CTRFReport): Test[] {
  * @returns Array of passed tests
  */
 export function getPassedTests(report: CTRFReport): Test[] {
-  return getTestsByStatus(report, 'passed')
+	return getTestsByStatus(report, "passed");
 }
 
 /**
@@ -164,7 +164,7 @@ export function getPassedTests(report: CTRFReport): Test[] {
  * @returns Array of skipped tests
  */
 export function getSkippedTests(report: CTRFReport): Test[] {
-  return getTestsByStatus(report, 'skipped')
+	return getTestsByStatus(report, "skipped");
 }
 
 /**
@@ -174,7 +174,7 @@ export function getSkippedTests(report: CTRFReport): Test[] {
  * @returns Array of flaky tests
  */
 export function getFlakyTests(report: CTRFReport): Test[] {
-  return report.results.tests.filter(test => test.flaky === true)
+	return report.results.tests.filter((test) => test.flaky === true);
 }
 
 /**
@@ -185,7 +185,7 @@ export function getFlakyTests(report: CTRFReport): Test[] {
  * @returns Array of tests with the given tag
  */
 export function getTestsByTag(report: CTRFReport, tag: string): Test[] {
-  return report.results.tests.filter(test => test.tags?.includes(tag))
+	return report.results.tests.filter((test) => test.tags?.includes(tag));
 }
 
 /**
@@ -196,7 +196,7 @@ export function getTestsByTag(report: CTRFReport, tag: string): Test[] {
  * @returns Array of tests in the given suite
  */
 export function getTestsBySuite(report: CTRFReport, suiteName: string): Test[] {
-  return report.results.tests.filter(test => test.suite?.includes(suiteName))
+	return report.results.tests.filter((test) => test.suite?.includes(suiteName));
 }
 
 /**
@@ -206,17 +206,17 @@ export function getTestsBySuite(report: CTRFReport, suiteName: string): Test[] {
  * @returns Array of unique suite names
  */
 export function getUniqueSuites(report: CTRFReport): string[] {
-  const suites = new Set<string>()
+	const suites = new Set<string>();
 
-  for (const test of report.results.tests) {
-    if (test.suite) {
-      for (const suite of test.suite) {
-        suites.add(suite)
-      }
-    }
-  }
+	for (const test of report.results.tests) {
+		if (test.suite) {
+			for (const suite of test.suite) {
+				suites.add(suite);
+			}
+		}
+	}
 
-  return Array.from(suites)
+	return Array.from(suites);
 }
 
 /**
@@ -226,64 +226,64 @@ export function getUniqueSuites(report: CTRFReport): string[] {
  * @returns Array of unique tags
  */
 export function getUniqueTags(report: CTRFReport): string[] {
-  const tags = new Set<string>()
+	const tags = new Set<string>();
 
-  for (const test of report.results.tests) {
-    if (test.tags) {
-      for (const tag of test.tags) {
-        tags.add(tag)
-      }
-    }
-  }
+	for (const test of report.results.tests) {
+		if (test.tags) {
+			for (const tag of test.tags) {
+				tags.add(tag);
+			}
+		}
+	}
 
-  return Array.from(tags)
+	return Array.from(tags);
 }
 
 /**
  * Check if a test matches the given criteria.
  */
 function matchesCriteria(test: Test, criteria: FilterCriteria): boolean {
-  if (criteria.status !== undefined) {
-    const statuses = Array.isArray(criteria.status)
-      ? criteria.status
-      : [criteria.status]
-    if (!statuses.includes(test.status)) {
-      return false
-    }
-  }
+	if (criteria.status !== undefined) {
+		const statuses = Array.isArray(criteria.status)
+			? criteria.status
+			: [criteria.status];
+		if (!statuses.includes(test.status)) {
+			return false;
+		}
+	}
 
-  if (criteria.tags !== undefined) {
-    const requiredTags = Array.isArray(criteria.tags)
-      ? criteria.tags
-      : [criteria.tags]
-    if (!test.tags || !requiredTags.some(tag => test.tags!.includes(tag))) {
-      return false
-    }
-  }
+	if (criteria.tags !== undefined) {
+		const requiredTags = Array.isArray(criteria.tags)
+			? criteria.tags
+			: [criteria.tags];
+		if (!test.tags || !requiredTags.some((tag) => test.tags?.includes(tag))) {
+			return false;
+		}
+	}
 
-  if (criteria.suite !== undefined) {
-    const requiredSuites = Array.isArray(criteria.suite)
-      ? criteria.suite
-      : [criteria.suite]
-    if (
-      !test.suite ||
-      !requiredSuites.some(suite => test.suite!.includes(suite))
-    ) {
-      return false
-    }
-  }
+	if (criteria.suite !== undefined) {
+		const requiredSuites = Array.isArray(criteria.suite)
+			? criteria.suite
+			: [criteria.suite];
+		if (
+			!test.suite ||
+			!requiredSuites.some((suite) => test.suite?.includes(suite))
+		) {
+			return false;
+		}
+	}
 
-  if (criteria.flaky !== undefined && test.flaky !== criteria.flaky) {
-    return false
-  }
+	if (criteria.flaky !== undefined && test.flaky !== criteria.flaky) {
+		return false;
+	}
 
-  if (criteria.browser !== undefined && test.browser !== criteria.browser) {
-    return false
-  }
+	if (criteria.browser !== undefined && test.browser !== criteria.browser) {
+		return false;
+	}
 
-  if (criteria.device !== undefined && test.device !== criteria.device) {
-    return false
-  }
+	if (criteria.device !== undefined && test.device !== criteria.device) {
+		return false;
+	}
 
-  return true
+	return true;
 }

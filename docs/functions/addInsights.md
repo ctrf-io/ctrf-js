@@ -8,7 +8,7 @@
 
 > **addInsights**(`report`, `historicalReports?`, `options?`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [insights.ts:1011](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L1011)
+Defined in: [insights.ts:1015](https://github.com/ctrf-io/ctrf-js/blob/main/src/insights.ts#L1015)
 
 ## Parameters
 
