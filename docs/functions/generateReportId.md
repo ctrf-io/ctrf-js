@@ -8,7 +8,7 @@
 
 > **generateReportId**(): `string`
 
-Defined in: [id.ts:75](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L75)
+Defined in: [id.ts:77](https://github.com/ctrf-io/ctrf-js/blob/main/src/id.ts#L77)
 
 ## Returns
 

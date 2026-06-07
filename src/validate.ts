@@ -2,17 +2,17 @@
  * CTRF Validation
  */
 
-import Ajv from 'ajv'
-import addFormats from 'ajv-formats'
-import { schema, getSchema } from './schema.js'
-import { ValidationError } from './errors.js'
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
+import { schema, getSchema } from "./schema.js";
+import { ValidationError } from "./errors.js";
 import type {
-  CTRFReport,
-  ValidationResult,
-  ValidationErrorDetail,
-  ValidateOptions,
-} from './types.js'
-import { REPORT_FORMAT, TEST_STATUSES } from './constants.js'
+	CTRFReport,
+	ValidationResult,
+	ValidationErrorDetail,
+	ValidateOptions,
+} from "./types.js";
+import { REPORT_FORMAT, TEST_STATUSES } from "./constants.js";
 
 /**
  * Validate a CTRF report against the JSON schema.
@@ -34,31 +34,31 @@ import { REPORT_FORMAT, TEST_STATUSES } from './constants.js'
  * ```
  */
 export function validate(
-  report: unknown,
-  options: ValidateOptions = {}
+	report: unknown,
+	options: ValidateOptions = {},
 ): ValidationResult {
-  const ajv = new Ajv({ allErrors: true })
-  addFormats(ajv)
+	const ajv = new Ajv({ allErrors: true });
+	addFormats(ajv);
 
-  const schemaToUse = options.specVersion
-    ? getSchema(options.specVersion)
-    : schema
+	const schemaToUse = options.specVersion
+		? getSchema(options.specVersion)
+		: schema;
 
-  const validateFn = ajv.compile(schemaToUse)
-  const valid = validateFn(report)
+	const validateFn = ajv.compile(schemaToUse);
+	const valid = validateFn(report);
 
-  if (valid) {
-    return { valid: true, errors: [] }
-  }
+	if (valid) {
+		return { valid: true, errors: [] };
+	}
 
-  const errors: ValidationErrorDetail[] =
-    validateFn.errors?.map(error => ({
-      message: error.message || 'Unknown validation error',
-      path: error.instancePath || '/',
-      keyword: error.keyword,
-    })) || []
+	const errors: ValidationErrorDetail[] =
+		validateFn.errors?.map((error) => ({
+			message: error.message || "Unknown validation error",
+			path: error.instancePath || "/",
+			keyword: error.keyword,
+		})) || [];
 
-  return { valid: false, errors }
+	return { valid: false, errors };
 }
 
 /**
@@ -78,8 +78,8 @@ export function validate(
  * ```
  */
 export function isValid(report: unknown): report is CTRFReport {
-  const result = validate(report)
-  return result.valid
+	const result = validate(report);
+	return result.valid;
 }
 
 /**
@@ -103,17 +103,17 @@ export function isValid(report: unknown): report is CTRFReport {
  * ```
  */
 export function validateStrict(report: unknown): asserts report is CTRFReport {
-  const result = validate(report)
+	const result = validate(report);
 
-  if (!result.valid) {
-    const errorMessages = result.errors
-      .map(e => `${e.path}: ${e.message}`)
-      .join('\n')
-    throw new ValidationError(
-      `CTRF validation failed:\n${errorMessages}`,
-      result.errors
-    )
-  }
+	if (!result.valid) {
+		const errorMessages = result.errors
+			.map((e) => `${e.path}: ${e.message}`)
+			.join("\n");
+		throw new ValidationError(
+			`CTRF validation failed:\n${errorMessages}`,
+			result.errors,
+		);
+	}
 }
 
 /**
@@ -133,14 +133,14 @@ export function validateStrict(report: unknown): asserts report is CTRFReport {
  * ```
  */
 export function isCTRFReport(
-  report: unknown
-): report is { reportFormat: 'CTRF' } {
-  return (
-    typeof report === 'object' &&
-    report !== null &&
-    'reportFormat' in report &&
-    (report as Record<string, unknown>).reportFormat === REPORT_FORMAT
-  )
+	report: unknown,
+): report is { reportFormat: "CTRF" } {
+	return (
+		typeof report === "object" &&
+		report !== null &&
+		"reportFormat" in report &&
+		(report as Record<string, unknown>).reportFormat === REPORT_FORMAT
+	);
 }
 
 /**
@@ -152,18 +152,18 @@ export function isCTRFReport(
  * @returns true if the object is a Test
  */
 export function isTest(
-  obj: unknown
+	obj: unknown,
 ): obj is { name: string; status: string; duration: number } {
-  return (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'name' in obj &&
-    typeof (obj as Record<string, unknown>).name === 'string' &&
-    'status' in obj &&
-    typeof (obj as Record<string, unknown>).status === 'string' &&
-    'duration' in obj &&
-    typeof (obj as Record<string, unknown>).duration === 'number'
-  )
+	return (
+		typeof obj === "object" &&
+		obj !== null &&
+		"name" in obj &&
+		typeof (obj as Record<string, unknown>).name === "string" &&
+		"status" in obj &&
+		typeof (obj as Record<string, unknown>).status === "string" &&
+		"duration" in obj &&
+		typeof (obj as Record<string, unknown>).duration === "number"
+	);
 }
 
 /**
@@ -175,12 +175,12 @@ export function isTest(
  * @returns true if the value is a valid TestStatus
  */
 export function isTestStatus(
-  value: unknown
+	value: unknown,
 ): value is (typeof TEST_STATUSES)[number] {
-  return (
-    typeof value === 'string' &&
-    TEST_STATUSES.includes(value as (typeof TEST_STATUSES)[number])
-  )
+	return (
+		typeof value === "string" &&
+		TEST_STATUSES.includes(value as (typeof TEST_STATUSES)[number])
+	);
 }
 
 /**
@@ -192,16 +192,16 @@ export function isTestStatus(
  * @returns true if the object is a RetryAttempt
  */
 export function isRetryAttempt(
-  obj: unknown
+	obj: unknown,
 ): obj is { attempt: number; status: string } {
-  return (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'attempt' in obj &&
-    typeof (obj as Record<string, unknown>).attempt === 'number' &&
-    'status' in obj &&
-    typeof (obj as Record<string, unknown>).status === 'string'
-  )
+	return (
+		typeof obj === "object" &&
+		obj !== null &&
+		"attempt" in obj &&
+		typeof (obj as Record<string, unknown>).attempt === "number" &&
+		"status" in obj &&
+		typeof (obj as Record<string, unknown>).status === "string"
+	);
 }
 
 /**
@@ -213,7 +213,7 @@ export function isRetryAttempt(
  * @returns true if the report has insights
  */
 export function hasInsights(report: CTRFReport): boolean {
-  return (
-    report.insights !== undefined && Object.keys(report.insights).length > 0
-  )
+	return (
+		report.insights !== undefined && Object.keys(report.insights).length > 0
+	);
 }

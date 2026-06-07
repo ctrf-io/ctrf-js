@@ -2,8 +2,8 @@
  * CTRF Test ID Generation
  */
 
-import { createHash, randomUUID } from 'crypto'
-import { CTRF_NAMESPACE } from './constants.js'
+import { createHash, randomUUID } from "node:crypto";
+import { CTRF_NAMESPACE } from "./constants.js";
 
 /**
  *
@@ -29,34 +29,36 @@ import { CTRF_NAMESPACE } from './constants.js'
  * ```
  */
 export function generateTestId(properties: {
-  name: string
-  suite?: string[]
-  filePath?: string
+	name: string;
+	suite?: string[];
+	filePath?: string;
 }): string {
-  const { name, suite, filePath } = properties
-  const suiteString = suite ? suite.join('/') : ''
-  const identifier = `${name}|${suiteString}|${filePath || ''}`
+	const { name, suite, filePath } = properties;
+	const suiteString = suite ? suite.join("/") : "";
+	const identifier = `${name}|${suiteString}|${filePath || ""}`;
 
-  const namespaceBytes = CTRF_NAMESPACE.replace(/-/g, '')
-    .match(/.{2}/g)!
-    .map(byte => parseInt(byte, 16))
+	const namespaceHexPairs = CTRF_NAMESPACE.replace(/-/g, "").match(/.{2}/g);
+	if (!namespaceHexPairs) {
+		throw new Error("Invalid CTRF namespace constant");
+	}
+	const namespaceBytes = namespaceHexPairs.map((byte) => parseInt(byte, 16));
 
-  const input = Buffer.concat([
-    Buffer.from(namespaceBytes),
-    Buffer.from(identifier, 'utf8'),
-  ])
+	const input = Buffer.concat([
+		Buffer.from(namespaceBytes),
+		Buffer.from(identifier, "utf8"),
+	]);
 
-  const hash = createHash('sha1').update(input).digest('hex')
-  const uuid = [
-    hash.substring(0, 8),
-    hash.substring(8, 12),
-    '5' + hash.substring(13, 16), // Version 5
-    ((parseInt(hash.substring(16, 17), 16) & 0x3) | 0x8).toString(16) +
-      hash.substring(17, 20), // Variant bits
-    hash.substring(20, 32),
-  ].join('-')
+	const hash = createHash("sha1").update(input).digest("hex");
+	const uuid = [
+		hash.substring(0, 8),
+		hash.substring(8, 12),
+		`5${hash.substring(13, 16)}`, // Version 5
+		((parseInt(hash.substring(16, 17), 16) & 0x3) | 0x8).toString(16) +
+			hash.substring(17, 20), // Variant bits
+		hash.substring(20, 32),
+	].join("-");
 
-  return uuid
+	return uuid;
 }
 
 /**
@@ -73,5 +75,5 @@ export function generateTestId(properties: {
  * ```
  */
 export function generateReportId(): string {
-  return randomUUID()
+	return randomUUID();
 }

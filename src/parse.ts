@@ -2,14 +2,14 @@
  * CTRF Parsing and Serialization
  */
 
-import fs from 'fs'
-import { promisify } from 'util'
-import type { CTRFReport, ParseOptions, StringifyOptions } from './types.js'
-import { ParseError, FileError } from './errors.js'
-import { validateStrict } from './validate.js'
+import fs from "node:fs";
+import { promisify } from "node:util";
+import type { CTRFReport, ParseOptions, StringifyOptions } from "./types.js";
+import { ParseError, FileError } from "./errors.js";
+import { validateStrict } from "./validate.js";
 
-const readFileAsync = promisify(fs.readFile)
-const writeFileAsync = promisify(fs.writeFile)
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
 
 /**
  *
@@ -31,22 +31,22 @@ const writeFileAsync = promisify(fs.writeFile)
  * ```
  */
 export function parse(json: string, options: ParseOptions = {}): CTRFReport {
-  let parsed: unknown
+	let parsed: unknown;
 
-  try {
-    parsed = JSON.parse(json)
-  } catch (error) {
-    throw new ParseError(
-      `Failed to parse JSON: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      error instanceof Error ? error : undefined
-    )
-  }
+	try {
+		parsed = JSON.parse(json);
+	} catch (error) {
+		throw new ParseError(
+			`Failed to parse JSON: ${error instanceof Error ? error.message : "Unknown error"}`,
+			error instanceof Error ? error : undefined,
+		);
+	}
 
-  if (options.validate) {
-    validateStrict(parsed)
-  }
+	if (options.validate) {
+		validateStrict(parsed);
+	}
 
-  return parsed as CTRFReport
+	return parsed as CTRFReport;
 }
 
 /**
@@ -70,16 +70,16 @@ export function parse(json: string, options: ParseOptions = {}): CTRFReport {
  * ```
  */
 export function stringify(
-  report: CTRFReport,
-  options: StringifyOptions = {}
+	report: CTRFReport,
+	options: StringifyOptions = {},
 ): string {
-  const { pretty = false, indent = 2 } = options
+	const { pretty = false, indent = 2 } = options;
 
-  if (pretty) {
-    return JSON.stringify(report, null, indent)
-  }
+	if (pretty) {
+		return JSON.stringify(report, null, indent);
+	}
 
-  return JSON.stringify(report)
+	return JSON.stringify(report);
 }
 
 /**
@@ -97,22 +97,22 @@ export function stringify(
  * ```
  */
 export async function readReport(
-  path: string,
-  options: ParseOptions = {}
+	path: string,
+	options: ParseOptions = {},
 ): Promise<CTRFReport> {
-  let content: string
+	let content: string;
 
-  try {
-    content = await readFileAsync(path, 'utf8')
-  } catch (error) {
-    throw new FileError(
-      `Failed to read file: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      path,
-      error instanceof Error ? error : undefined
-    )
-  }
+	try {
+		content = await readFileAsync(path, "utf8");
+	} catch (error) {
+		throw new FileError(
+			`Failed to read file: ${error instanceof Error ? error.message : "Unknown error"}`,
+			path,
+			error instanceof Error ? error : undefined,
+		);
+	}
 
-  return parse(content, options)
+	return parse(content, options);
 }
 
 /**
@@ -130,22 +130,22 @@ export async function readReport(
  * ```
  */
 export function readReportSync(
-  path: string,
-  options: ParseOptions = {}
+	path: string,
+	options: ParseOptions = {},
 ): CTRFReport {
-  let content: string
+	let content: string;
 
-  try {
-    content = fs.readFileSync(path, 'utf8')
-  } catch (error) {
-    throw new FileError(
-      `Failed to read file: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      path,
-      error instanceof Error ? error : undefined
-    )
-  }
+	try {
+		content = fs.readFileSync(path, "utf8");
+	} catch (error) {
+		throw new FileError(
+			`Failed to read file: ${error instanceof Error ? error.message : "Unknown error"}`,
+			path,
+			error instanceof Error ? error : undefined,
+		);
+	}
 
-  return parse(content, options)
+	return parse(content, options);
 }
 
 /**
@@ -165,21 +165,21 @@ export function readReportSync(
  * ```
  */
 export async function writeReport(
-  path: string,
-  report: CTRFReport,
-  options: StringifyOptions = { pretty: true }
+	path: string,
+	report: CTRFReport,
+	options: StringifyOptions = { pretty: true },
 ): Promise<void> {
-  const json = stringify(report, options)
+	const json = stringify(report, options);
 
-  try {
-    await writeFileAsync(path, json, 'utf8')
-  } catch (error) {
-    throw new FileError(
-      `Failed to write file: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      path,
-      error instanceof Error ? error : undefined
-    )
-  }
+	try {
+		await writeFileAsync(path, json, "utf8");
+	} catch (error) {
+		throw new FileError(
+			`Failed to write file: ${error instanceof Error ? error.message : "Unknown error"}`,
+			path,
+			error instanceof Error ? error : undefined,
+		);
+	}
 }
 
 /**
@@ -196,19 +196,19 @@ export async function writeReport(
  * ```
  */
 export function writeReportSync(
-  path: string,
-  report: CTRFReport,
-  options: StringifyOptions = { pretty: true }
+	path: string,
+	report: CTRFReport,
+	options: StringifyOptions = { pretty: true },
 ): void {
-  const json = stringify(report, options)
+	const json = stringify(report, options);
 
-  try {
-    fs.writeFileSync(path, json, 'utf8')
-  } catch (error) {
-    throw new FileError(
-      `Failed to write file: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      path,
-      error instanceof Error ? error : undefined
-    )
-  }
+	try {
+		fs.writeFileSync(path, json, "utf8");
+	} catch (error) {
+		throw new FileError(
+			`Failed to write file: ${error instanceof Error ? error.message : "Unknown error"}`,
+			path,
+			error instanceof Error ? error : undefined,
+		);
+	}
 }
