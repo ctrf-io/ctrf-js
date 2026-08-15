@@ -103,11 +103,6 @@ All CTRF-specific errors extend this class.
 - [CTRFError](classes/CTRFError.md)
 
 ## Errors
-Error thrown when JSON parsing fails.
-
-- [ParseError](classes/ParseError.md)
-
-## Errors
 Error thrown when a file read or write operation fails.
 
 - [FileError](classes/FileError.md)
@@ -121,6 +116,11 @@ Error thrown when an unsupported CTRF specification version is encountered.
 Error thrown when building a report or test fails due to missing required fields.
 
 - [BuilderError](classes/BuilderError.md)
+
+## Errors
+Error thrown when JSON parsing fails.
+
+- [ParseError](classes/ParseError.md)
 
 ## Errors
 Error thrown when schema validation fails.
@@ -179,19 +179,24 @@ Get all supported spec versions.
 - [getSupportedSpecVersions](functions/getSupportedSpecVersions.md)
 
 ## Schema & Versioning
-Get the JSON Schema for a specific CTRF spec version.
-
-- [getSchema](functions/getSchema.md)
-
-## Schema & Versioning
 Get the current spec version.
 
 - [getCurrentSpecVersion](functions/getCurrentSpecVersion.md)
 
 ## Schema & Versioning
+Get the JSON Schema for a specific CTRF spec version.
+
+- [getSchema](functions/getSchema.md)
+
+## Schema & Versioning
 The current version CTRF JSON Schema object.
 
 - [schema](variables/schema.md)
+
+## Type Aliases
+
+- [LabelPrimitive](type-aliases/LabelPrimitive.md)
+- [LabelValue](type-aliases/LabelValue.md)
 
 ## Type Guards
 Check if a report has insights.

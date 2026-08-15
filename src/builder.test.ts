@@ -32,6 +32,15 @@ describe("builder", () => {
 			expect(report.reportId).toBe("custom-id");
 		});
 
+		it("should set logical run ID", () => {
+			const report = new ReportBuilder()
+				.runId("run-2026-08-13")
+				.tool({ name: "jest" })
+				.build();
+
+			expect(report.runId).toBe("run-2026-08-13");
+		});
+
 		it("should auto-generate report ID", () => {
 			const report = new ReportBuilder()
 				.reportId()
@@ -88,11 +97,16 @@ describe("builder", () => {
 		it("should set environment", () => {
 			const report = new ReportBuilder()
 				.tool({ name: "jest" })
-				.environment({ branchName: "main", commit: "abc123" })
+				.environment({
+					branchName: "main",
+					commit: "abc123",
+					shardId: "shard-1-of-4",
+				})
 				.build();
 
 			expect(report.results.environment?.branchName).toBe("main");
 			expect(report.results.environment?.commit).toBe("abc123");
+			expect(report.results.environment?.shardId).toBe("shard-1-of-4");
 		});
 
 		it("should add tests", () => {
@@ -245,6 +259,8 @@ describe("builder", () => {
 		it("should set all optional fields", () => {
 			const test = new TestBuilder()
 				.id("test-id")
+				.testId("auth/login")
+				.executionId("execution-123")
 				.name("test")
 				.status("failed")
 				.duration(100)
@@ -258,6 +274,12 @@ describe("builder", () => {
 				.line(42)
 				.rawStatus("FAILED")
 				.tags(["smoke", "critical"])
+				.labels({
+					priority: "high",
+					owners: ["qa", "platform"],
+					attempts: [1, 2],
+					enabled: true,
+				})
 				.type("e2e")
 				.filePath("test/auth.test.ts")
 				.retries(2)
@@ -273,6 +295,8 @@ describe("builder", () => {
 				.build();
 
 			expect(test.id).toBe("test-id");
+			expect(test.testId).toBe("auth/login");
+			expect(test.executionId).toBe("execution-123");
 			expect(test.start).toBe(1000);
 			expect(test.stop).toBe(1100);
 			expect(test.suite).toEqual(["unit", "auth"]);
@@ -283,6 +307,12 @@ describe("builder", () => {
 			expect(test.line).toBe(42);
 			expect(test.rawStatus).toBe("FAILED");
 			expect(test.tags).toEqual(["smoke", "critical"]);
+			expect(test.labels).toEqual({
+				priority: "high",
+				owners: ["qa", "platform"],
+				attempts: [1, 2],
+				enabled: true,
+			});
 			expect(test.type).toBe("e2e");
 			expect(test.filePath).toBe("test/auth.test.ts");
 			expect(test.retries).toBe(2);
@@ -302,12 +332,18 @@ describe("builder", () => {
 				.name("test")
 				.status("passed")
 				.duration(100)
-				.addRetryAttempt({ attempt: 1, status: "failed", duration: 50 })
+				.addRetryAttempt({
+					attempt: 1,
+					attemptId: "attempt-1",
+					status: "failed",
+					duration: 50,
+				})
 				.addRetryAttempt({ attempt: 2, status: "passed", duration: 100 })
 				.build();
 
 			expect(test.retryAttempts).toHaveLength(2);
 			expect(test.retryAttempts?.[0].attempt).toBe(1);
+			expect(test.retryAttempts?.[0].attemptId).toBe("attempt-1");
 			expect(test.retryAttempts?.[1].attempt).toBe(2);
 		});
 
@@ -317,6 +353,7 @@ describe("builder", () => {
 				.status("failed")
 				.duration(100)
 				.addAttachment({
+					attachmentId: "attachment-1",
 					name: "screenshot.png",
 					contentType: "image/png",
 					path: "/tmp/screenshot.png",
@@ -325,6 +362,7 @@ describe("builder", () => {
 
 			expect(test.attachments).toHaveLength(1);
 			expect(test.attachments?.[0].name).toBe("screenshot.png");
+			expect(test.attachments?.[0].attachmentId).toBe("attachment-1");
 		});
 
 		it("should add steps", () => {

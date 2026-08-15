@@ -912,12 +912,14 @@ export function calculateTestInsights(
 	reports: CTRFReport[],
 	testId: string,
 ): TestInsights {
-	// Collect all instances of this test across reports by ID
+	// Collect all instances using the preferred logical test ID, with legacy ID fallback
 	const testInstances: Test[] = [];
 	let executedCount = 0;
 
 	for (const report of reports) {
-		const test = report.results.tests.find((t) => t.id === testId);
+		const test = report.results.tests.find(
+			(t) => (t.testId ?? t.id) === testId,
+		);
 		if (test) {
 			testInstances.push(test);
 			executedCount++;

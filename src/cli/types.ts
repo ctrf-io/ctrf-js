@@ -2,6 +2,7 @@ export interface Report {
 	reportFormat: "CTRF";
 	specVersion: `${number}.${number}.${number}`;
 	reportId?: string;
+	runId?: string;
 	timestamp?: string;
 	generatedBy?: string;
 	results: Results;
@@ -35,6 +36,8 @@ export interface Summary {
 
 export interface Test {
 	id?: string;
+	testId?: string;
+	executionId?: string;
 	name: string;
 	status: TestStatus;
 	duration: number;
@@ -48,6 +51,7 @@ export interface Test {
 	ai?: string;
 	rawStatus?: string;
 	tags?: string[];
+	labels?: Record<string, LabelValue>;
 	type?: string;
 	filePath?: string;
 	retries?: number;
@@ -66,6 +70,10 @@ export interface Test {
 	extra?: Record<string, unknown>;
 }
 
+export type LabelPrimitive = string | number | boolean;
+
+export type LabelValue = LabelPrimitive | [LabelPrimitive, ...LabelPrimitive[]];
+
 export interface Environment {
 	reportName?: string;
 	appName?: string;
@@ -82,6 +90,8 @@ export interface Environment {
 	osRelease?: string;
 	osVersion?: string;
 	testEnvironment?: string;
+	shardId?: string;
+	healthy?: boolean;
 	extra?: Record<string, unknown>;
 }
 
@@ -98,6 +108,7 @@ export interface Step {
 }
 
 export interface Attachment {
+	attachmentId?: string;
 	name: string;
 	contentType: string;
 	path: string;
@@ -106,6 +117,7 @@ export interface Attachment {
 
 export interface RetryAttempt {
 	attempt: number;
+	attemptId?: string;
 	status: TestStatus;
 	duration?: number;
 	message?: string;

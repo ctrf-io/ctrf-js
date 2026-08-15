@@ -19,6 +19,8 @@ export interface CTRFReport {
 	specVersion: string;
 	/** Unique identifier for this report (UUID v4) */
 	reportId?: string;
+	/** Identifier shared by all documents belonging to the same logical test run */
+	runId?: string;
 	/** ISO 8601 timestamp when the report was generated */
 	timestamp?: string;
 	/** Name of the tool/library that generated this report */
@@ -103,8 +105,12 @@ export interface Summary {
  * @group Core Types
  */
 export interface Test {
-	/** Unique test identifier (UUID) */
+	/** Legacy test identifier (UUID); new producers should prefer testId */
 	id?: string;
+	/** Stable identifier for the logical test case */
+	testId?: string;
+	/** Identifier for this specific execution of the test case */
+	executionId?: string;
 	/** Test name */
 	name: string;
 	/** Test execution status */
@@ -131,6 +137,8 @@ export interface Test {
 	rawStatus?: string;
 	/** Tags for categorization */
 	tags?: string[];
+	/** Structured key-value metadata; values may be scalar or multi-valued */
+	labels?: Record<string, LabelValue>;
 	/** Test type (e.g., 'unit', 'integration', 'e2e') */
 	type?: string;
 	/** Path to the test file */
@@ -172,6 +180,12 @@ export interface Test {
  */
 export type TestStatus = "passed" | "failed" | "skipped" | "pending" | "other";
 
+/** Primitive value supported by a test label */
+export type LabelPrimitive = string | number | boolean;
+
+/** Scalar or non-empty multi-valued test label value */
+export type LabelValue = LabelPrimitive | [LabelPrimitive, ...LabelPrimitive[]];
+
 /**
  * Details of a test retry attempt
  *
@@ -180,6 +194,8 @@ export type TestStatus = "passed" | "failed" | "skipped" | "pending" | "other";
 export interface RetryAttempt {
 	/** Attempt number (1-indexed) */
 	attempt: number;
+	/** Identifier for this individual attempt */
+	attemptId?: string;
 	/** Status of this attempt */
 	status: TestStatus;
 	/** Duration of this attempt in milliseconds */
@@ -212,6 +228,8 @@ export interface RetryAttempt {
  * @group Core Types
  */
 export interface Attachment {
+	/** Identifier for this attachment reference instance */
+	attachmentId?: string;
 	/** Attachment name */
 	name: string;
 	/** MIME content type */
@@ -272,6 +290,8 @@ export interface Environment {
 	osVersion?: string;
 	/** Test environment name */
 	testEnvironment?: string;
+	/** Shard or partition that produced this document */
+	shardId?: string;
 	/** Whether the environment is healthy */
 	healthy?: boolean;
 	/** Custom metadata */
@@ -402,7 +422,7 @@ export interface ValidationErrorDetail {
  * @group Merge Options
  */
 export interface MergeOptions {
-	/** Remove duplicate tests by ID */
+	/** Remove duplicate tests by executionId, testId, or legacy id */
 	deduplicateTests?: boolean;
 	/** Recalculate summary from merged tests */
 	mergeSummary?: boolean;
@@ -416,8 +436,12 @@ export interface MergeOptions {
  * @group Query & Filter Options
  */
 export interface FilterCriteria {
-	/** Filter by test ID (UUID) */
+	/** Filter by legacy test ID (UUID) */
 	id?: string;
+	/** Filter by stable logical test case ID */
+	testId?: string;
+	/** Filter by a specific test execution ID */
+	executionId?: string;
 	/** Filter by test name */
 	name?: string;
 	/** Filter by status */

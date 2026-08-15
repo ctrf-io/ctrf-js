@@ -6,7 +6,7 @@
 
 # Interface: ValidateOptions
 
-Defined in: [types.ts:510](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L510)
+Defined in: [types.ts:534](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L534)
 
 Options for validation
 
@@ -16,6 +16,6 @@ Options for validation
 
 > `optional` **specVersion?**: `string`
 
-Defined in: [types.ts:512](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L512)
+Defined in: [types.ts:536](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L536)
 
 Specific spec version to validate against

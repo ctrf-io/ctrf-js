@@ -28,7 +28,7 @@ import { generateReportId } from "./id.js";
  * ```typescript
  * const merged = merge([report1, report2, report3]);
  *
- * // With deduplication by test ID
+ * // With deduplication by execution, logical test, or legacy ID
  * const merged = merge(reports, { deduplicateTests: true });
  *
  * // Keep first environment only
@@ -61,8 +61,9 @@ export function merge(
 	if (deduplicateTests) {
 		const seen = new Map<string, Test>();
 		for (const test of allTests) {
-			if (test.id) {
-				seen.set(test.id, test);
+			const identity = test.executionId ?? test.testId ?? test.id;
+			if (identity) {
+				seen.set(identity, test);
 			} else {
 				seen.set(`no-id-${seen.size}`, test);
 			}
@@ -114,6 +115,11 @@ export function merge(
 			tests: allTests,
 		},
 	};
+
+	const sharedRunId = reports[0].runId;
+	if (sharedRunId && reports.every((report) => report.runId === sharedRunId)) {
+		merged.runId = sharedRunId;
+	}
 
 	if (environment && Object.keys(environment).length > 0) {
 		merged.results.environment = environment;

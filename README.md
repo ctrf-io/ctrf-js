@@ -105,13 +105,16 @@ import { ReportBuilder, TestBuilder } from 'ctrf'
 
 // ReportBuilder - fluent API for constructing reports
 const report = new ReportBuilder()
-  .tool({ name: 'vitest', version: '1.0.0' })
-  .environment({ os: 'linux', arch: 'x64' })
+	.runId('run-2026-08-13')
+	.tool({ name: 'vitest', version: '1.0.0' })
+	.environment({ osPlatform: 'linux', shardId: 'shard-1-of-4' })
   .addTest(/* ... */)
   .build()
 
 // TestBuilder - fluent API for constructing tests
 const test = new TestBuilder()
+	.testId('authentication/login')
+	.executionId('execution-123')
   .name('User login test')
   .status('passed')
   .duration(1500)
@@ -263,7 +266,3 @@ const v0_0Schema = getSchema('0.0.0')
 const version = getCurrentSpecVersion()      // '0.0.0'
 const supported = getSupportedSpecVersions() // ['0.0.0']
 ```
-
-## ⚠️ Upgrading from v0.0.17?
-
-**Version 0.1.0 contains breaking changes.** See the [Migration Guide](MIGRATION.md) for detailed upgrade instructions.

@@ -39,13 +39,13 @@ export function filterTests(
  * Find a single test in a report.
  *
  * @param report - The CTRF report to search
- * @param criteria - Filter criteria including id, name, status, tags, etc.
+ * @param criteria - Filter criteria including testId, executionId, legacy id, name, status, tags, etc.
  * @returns The first matching test, or undefined if not found
  *
  * @example
  * ```typescript
- * // Find by ID
- * const test = findTest(report, { id: 'uuid' });
+ * // Find by stable logical test case ID
+ * const test = findTest(report, { testId: 'auth/login' });
  *
  * // Find by name
  * const test = findTest(report, { name: 'should login' });
@@ -58,10 +58,18 @@ export function findTest(
 	report: CTRFReport,
 	criteria: FilterCriteria,
 ): Test | undefined {
-	const { id, name, ...filterCriteria } = criteria;
+	const { id, testId, executionId, name, ...filterCriteria } = criteria;
 
 	return report.results.tests.find((test) => {
 		if (id !== undefined && test.id !== id) {
+			return false;
+		}
+
+		if (testId !== undefined && test.testId !== testId) {
+			return false;
+		}
+
+		if (executionId !== undefined && test.executionId !== executionId) {
 			return false;
 		}
 

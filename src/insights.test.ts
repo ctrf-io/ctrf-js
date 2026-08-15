@@ -21,6 +21,7 @@ describe("insights", () => {
 			flaky?: boolean;
 			retries?: number;
 			id?: string;
+			testId?: string;
 		}[],
 		timing?: { start: number; stop: number },
 	): CTRFReport => {
@@ -37,6 +38,7 @@ describe("insights", () => {
 				.duration(t.duration || 100);
 
 			if (t.id) testBuilder.id(t.id);
+			if (t.testId) testBuilder.testId(t.testId);
 			if (t.flaky !== undefined) testBuilder.flaky(t.flaky);
 			if (t.retries !== undefined) testBuilder.retries(t.retries);
 
@@ -248,6 +250,26 @@ describe("insights", () => {
 	});
 
 	describe("calculateTestInsights", () => {
+		it("should prefer testId over legacy id", () => {
+			const reports = [
+				createReport([
+					{
+						name: "test1",
+						status: "passed",
+						id: "legacy-id",
+						testId: "logical-id",
+					},
+				]),
+			];
+
+			expect(calculateTestInsights(reports, "logical-id").executedInRuns).toBe(
+				1,
+			);
+			expect(calculateTestInsights(reports, "legacy-id").executedInRuns).toBe(
+				0,
+			);
+		});
+
 		it("should return empty insights for test not found", () => {
 			const reports = [
 				createReport([{ name: "test1", status: "passed", id: "id-1" }]),
