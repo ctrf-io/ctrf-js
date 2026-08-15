@@ -266,5 +266,3 @@ const v0_0Schema = getSchema('0.0.0')
 const version = getCurrentSpecVersion()      // '0.0.0'
 const supported = getSupportedSpecVersions() // ['0.0.0']
 ```
-
-## ⚠️ Upgrading from v0.0.17?
