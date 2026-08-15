@@ -14,7 +14,8 @@
 			"!community-reports",
 			"!templates",
 			"!.github",
-			"!docs"
+			"!docs",
+			"!src/ctrf-schema-*.json"
 		]
 	},
 	"formatter": {

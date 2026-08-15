@@ -130,6 +130,33 @@ describe("validate", () => {
 			expect(validate(report).valid).toBe(false);
 		});
 
+		it.each([
+			[
+				"negative retries",
+				{ name: "test", status: "passed", duration: 100, retries: -1 },
+			],
+			[
+				"empty retry attempts",
+				{ name: "test", status: "passed", duration: 100, retryAttempts: [] },
+			],
+			[
+				"negative retry duration",
+				{
+					name: "test",
+					status: "passed",
+					duration: 100,
+					retryAttempts: [{ attempt: 1, status: "failed", duration: -1 }],
+				},
+			],
+		])("should reject %s", (_description, test) => {
+			const report = {
+				...validReport,
+				results: { ...validReport.results, tests: [test] },
+			};
+
+			expect(validate(report).valid).toBe(false);
+		});
+
 		it("should accept identity fields", () => {
 			const report: CTRFReport = {
 				...validReport,

@@ -268,5 +268,3 @@ const supported = getSupportedSpecVersions() // ['0.0.0']
 ```
 
 ## ⚠️ Upgrading from v0.0.17?
-
-**Version 0.1.0 contains breaking changes.** See the [Migration Guide](MIGRATION.md) for detailed upgrade instructions.
