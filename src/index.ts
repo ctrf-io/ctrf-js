@@ -21,6 +21,8 @@ export type {
 	MetricDelta,
 	Baseline,
 	TestStatus,
+	LabelPrimitive,
+	LabelValue,
 	ValidationResult,
 	ValidationErrorDetail,
 	MergeOptions,

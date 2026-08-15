@@ -86,6 +86,175 @@ describe("validate", () => {
 
 			expect(result.valid).toBe(false);
 		});
+
+		it("should accept scalar and multi-value labels", () => {
+			const report: CTRFReport = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: {
+								priority: "high",
+								owners: ["qa", "platform"],
+								externalIds: [123, 456],
+								featureFlags: [true, false],
+							},
+						},
+					],
+				},
+			};
+
+			expect(validate(report).valid).toBe(true);
+		});
+
+		it("should reject empty label arrays", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: { owners: [] },
+						},
+					],
+				},
+			};
+
+			expect(validate(report).valid).toBe(false);
+		});
+
+		it("should accept identity fields", () => {
+			const report: CTRFReport = {
+				...validReport,
+				reportId: "c8704d72-f8ca-4c60-a751-34385afbd87b",
+				runId: "run-2026-08-13",
+				results: {
+					...validReport.results,
+					environment: { shardId: "shard-1-of-4" },
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							testId: "auth/login",
+							executionId: "execution-123",
+							retryAttempts: [
+								{
+									attempt: 1,
+									attemptId: "attempt-1",
+									status: "failed",
+									attachments: [
+										{
+											attachmentId: "attachment-1",
+											name: "trace",
+											contentType: "text/plain",
+											path: "trace.txt",
+										},
+									],
+								},
+							],
+						},
+					],
+				},
+			};
+
+			expect(validate(report).valid).toBe(true);
+		});
+
+		it.each([
+			["runId", { ...validReport, runId: "" }],
+			[
+				"testId",
+				{
+					...validReport,
+					results: {
+						...validReport.results,
+						tests: [
+							{ name: "test", status: "passed", duration: 100, testId: "" },
+						],
+					},
+				},
+			],
+			[
+				"executionId",
+				{
+					...validReport,
+					results: {
+						...validReport.results,
+						tests: [
+							{
+								name: "test",
+								status: "passed",
+								duration: 100,
+								executionId: "",
+							},
+						],
+					},
+				},
+			],
+			[
+				"attemptId",
+				{
+					...validReport,
+					results: {
+						...validReport.results,
+						tests: [
+							{
+								name: "test",
+								status: "passed",
+								duration: 100,
+								retryAttempts: [
+									{ attempt: 1, attemptId: "", status: "failed" },
+								],
+							},
+						],
+					},
+				},
+			],
+			[
+				"attachmentId",
+				{
+					...validReport,
+					results: {
+						...validReport.results,
+						tests: [
+							{
+								name: "test",
+								status: "passed",
+								duration: 100,
+								attachments: [
+									{
+										attachmentId: "",
+										name: "trace",
+										contentType: "text/plain",
+										path: "trace.txt",
+									},
+								],
+							},
+						],
+					},
+				},
+			],
+			[
+				"shardId",
+				{
+					...validReport,
+					results: {
+						...validReport.results,
+						environment: { shardId: "" },
+					},
+				},
+			],
+		])("should reject an empty %s", (_field, report) => {
+			expect(validate(report).valid).toBe(false);
+		});
 	});
 
 	describe("isValid", () => {

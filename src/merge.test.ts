@@ -104,6 +104,33 @@ describe("merge", () => {
 			expect(merged.results.tests[0].status).toBe("passed");
 		});
 
+		it("should prefer executionId when deduplicating", () => {
+			const report1 = createReport([{ name: "test1", status: "failed" }]);
+			report1.results.tests[0].testId = "logical-test";
+			report1.results.tests[0].executionId = "execution-1";
+
+			const report2 = createReport([{ name: "test1", status: "passed" }]);
+			report2.results.tests[0].testId = "logical-test";
+			report2.results.tests[0].executionId = "execution-2";
+
+			const merged = merge([report1, report2], { deduplicateTests: true });
+
+			expect(merged.results.tests).toHaveLength(2);
+		});
+
+		it("should deduplicate by testId when executionId is absent", () => {
+			const report1 = createReport([{ name: "test1", status: "failed" }]);
+			report1.results.tests[0].testId = "logical-test";
+
+			const report2 = createReport([{ name: "test1", status: "passed" }]);
+			report2.results.tests[0].testId = "logical-test";
+
+			const merged = merge([report1, report2], { deduplicateTests: true });
+
+			expect(merged.results.tests).toHaveLength(1);
+			expect(merged.results.tests[0].status).toBe("passed");
+		});
+
 		it("should not deduplicate by default", () => {
 			const report1 = createReport([{ name: "test1", status: "failed" }]);
 			report1.results.tests[0].id = "same-id";
@@ -171,6 +198,28 @@ describe("merge", () => {
 			expect(merged.reportId).not.toBe("old-id-1");
 			expect(merged.reportId).not.toBe("old-id-2");
 			expect(merged.timestamp).toBeDefined();
+		});
+
+		it("should preserve a runId shared by all source reports", () => {
+			const report1 = createReport([{ name: "test1", status: "passed" }], {
+				runId: "run-123",
+			});
+			const report2 = createReport([{ name: "test2", status: "passed" }], {
+				runId: "run-123",
+			});
+
+			expect(merge([report1, report2]).runId).toBe("run-123");
+		});
+
+		it("should omit runId when source reports represent different runs", () => {
+			const report1 = createReport([{ name: "test1", status: "passed" }], {
+				runId: "run-1",
+			});
+			const report2 = createReport([{ name: "test2", status: "passed" }], {
+				runId: "run-2",
+			});
+
+			expect(merge([report1, report2]).runId).toBeUndefined();
 		});
 
 		it("should merge extra metadata", () => {

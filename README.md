@@ -105,13 +105,16 @@ import { ReportBuilder, TestBuilder } from 'ctrf'
 
 // ReportBuilder - fluent API for constructing reports
 const report = new ReportBuilder()
-  .tool({ name: 'vitest', version: '1.0.0' })
-  .environment({ os: 'linux', arch: 'x64' })
+	.runId('run-2026-08-13')
+	.tool({ name: 'vitest', version: '1.0.0' })
+	.environment({ osPlatform: 'linux', shardId: 'shard-1-of-4' })
   .addTest(/* ... */)
   .build()
 
 // TestBuilder - fluent API for constructing tests
 const test = new TestBuilder()
+	.testId('authentication/login')
+	.executionId('execution-123')
   .name('User login test')
   .status('passed')
   .duration(1500)

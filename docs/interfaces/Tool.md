@@ -6,7 +6,7 @@
 
 # Interface: Tool
 
-Defined in: [types.ts:59](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L59)
+Defined in: [types.ts:61](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L61)
 
 Test tool information
 
@@ -16,7 +16,7 @@ Test tool information
 
 > **name**: `string`
 
-Defined in: [types.ts:61](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L61)
+Defined in: [types.ts:63](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L63)
 
 Name of the test tool (e.g., 'jest', 'playwright')
 
@@ -26,7 +26,7 @@ Name of the test tool (e.g., 'jest', 'playwright')
 
 > `optional` **version?**: `string`
 
-Defined in: [types.ts:63](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L63)
+Defined in: [types.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L65)
 
 Version of the test tool
 
@@ -36,6 +36,6 @@ Version of the test tool
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L65)
+Defined in: [types.ts:67](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L67)
 
 Custom metadata

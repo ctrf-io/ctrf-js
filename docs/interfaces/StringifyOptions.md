@@ -6,7 +6,7 @@
 
 # Interface: StringifyOptions
 
-Defined in: [types.ts:498](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L498)
+Defined in: [types.ts:522](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L522)
 
 Options for stringifying to JSON
 
@@ -16,7 +16,7 @@ Options for stringifying to JSON
 
 > `optional` **pretty?**: `boolean`
 
-Defined in: [types.ts:500](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L500)
+Defined in: [types.ts:524](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L524)
 
 Pretty print with indentation
 
@@ -26,6 +26,6 @@ Pretty print with indentation
 
 > `optional` **indent?**: `number`
 
-Defined in: [types.ts:502](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L502)
+Defined in: [types.ts:526](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L526)
 
 Number of spaces for indentation (default: 2)

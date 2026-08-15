@@ -42,11 +42,21 @@ Unique identifier for this report (UUID v4)
 
 ***
 
+### runId?
+
+> `optional` **runId?**: `string`
+
+Defined in: [types.ts:23](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L23)
+
+Identifier shared by all documents belonging to the same logical test run
+
+***
+
 ### timestamp?
 
 > `optional` **timestamp?**: `string`
 
-Defined in: [types.ts:23](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L23)
+Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
 
 ISO 8601 timestamp when the report was generated
 
@@ -56,7 +66,7 @@ ISO 8601 timestamp when the report was generated
 
 > `optional` **generatedBy?**: `string`
 
-Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
+Defined in: [types.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L27)
 
 Name of the tool/library that generated this report
 
@@ -66,7 +76,7 @@ Name of the tool/library that generated this report
 
 > **results**: [`Results`](Results.md)
 
-Defined in: [types.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L27)
+Defined in: [types.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L29)
 
 The test results
 
@@ -76,7 +86,7 @@ The test results
 
 > `optional` **insights?**: [`Insights`](Insights.md)
 
-Defined in: [types.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L29)
+Defined in: [types.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L31)
 
 Run-level insights computed from historical data
 
@@ -86,7 +96,7 @@ Run-level insights computed from historical data
 
 > `optional` **baseline?**: [`Baseline`](Baseline.md)
 
-Defined in: [types.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L31)
+Defined in: [types.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L33)
 
 Reference to a baseline report for comparison
 
@@ -96,6 +106,6 @@ Reference to a baseline report for comparison
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L33)
+Defined in: [types.ts:35](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L35)
 
 Custom metadata

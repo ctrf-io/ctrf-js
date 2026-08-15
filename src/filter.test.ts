@@ -27,6 +27,8 @@ describe("filter", () => {
 				.duration(t.duration || 100);
 
 			if (t.id) testBuilder.id(t.id);
+			if (t.testId) testBuilder.testId(t.testId);
+			if (t.executionId) testBuilder.executionId(t.executionId);
 			if (t.tags) testBuilder.tags(t.tags);
 			if (t.suite) testBuilder.suite(t.suite);
 			if (t.flaky !== undefined) testBuilder.flaky(t.flaky);
@@ -156,6 +158,28 @@ describe("filter", () => {
 	});
 
 	describe("findTest", () => {
+		it("should find test by preferred testId", () => {
+			const report = createReport([
+				{ name: "test1", id: "legacy-1", testId: "logical-1" },
+				{ name: "test2", id: "legacy-2", testId: "logical-2" },
+			]);
+
+			const result = findTest(report, { testId: "logical-2" });
+
+			expect(result?.name).toBe("test2");
+		});
+
+		it("should find test by executionId", () => {
+			const report = createReport([
+				{ name: "test1", testId: "logical", executionId: "execution-1" },
+				{ name: "test2", testId: "logical", executionId: "execution-2" },
+			]);
+
+			const result = findTest(report, { executionId: "execution-2" });
+
+			expect(result?.name).toBe("test2");
+		});
+
 		it("should find test by id", () => {
 			const report = createReport([
 				{ name: "test1", id: "id-1" },

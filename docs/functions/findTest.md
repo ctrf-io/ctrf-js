@@ -22,7 +22,7 @@ The CTRF report to search
 
 [`FilterCriteria`](../interfaces/FilterCriteria.md)
 
-Filter criteria including id, name, status, tags, etc.
+Filter criteria including testId, executionId, legacy id, name, status, tags, etc.
 
 ## Returns
 
@@ -33,8 +33,8 @@ The first matching test, or undefined if not found
 ## Example
 
 ```typescript
-// Find by ID
-const test = findTest(report, { id: 'uuid' });
+// Find by stable logical test case ID
+const test = findTest(report, { testId: 'auth/login' });
 
 // Find by name
 const test = findTest(report, { name: 'should login' });

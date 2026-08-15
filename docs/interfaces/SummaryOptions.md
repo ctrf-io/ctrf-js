@@ -6,7 +6,7 @@
 
 # Interface: SummaryOptions
 
-Defined in: [types.ts:476](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L476)
+Defined in: [types.ts:500](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L500)
 
 Options for calculating summary
 
@@ -16,7 +16,7 @@ Options for calculating summary
 
 > `optional` **start?**: `number`
 
-Defined in: [types.ts:478](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L478)
+Defined in: [types.ts:502](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L502)
 
 Start timestamp
 
@@ -26,6 +26,6 @@ Start timestamp
 
 > `optional` **stop?**: `number`
 
-Defined in: [types.ts:480](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L480)
+Defined in: [types.ts:504](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L504)
 
 Stop timestamp

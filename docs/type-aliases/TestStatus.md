@@ -8,6 +8,6 @@
 
 > **TestStatus** = `"passed"` \| `"failed"` \| `"skipped"` \| `"pending"` \| `"other"`
 
-Defined in: [types.ts:173](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L173)
+Defined in: [types.ts:181](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L181)
 
 Test status enum

@@ -17,6 +17,7 @@ import type {
 	RetryAttempt,
 	Step,
 	TestStatus,
+	LabelValue,
 	ReportBuilderOptions,
 	TestBuilderOptions,
 } from "./types.js";
@@ -49,6 +50,7 @@ import { BuilderError } from "./errors.js";
 export class ReportBuilder {
 	private _specVersion: string = CURRENT_SPEC_VERSION;
 	private _reportId?: string;
+	private _runId?: string;
 	private _timestamp?: string;
 	private _generatedBy?: string;
 	private _tool?: Tool;
@@ -82,6 +84,14 @@ export class ReportBuilder {
 	 */
 	reportId(uuid?: string): this {
 		this._reportId = uuid ?? generateReportId();
+		return this;
+	}
+
+	/**
+	 * Set the logical test run ID shared across related CTRF documents.
+	 */
+	runId(id: string): this {
+		this._runId = id;
 		return this;
 	}
 
@@ -209,6 +219,10 @@ export class ReportBuilder {
 			report.reportId = this._reportId;
 		}
 
+		if (this._runId) {
+			report.runId = this._runId;
+		}
+
 		if (this._timestamp) {
 			report.timestamp = this._timestamp;
 		}
@@ -250,6 +264,8 @@ export class ReportBuilder {
  */
 export class TestBuilder {
 	private _id?: string;
+	private _testId?: string;
+	private _executionId?: string;
 	private _name?: string;
 	private _status?: TestStatus;
 	private _duration?: number;
@@ -263,6 +279,7 @@ export class TestBuilder {
 	private _line?: number;
 	private _rawStatus?: string;
 	private _tags?: string[];
+	private _labels?: Record<string, LabelValue>;
 	private _type?: string;
 	private _filePath?: string;
 	private _retries?: number;
@@ -288,6 +305,22 @@ export class TestBuilder {
 	 */
 	id(uuid?: string): this {
 		this._id = uuid;
+		return this;
+	}
+
+	/**
+	 * Set the stable logical test case ID.
+	 */
+	testId(id: string): this {
+		this._testId = id;
+		return this;
+	}
+
+	/**
+	 * Set the identifier for this specific test execution.
+	 */
+	executionId(id: string): this {
+		this._executionId = id;
 		return this;
 	}
 
@@ -392,6 +425,14 @@ export class TestBuilder {
 	 */
 	tags(tags: string[]): this {
 		this._tags = tags;
+		return this;
+	}
+
+	/**
+	 * Set structured labels.
+	 */
+	labels(labels: Record<string, LabelValue>): this {
+		this._labels = labels;
 		return this;
 	}
 
@@ -572,6 +613,14 @@ export class TestBuilder {
 			test.id = this._id;
 		}
 
+		if (this._testId) {
+			test.testId = this._testId;
+		}
+
+		if (this._executionId) {
+			test.executionId = this._executionId;
+		}
+
 		// Add optional fields only if set
 		if (this._start !== undefined) test.start = this._start;
 		if (this._stop !== undefined) test.stop = this._stop;
@@ -583,6 +632,7 @@ export class TestBuilder {
 		if (this._line !== undefined) test.line = this._line;
 		if (this._rawStatus) test.rawStatus = this._rawStatus;
 		if (this._tags) test.tags = this._tags;
+		if (this._labels) test.labels = this._labels;
 		if (this._type) test.type = this._type;
 		if (this._filePath) test.filePath = this._filePath;
 		if (this._retries !== undefined) test.retries = this._retries;

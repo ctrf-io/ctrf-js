@@ -193,6 +193,11 @@ The current version CTRF JSON Schema object.
 
 - [schema](variables/schema.md)
 
+## Type Aliases
+
+- [LabelPrimitive](type-aliases/LabelPrimitive.md)
+- [LabelValue](type-aliases/LabelValue.md)
+
 ## Type Guards
 Check if a report has insights.
 

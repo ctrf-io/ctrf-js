@@ -6,7 +6,7 @@
 
 # Interface: InsightsOptions
 
-Defined in: [types.ts:442](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L442)
+Defined in: [types.ts:466](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L466)
 
 Options for insights calculation
 
@@ -16,7 +16,7 @@ Options for insights calculation
 
 > `optional` **baseline?**: [`CTRFReport`](CTRFReport.md)
 
-Defined in: [types.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L444)
+Defined in: [types.ts:468](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L468)
 
 Baseline report for comparison
 
@@ -26,6 +26,6 @@ Baseline report for comparison
 
 > `optional` **window?**: `number`
 
-Defined in: [types.ts:446](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L446)
+Defined in: [types.ts:470](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L470)
 
 Number of historical reports to analyze
