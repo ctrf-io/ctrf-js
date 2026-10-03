@@ -16,7 +16,7 @@ A complete TypeScript implementation for working with CTRF (Common Test Report F
 
 The core functions for working with CTRF reports:
 
-- **[validate](functions/validate.md)** - Validate a report against the JSON schema
+- **[validate](functions/validate.md)** - Validate schema and normative cross-field rules
 - **[isValid](functions/isValid.md)** - Type guard to check if a report is valid
 - **[validateStrict](functions/validateStrict.md)** - Validate and throw on invalid reports
 - **[parse](functions/parse.md)** - Parse JSON string into a CTRFReport
@@ -47,7 +47,8 @@ The core schema types that define CTRF structure (what consumers import):
 
 - [Attachment](interfaces/Attachment.md) - Files/data attached to tests
 - [Step](interfaces/Step.md) - Individual test execution steps
-- [RetryAttempt](interfaces/RetryAttempt.md) - Test retry information
+- [AttemptHistoryEntry](interfaces/AttemptHistoryEntry.md) - An attempt completed before the final test attempt
+- [RetryAttempt](type-aliases/RetryAttempt.md) - Deprecated compatibility alias
 - [Insights](interfaces/Insights.md) - Historical run insights
 - [TestInsights](interfaces/TestInsights.md) - Historical test insights
 - [Baseline](interfaces/Baseline.md) - Baseline comparison metrics
@@ -84,7 +85,8 @@ Runtime type checking functions:
 - [isCTRFReport](functions/isCTRFReport.md) - Check if object is a CTRF report
 - [isTest](functions/isTest.md) - Check if object is a Test
 - [isTestStatus](functions/isTestStatus.md) - Check if value is a valid status
-- [isRetryAttempt](functions/isRetryAttempt.md) - Check if object is a retry attempt
+- [isAttemptHistoryEntry](functions/isAttemptHistoryEntry.md) - Check required attempt-history fields
+- [isRetryAttempt](functions/isRetryAttempt.md) - Deprecated compatibility alias
 - [hasInsights](functions/hasInsights.md) - Check if report has insights
 
 ### ID Generation

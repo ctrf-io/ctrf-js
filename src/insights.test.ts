@@ -40,7 +40,15 @@ describe("insights", () => {
 			if (t.id) testBuilder.id(t.id);
 			if (t.testId) testBuilder.testId(t.testId);
 			if (t.flaky !== undefined) testBuilder.flaky(t.flaky);
-			if (t.retries !== undefined) testBuilder.retries(t.retries);
+			if (t.retries !== undefined) {
+				testBuilder.retries(t.retries);
+				for (let attempt = 1; attempt <= t.retries; attempt += 1) {
+					testBuilder.addAttemptHistoryEntry({
+						attempt,
+						status: "failed",
+					});
+				}
+			}
 
 			builder.addTest(testBuilder.build());
 		}
@@ -66,6 +74,8 @@ describe("insights", () => {
 				.status("passed")
 				.duration(100)
 				.retries(2)
+				.addAttemptHistoryEntry({ attempt: 1, status: "failed" })
+				.addAttemptHistoryEntry({ attempt: 2, status: "failed" })
 				.build();
 
 			expect(isTestFlaky(test)).toBe(true);
@@ -77,6 +87,8 @@ describe("insights", () => {
 				.status("failed")
 				.duration(100)
 				.retries(2)
+				.addAttemptHistoryEntry({ attempt: 1, status: "failed" })
+				.addAttemptHistoryEntry({ attempt: 2, status: "failed" })
 				.build();
 
 			expect(isTestFlaky(test)).toBe(false);

@@ -8,7 +8,7 @@
 
 > **isTest**(`obj`): `obj is { name: string; status: string; duration: number }`
 
-Defined in: [validate.ts:154](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L154)
+Defined in: [validate.ts:215](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L215)
 
 ## Parameters
 

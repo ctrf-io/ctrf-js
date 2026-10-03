@@ -13,6 +13,7 @@ export type {
 	Summary,
 	Test,
 	Environment,
+	AttemptHistoryEntry,
 	RetryAttempt,
 	Attachment,
 	Step,
@@ -55,6 +56,7 @@ export {
 	isCTRFReport,
 	isTest,
 	isTestStatus,
+	isAttemptHistoryEntry,
 	isRetryAttempt,
 	hasInsights,
 } from "./validate.js";

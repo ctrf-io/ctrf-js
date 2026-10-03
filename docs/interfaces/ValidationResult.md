@@ -6,7 +6,7 @@
 
 # Interface: ValidationResult
 
-Defined in: [types.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L398)
+Defined in: [types.ts:410](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L410)
 
 Result of schema validation
 
@@ -16,7 +16,7 @@ Result of schema validation
 
 > **valid**: `boolean`
 
-Defined in: [types.ts:400](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L400)
+Defined in: [types.ts:412](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L412)
 
 Whether the report is valid
 
@@ -26,6 +26,6 @@ Whether the report is valid
 
 > **errors**: [`ValidationErrorDetail`](ValidationErrorDetail.md)[]
 
-Defined in: [types.ts:402](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L402)
+Defined in: [types.ts:414](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L414)
 
-Array of validation errors
+Array of schema or semantic validation errors

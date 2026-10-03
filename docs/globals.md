@@ -20,7 +20,8 @@ A complete TypeScript implementation for working with CTRF (Common Test Report F
 - [Summary](interfaces/Summary.md)
 - [Test](interfaces/Test.md)
 - [TestStatus](type-aliases/TestStatus.md)
-- [RetryAttempt](interfaces/RetryAttempt.md)
+- [AttemptHistoryEntry](interfaces/AttemptHistoryEntry.md)
+- [~~RetryAttempt~~](type-aliases/RetryAttempt.md)
 - [Attachment](interfaces/Attachment.md)
 - [Step](interfaces/Step.md)
 - [Environment](interfaces/Environment.md)
@@ -128,6 +129,10 @@ Contains detailed error information for each validation issue.
 
 - [ValidationError](classes/ValidationError.md)
 
+## Functions
+
+- [~~isRetryAttempt~~](functions/isRetryAttempt.md)
+
 ## ID Generation
 Generate a deterministic UUID v5 for a test based on its properties.
 The same inputs will always produce the same UUID, enabling
@@ -210,9 +215,9 @@ This is a quick, lightweight check that doesn't validate against the full schema
 - [isCTRFReport](functions/isCTRFReport.md)
 
 ## Type Guards
-Type guard for RetryAttempt objects.
+Type guard for attempt history entry objects.
 
-- [isRetryAttempt](functions/isRetryAttempt.md)
+- [isAttemptHistoryEntry](functions/isAttemptHistoryEntry.md)
 
 ## Type Guards
 Type guard for Test objects.

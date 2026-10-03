@@ -143,10 +143,10 @@ export interface Test {
 	type?: string;
 	/** Path to the test file */
 	filePath?: string;
-	/** Number of retry attempts */
+	/** Number of times the test was re-executed after its initial attempt */
 	retries?: number;
-	/** Details of each retry attempt */
-	retryAttempts?: RetryAttempt[];
+	/** Ordered history of attempts completed before the final attempt */
+	retryAttempts?: AttemptHistoryEntry[];
 	/** Whether the test is flaky */
 	flaky?: boolean;
 	/** Standard output captured during test */
@@ -187,12 +187,14 @@ export type LabelPrimitive = string | number | boolean;
 export type LabelValue = LabelPrimitive | [LabelPrimitive, ...LabelPrimitive[]];
 
 /**
- * Details of a test retry attempt
+ * An attempt completed before the final attempt represented by the test object.
+ * Despite the `retryAttempts` field name, the history includes the initial
+ * attempt when a retry occurred and excludes the final attempt.
  *
  * @group Core Types
  */
-export interface RetryAttempt {
-	/** Attempt number (1-indexed) */
+export interface AttemptHistoryEntry {
+	/** Original sequence number for this attempt (1 = initial execution) */
 	attempt: number;
 	/** Identifier for this individual attempt */
 	attemptId?: string;
@@ -221,6 +223,16 @@ export interface RetryAttempt {
 	/** Custom metadata */
 	extra?: Record<string, unknown>;
 }
+
+/**
+ * Backward-compatible name for an attempt history entry.
+ *
+ * @deprecated Use {@link AttemptHistoryEntry}. The CTRF field remains named
+ * `retryAttempts`, but its entries include the initial attempt and exclude the
+ * final attempt.
+ * @group Core Types
+ */
+export type RetryAttempt = AttemptHistoryEntry;
 
 /**
  * File attachment
@@ -398,7 +410,7 @@ export interface Baseline {
 export interface ValidationResult {
 	/** Whether the report is valid */
 	valid: boolean;
-	/** Array of validation errors */
+	/** Array of schema or semantic validation errors */
 	errors: ValidationErrorDetail[];
 }
 
@@ -412,7 +424,7 @@ export interface ValidationErrorDetail {
 	message: string;
 	/** JSON path to the error location */
 	path: string;
-	/** JSON Schema keyword that failed */
+	/** JSON Schema or semantic validation keyword that failed */
 	keyword: string;
 }
 
