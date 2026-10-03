@@ -3,6 +3,8 @@
  * Generated from the CTRF JSON Schema specification
  */
 
+import type { SchemaSelector } from "./constants.js";
+
 // ============================================================================
 // Core Types
 // ============================================================================
@@ -544,6 +546,6 @@ export interface StringifyOptions {
  * @group Validation Options
  */
 export interface ValidateOptions {
-	/** Specific spec version to validate against */
-	specVersion?: string;
+	/** Specific spec version to validate against, or `latest` (default) */
+	specVersion?: SchemaSelector;
 }

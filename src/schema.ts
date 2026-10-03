@@ -5,7 +5,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { CURRENT_SPEC_VERSION, SUPPORTED_SPEC_VERSIONS } from "./constants.js";
+import {
+	CURRENT_SPEC_VERSION,
+	SUPPORTED_SPEC_VERSIONS,
+	type SchemaSelector,
+	type SupportedSpecVersion,
+} from "./constants.js";
 import { SchemaVersionError } from "./errors.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,27 +20,35 @@ const _schemas = new Map<string, object>();
 
 /**
  * Load a schema file for a specific version.
- * Files should be named: ctrf-schema-{major}.{minor}.json
+ * Files are named: ctrf-schema-{major}.{minor}.{patch}.json
  */
-function loadSchemaForVersion(version: string): object {
-	const versionParts = version.split(".");
-	if (versionParts.length < 2) {
-		throw new SchemaVersionError(version, [...SUPPORTED_SPEC_VERSIONS]);
-	}
-	const majorMinor = `${versionParts[0]}.${versionParts[1]}`;
-
-	if (_schemas.has(majorMinor)) {
-		return _schemas.get(majorMinor) as object;
+function loadSchemaForVersion(version: SupportedSpecVersion): object {
+	if (_schemas.has(version)) {
+		return _schemas.get(version) as object;
 	}
 
-	const schemaPath = path.resolve(__dirname, `ctrf-schema-${majorMinor}.json`);
+	const schemaPath = path.resolve(__dirname, `ctrf-schema-${version}.json`);
 	if (!fs.existsSync(schemaPath)) {
 		throw new SchemaVersionError(version, [...SUPPORTED_SPEC_VERSIONS]);
 	}
 
 	const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8")) as object;
-	_schemas.set(majorMinor, schema);
+	_schemas.set(version, schema);
 	return schema;
+}
+
+function resolveSchemaSelector(selector: SchemaSelector): SupportedSpecVersion {
+	if (selector === "latest") return CURRENT_SPEC_VERSION;
+
+	if (
+		!SUPPORTED_SPEC_VERSIONS.includes(
+			selector as (typeof SUPPORTED_SPEC_VERSIONS)[number],
+		)
+	) {
+		throw new SchemaVersionError(selector, [...SUPPORTED_SPEC_VERSIONS]);
+	}
+
+	return selector;
 }
 
 /**
@@ -56,26 +69,18 @@ export const schema: object = loadSchemaForVersion(CURRENT_SPEC_VERSION);
  * @group Schema & Versioning
  * Get the JSON Schema for a specific CTRF spec version.
  *
- * @param version - The spec version (MAJOR.MINOR.PATCH) to get the schema for
+ * @param version - A supported spec version or `latest`
  * @returns The JSON Schema object for that version
  * @throws SchemaVersionError if the version is not supported
  *
  * @example
  * ```typescript
- * const v0_0Schema = getSchema('0.0.0');
- * const v1_0Schema = getSchema('1.0.0');
+ * const historicalSchema = getSchema('0.0.2');
+ * const latestSchema = getSchema('latest');
  * ```
  */
-export function getSchema(version: string): object {
-	if (
-		!SUPPORTED_SPEC_VERSIONS.includes(
-			version as (typeof SUPPORTED_SPEC_VERSIONS)[number],
-		)
-	) {
-		throw new SchemaVersionError(version, [...SUPPORTED_SPEC_VERSIONS]);
-	}
-
-	return loadSchemaForVersion(version);
+export function getSchema(version: SchemaSelector): object {
+	return loadSchemaForVersion(resolveSchemaSelector(version));
 }
 
 /**

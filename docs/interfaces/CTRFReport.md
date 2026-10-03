@@ -6,7 +6,7 @@
 
 # Interface: CTRFReport
 
-Defined in: [types.ts:15](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L15)
+Defined in: [types.ts:17](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L17)
 
 The root CTRF report object
 
@@ -16,7 +16,7 @@ The root CTRF report object
 
 > **reportFormat**: `"CTRF"`
 
-Defined in: [types.ts:17](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L17)
+Defined in: [types.ts:19](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L19)
 
 Must be 'CTRF'
 
@@ -26,7 +26,7 @@ Must be 'CTRF'
 
 > **specVersion**: `string`
 
-Defined in: [types.ts:19](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L19)
+Defined in: [types.ts:21](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L21)
 
 Semantic version of the CTRF specification
 
@@ -36,7 +36,7 @@ Semantic version of the CTRF specification
 
 > `optional` **reportId?**: `string`
 
-Defined in: [types.ts:21](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L21)
+Defined in: [types.ts:23](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L23)
 
 Unique identifier for this report (UUID v4)
 
@@ -46,7 +46,7 @@ Unique identifier for this report (UUID v4)
 
 > `optional` **runId?**: `string`
 
-Defined in: [types.ts:23](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L23)
+Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
 
 Identifier shared by all documents belonging to the same logical test run
 
@@ -56,7 +56,7 @@ Identifier shared by all documents belonging to the same logical test run
 
 > `optional` **timestamp?**: `string`
 
-Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
+Defined in: [types.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L27)
 
 ISO 8601 timestamp when the report was generated
 
@@ -66,7 +66,7 @@ ISO 8601 timestamp when the report was generated
 
 > `optional` **generatedBy?**: `string`
 
-Defined in: [types.ts:27](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L27)
+Defined in: [types.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L29)
 
 Name of the tool/library that generated this report
 
@@ -76,7 +76,7 @@ Name of the tool/library that generated this report
 
 > **results**: [`Results`](Results.md)
 
-Defined in: [types.ts:29](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L29)
+Defined in: [types.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L31)
 
 The test results
 
@@ -86,7 +86,7 @@ The test results
 
 > `optional` **insights?**: [`Insights`](Insights.md)
 
-Defined in: [types.ts:31](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L31)
+Defined in: [types.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L33)
 
 Run-level insights computed from historical data
 
@@ -96,7 +96,7 @@ Run-level insights computed from historical data
 
 > `optional` **baseline?**: [`Baseline`](Baseline.md)
 
-Defined in: [types.ts:33](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L33)
+Defined in: [types.ts:35](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L35)
 
 Reference to a baseline report for comparison
 
@@ -106,6 +106,6 @@ Reference to a baseline report for comparison
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:35](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L35)
+Defined in: [types.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L37)
 
 Custom metadata

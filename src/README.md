@@ -233,8 +233,8 @@ const updated = ctrf.recalculateSummary(report)
 import { ctrf } from 'ctrf'
 
 ctrf.REPORT_FORMAT          // 'ctrf'
-ctrf.CURRENT_SPEC_VERSION   // '1.0.0'
-ctrf.SUPPORTED_SPEC_VERSIONS // ['1.0.0']
+ctrf.CURRENT_SPEC_VERSION   // '0.1.0'
+ctrf.SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
 ctrf.TEST_STATUSES          // ['passed', 'failed', 'skipped', 'pending', 'other']
 ctrf.CTRF_NAMESPACE         // UUID namespace for deterministic IDs
 ```
@@ -262,12 +262,13 @@ try {
 ```typescript
 import { ctrf } from 'ctrf'
 
-// Get the JSON Schema
-const schema = ctrf.getSchema()
+// Get a historical schema or the latest published schema
+const historicalSchema = ctrf.getSchema('0.0.2')
+const latestSchema = ctrf.getSchema('latest')
 
 // Get version info
-const version = ctrf.getCurrentSpecVersion()      // '1.0.0'
-const supported = ctrf.getSupportedSpecVersions() // ['1.0.0']
+const version = ctrf.getCurrentSpecVersion()      // '0.1.0'
+const supported = ctrf.getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
 ```
 
 ## Design Principles

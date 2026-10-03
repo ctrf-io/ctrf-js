@@ -37,6 +37,8 @@ export type {
 	ValidateOptions,
 } from "./types.js";
 
+export type { SchemaSelector, SupportedSpecVersion } from "./constants.js";
+
 export {
 	REPORT_FORMAT,
 	CURRENT_SPEC_VERSION,

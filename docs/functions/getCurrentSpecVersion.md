@@ -8,7 +8,7 @@
 
 > **getCurrentSpecVersion**(): `string`
 
-Defined in: [schema.ts:88](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L88)
+Defined in: [schema.ts:93](https://github.com/ctrf-io/ctrf-js/blob/main/src/schema.ts#L93)
 
 ## Returns
 

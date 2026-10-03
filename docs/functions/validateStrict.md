@@ -6,9 +6,9 @@
 
 # Function: validateStrict()
 
-> **validateStrict**(`report`): `asserts report is CTRFReport`
+> **validateStrict**(`report`, `options?`): `asserts report is CTRFReport`
 
-Defined in: [validate.ts:166](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L166)
+Defined in: [validate.ts:193](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L193)
 
 ## Parameters
 
@@ -17,6 +17,12 @@ Defined in: [validate.ts:166](https://github.com/ctrf-io/ctrf-js/blob/main/src/v
 `unknown`
 
 The object to validate
+
+### options?
+
+[`ValidateOptions`](../interfaces/ValidateOptions.md) = `{}`
+
+Validation options (e.g., a specific spec version or `latest`)
 
 ## Returns
 

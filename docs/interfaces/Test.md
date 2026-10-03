@@ -6,7 +6,7 @@
 
 # Interface: Test
 
-Defined in: [types.ts:107](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L107)
+Defined in: [types.ts:109](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L109)
 
 Individual test result
 
@@ -16,7 +16,7 @@ Individual test result
 
 > `optional` **id?**: `string`
 
-Defined in: [types.ts:109](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L109)
+Defined in: [types.ts:111](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L111)
 
 Legacy test identifier (UUID); new producers should prefer testId
 
@@ -26,7 +26,7 @@ Legacy test identifier (UUID); new producers should prefer testId
 
 > `optional` **testId?**: `string`
 
-Defined in: [types.ts:111](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L111)
+Defined in: [types.ts:113](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L113)
 
 Stable identifier for the logical test case
 
@@ -36,7 +36,7 @@ Stable identifier for the logical test case
 
 > `optional` **executionId?**: `string`
 
-Defined in: [types.ts:113](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L113)
+Defined in: [types.ts:115](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L115)
 
 Identifier for this specific execution of the test case
 
@@ -46,7 +46,7 @@ Identifier for this specific execution of the test case
 
 > **name**: `string`
 
-Defined in: [types.ts:115](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L115)
+Defined in: [types.ts:117](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L117)
 
 Test name
 
@@ -56,7 +56,7 @@ Test name
 
 > **status**: [`TestStatus`](../type-aliases/TestStatus.md)
 
-Defined in: [types.ts:117](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L117)
+Defined in: [types.ts:119](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L119)
 
 Test execution status
 
@@ -66,7 +66,7 @@ Test execution status
 
 > **duration**: `number`
 
-Defined in: [types.ts:119](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L119)
+Defined in: [types.ts:121](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L121)
 
 Test duration in milliseconds
 
@@ -76,7 +76,7 @@ Test duration in milliseconds
 
 > `optional` **start?**: `number`
 
-Defined in: [types.ts:121](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L121)
+Defined in: [types.ts:123](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L123)
 
 Start timestamp (Unix epoch milliseconds)
 
@@ -86,7 +86,7 @@ Start timestamp (Unix epoch milliseconds)
 
 > `optional` **stop?**: `number`
 
-Defined in: [types.ts:123](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L123)
+Defined in: [types.ts:125](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L125)
 
 Stop timestamp (Unix epoch milliseconds)
 
@@ -96,7 +96,7 @@ Stop timestamp (Unix epoch milliseconds)
 
 > `optional` **suite?**: `string`[]
 
-Defined in: [types.ts:125](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L125)
+Defined in: [types.ts:127](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L127)
 
 Test suite hierarchy
 
@@ -106,7 +106,7 @@ Test suite hierarchy
 
 > `optional` **message?**: `string`
 
-Defined in: [types.ts:127](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L127)
+Defined in: [types.ts:129](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L129)
 
 Error message (for failed tests)
 
@@ -116,7 +116,7 @@ Error message (for failed tests)
 
 > `optional` **trace?**: `string`
 
-Defined in: [types.ts:129](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L129)
+Defined in: [types.ts:131](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L131)
 
 Stack trace (for failed tests)
 
@@ -126,7 +126,7 @@ Stack trace (for failed tests)
 
 > `optional` **snippet?**: `string`
 
-Defined in: [types.ts:131](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L131)
+Defined in: [types.ts:133](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L133)
 
 Code snippet where failure occurred
 
@@ -136,7 +136,7 @@ Code snippet where failure occurred
 
 > `optional` **ai?**: `string`
 
-Defined in: [types.ts:133](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L133)
+Defined in: [types.ts:135](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L135)
 
 AI-generated analysis or suggestion
 
@@ -146,7 +146,7 @@ AI-generated analysis or suggestion
 
 > `optional` **line?**: `number`
 
-Defined in: [types.ts:135](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L135)
+Defined in: [types.ts:137](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L137)
 
 Line number where test is defined or failed
 
@@ -156,7 +156,7 @@ Line number where test is defined or failed
 
 > `optional` **rawStatus?**: `string`
 
-Defined in: [types.ts:137](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L137)
+Defined in: [types.ts:139](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L139)
 
 Original status from the test framework
 
@@ -166,7 +166,7 @@ Original status from the test framework
 
 > `optional` **tags?**: `string`[]
 
-Defined in: [types.ts:139](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L139)
+Defined in: [types.ts:141](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L141)
 
 Tags for categorization
 
@@ -176,7 +176,7 @@ Tags for categorization
 
 > `optional` **labels?**: `Record`\<`string`, [`LabelValue`](../type-aliases/LabelValue.md)\>
 
-Defined in: [types.ts:141](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L141)
+Defined in: [types.ts:143](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L143)
 
 Structured key-value metadata; values may be scalar or multi-valued
 
@@ -186,7 +186,7 @@ Structured key-value metadata; values may be scalar or multi-valued
 
 > `optional` **type?**: `string`
 
-Defined in: [types.ts:143](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L143)
+Defined in: [types.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L145)
 
 Test type (e.g., 'unit', 'integration', 'e2e')
 
@@ -196,7 +196,7 @@ Test type (e.g., 'unit', 'integration', 'e2e')
 
 > `optional` **filePath?**: `string`
 
-Defined in: [types.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L145)
+Defined in: [types.ts:147](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L147)
 
 Path to the test file
 
@@ -206,7 +206,7 @@ Path to the test file
 
 > `optional` **retries?**: `number`
 
-Defined in: [types.ts:147](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L147)
+Defined in: [types.ts:149](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L149)
 
 Number of times the test was re-executed after its initial attempt
 
@@ -216,7 +216,7 @@ Number of times the test was re-executed after its initial attempt
 
 > `optional` **retryAttempts?**: [`AttemptHistoryEntry`](AttemptHistoryEntry.md)[]
 
-Defined in: [types.ts:149](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L149)
+Defined in: [types.ts:151](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L151)
 
 Ordered history of attempts completed before the final attempt
 
@@ -226,7 +226,7 @@ Ordered history of attempts completed before the final attempt
 
 > `optional` **flaky?**: `boolean`
 
-Defined in: [types.ts:151](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L151)
+Defined in: [types.ts:153](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L153)
 
 Whether the test is flaky
 
@@ -236,7 +236,7 @@ Whether the test is flaky
 
 > `optional` **stdout?**: `string`[]
 
-Defined in: [types.ts:153](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L153)
+Defined in: [types.ts:155](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L155)
 
 Standard output captured during test
 
@@ -246,7 +246,7 @@ Standard output captured during test
 
 > `optional` **stderr?**: `string`[]
 
-Defined in: [types.ts:155](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L155)
+Defined in: [types.ts:157](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L157)
 
 Standard error captured during test
 
@@ -256,7 +256,7 @@ Standard error captured during test
 
 > `optional` **threadId?**: `string`
 
-Defined in: [types.ts:157](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L157)
+Defined in: [types.ts:159](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L159)
 
 Thread/worker ID that ran this test
 
@@ -266,7 +266,7 @@ Thread/worker ID that ran this test
 
 > `optional` **browser?**: `string`
 
-Defined in: [types.ts:159](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L159)
+Defined in: [types.ts:161](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L161)
 
 Browser name (for browser tests)
 
@@ -276,7 +276,7 @@ Browser name (for browser tests)
 
 > `optional` **device?**: `string`
 
-Defined in: [types.ts:161](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L161)
+Defined in: [types.ts:163](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L163)
 
 Device name (for device tests)
 
@@ -286,7 +286,7 @@ Device name (for device tests)
 
 > `optional` **screenshot?**: `string`
 
-Defined in: [types.ts:163](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L163)
+Defined in: [types.ts:165](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L165)
 
 Base64 encoded screenshot
 
@@ -296,7 +296,7 @@ Base64 encoded screenshot
 
 > `optional` **attachments?**: [`Attachment`](Attachment.md)[]
 
-Defined in: [types.ts:165](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L165)
+Defined in: [types.ts:167](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L167)
 
 File attachments
 
@@ -306,7 +306,7 @@ File attachments
 
 > `optional` **parameters?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:167](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L167)
+Defined in: [types.ts:169](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L169)
 
 Test parameters (for parameterized tests)
 
@@ -316,7 +316,7 @@ Test parameters (for parameterized tests)
 
 > `optional` **steps?**: [`Step`](Step.md)[]
 
-Defined in: [types.ts:169](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L169)
+Defined in: [types.ts:171](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L171)
 
 Test steps
 
@@ -326,7 +326,7 @@ Test steps
 
 > `optional` **insights?**: [`TestInsights`](TestInsights.md)
 
-Defined in: [types.ts:171](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L171)
+Defined in: [types.ts:173](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L173)
 
 Test-level insights
 
@@ -336,6 +336,6 @@ Test-level insights
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:173](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L173)
+Defined in: [types.ts:175](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L175)
 
 Custom metadata

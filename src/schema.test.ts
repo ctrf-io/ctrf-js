@@ -29,20 +29,28 @@ describe("schema", () => {
 	});
 
 	describe("getSchema", () => {
-		it("should return schema for supported version", () => {
-			const result = getSchema(CURRENT_SPEC_VERSION);
+		it.each(SUPPORTED_SPEC_VERSIONS)(
+			"should return the schema for %s",
+			(version) => {
+				const result = getSchema(version);
 
-			expect(result).toBeDefined();
-			expect(typeof result).toBe("object");
+				expect(result).toBeDefined();
+				expect(typeof result).toBe("object");
+			},
+		);
+
+		it("should resolve latest to the current schema", () => {
+			expect(getSchema("latest")).toBe(getSchema(CURRENT_SPEC_VERSION));
+			expect(getSchema("latest")).toBe(schema);
 		});
 
 		it("should throw SchemaVersionError for unsupported version", () => {
-			expect(() => getSchema("99.0.0")).toThrow(SchemaVersionError);
+			expect(() => getSchema("99.0.0" as never)).toThrow(SchemaVersionError);
 		});
 
 		it("should include supported versions in error", () => {
 			try {
-				getSchema("99.0.0");
+				getSchema("99.0.0" as never);
 				expect.fail("Should have thrown");
 			} catch (error) {
 				expect(error).toBeInstanceOf(SchemaVersionError);

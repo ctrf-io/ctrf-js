@@ -13,10 +13,23 @@ import type {
 	ValidationErrorDetail,
 	ValidateOptions,
 } from "./types.js";
-import { REPORT_FORMAT, TEST_STATUSES } from "./constants.js";
+import {
+	CURRENT_SPEC_VERSION,
+	REPORT_FORMAT,
+	TEST_STATUSES,
+	type SupportedSpecVersion,
+} from "./constants.js";
 
-function validateRetryHistories(report: CTRFReport): ValidationErrorDetail[] {
+function validateRetryHistories(
+	report: CTRFReport,
+	version: SupportedSpecVersion,
+): ValidationErrorDetail[] {
 	const errors: ValidationErrorDetail[] = [];
+
+	// Versions before 0.0.4 used the earlier retry model. In those versions,
+	// matching history length was recommended rather than required, and the
+	// presence and ordering constraints below were not normative requirements.
+	if (version !== "0.0.4" && version !== "0.1.0") return errors;
 
 	for (const [testIndex, test] of report.results.tests.entries()) {
 		const path = `/results/tests/${testIndex}`;
@@ -80,7 +93,7 @@ function validateRetryHistories(report: CTRFReport): ValidationErrorDetail[] {
  *
  * @group Core Operations
  * @param report - The object to validate
- * @param options - Validation options (e.g., specific spec version)
+ * @param options - Validation options (e.g., a specific spec version or `latest`)
  * @returns Validation result containing `valid` boolean and `errors` array
  *
  * @example
@@ -91,16 +104,20 @@ function validateRetryHistories(report: CTRFReport): ValidationErrorDetail[] {
  * }
  *
  * // Validate against specific version
- * const result = validate(report, { specVersion: '1.0.0' });
+ * const result = validate(report, { specVersion: '0.0.2' });
  * ```
  */
 export function validate(
 	report: unknown,
 	options: ValidateOptions = {},
 ): ValidationResult {
-	const ajv = new Ajv({ allErrors: true });
+	const ajv = new Ajv({ allErrors: true, allowUnionTypes: true });
 	addFormats(ajv);
 
+	const selectedVersion =
+		!options.specVersion || options.specVersion === "latest"
+			? CURRENT_SPEC_VERSION
+			: options.specVersion;
 	const schemaToUse = options.specVersion
 		? getSchema(options.specVersion)
 		: schema;
@@ -116,7 +133,12 @@ export function validate(
 		})) || [];
 
 	if (valid) {
-		errors.push(...validateRetryHistories(report as CTRFReport));
+		errors.push(
+			...validateRetryHistories(
+				report as CTRFReport,
+				selectedVersion as SupportedSpecVersion,
+			),
+		);
 	}
 
 	return { valid: errors.length === 0, errors };
@@ -128,6 +150,7 @@ export function validate(
  * Check if a report is valid (type guard).
  *
  * @param report - The object to validate
+ * @param options - Validation options (e.g., a specific spec version or `latest`)
  * @returns true if the report is a valid CTRFReport
  *
  * @example
@@ -138,8 +161,11 @@ export function validate(
  * }
  * ```
  */
-export function isValid(report: unknown): report is CTRFReport {
-	const result = validate(report);
+export function isValid(
+	report: unknown,
+	options: ValidateOptions = {},
+): report is CTRFReport {
+	const result = validate(report, options);
 	return result.valid;
 }
 
@@ -149,6 +175,7 @@ export function isValid(report: unknown): report is CTRFReport {
  * Validate a report and throw if invalid (assertion).
  *
  * @param report - The object to validate
+ * @param options - Validation options (e.g., a specific spec version or `latest`)
  * @throws ValidationError if the report is invalid
  *
  * @example
@@ -163,8 +190,11 @@ export function isValid(report: unknown): report is CTRFReport {
  * }
  * ```
  */
-export function validateStrict(report: unknown): asserts report is CTRFReport {
-	const result = validate(report);
+export function validateStrict(
+	report: unknown,
+	options: ValidateOptions = {},
+): asserts report is CTRFReport {
+	const result = validate(report, options);
 
 	if (!result.valid) {
 		const errorMessages = result.errors
