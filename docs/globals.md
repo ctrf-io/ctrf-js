@@ -200,6 +200,8 @@ The current version CTRF JSON Schema object.
 
 ## Type Aliases
 
+- [SupportedSpecVersion](type-aliases/SupportedSpecVersion.md)
+- [SchemaSelector](type-aliases/SchemaSelector.md)
 - [LabelPrimitive](type-aliases/LabelPrimitive.md)
 - [LabelValue](type-aliases/LabelValue.md)
 

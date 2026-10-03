@@ -12,11 +12,12 @@ import {
 } from "./validate.js";
 import { ValidationError } from "./errors.js";
 import type { CTRFReport } from "./types.js";
+import { CURRENT_SPEC_VERSION } from "./constants.js";
 
 describe("validate", () => {
 	const validReport: CTRFReport = {
 		reportFormat: "CTRF",
-		specVersion: "1.0.0",
+		specVersion: CURRENT_SPEC_VERSION,
 		results: {
 			tool: { name: "jest" },
 			summary: {
@@ -50,7 +51,7 @@ describe("validate", () => {
 		it("should return errors for invalid report", () => {
 			const invalid = {
 				reportFormat: "INVALID",
-				specVersion: "1.0.0",
+				specVersion: CURRENT_SPEC_VERSION,
 				results: {},
 			};
 
@@ -63,7 +64,7 @@ describe("validate", () => {
 		it("should validate missing required fields", () => {
 			const missing = {
 				reportFormat: "CTRF",
-				specVersion: "1.0.0",
+				specVersion: CURRENT_SPEC_VERSION,
 			};
 
 			const result = validate(missing);
@@ -110,6 +111,95 @@ describe("validate", () => {
 			};
 
 			expect(validate(report).valid).toBe(true);
+		});
+
+		it("should apply the selected historical schema", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: { priority: "high" },
+						},
+					],
+				},
+			};
+
+			expect(validate(report, { specVersion: "0.0.1" }).valid).toBe(false);
+			expect(validate(report, { specVersion: "0.0.2" }).valid).toBe(true);
+		});
+
+		it("should distinguish scalar and multi-value label releases", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: { owners: ["qa", "platform"] },
+						},
+					],
+				},
+			};
+
+			expect(validate(report, { specVersion: "0.0.2" }).valid).toBe(false);
+			expect(validate(report, { specVersion: "0.0.3" }).valid).toBe(true);
+		});
+
+		it("should add identity fields in 0.0.3", () => {
+			const report = { ...validReport, runId: "run-1" };
+
+			expect(validate(report, { specVersion: "0.0.2" }).valid).toBe(false);
+			expect(validate(report, { specVersion: "0.0.3" }).valid).toBe(true);
+		});
+
+		it("should apply clarified retry semantics from 0.0.4 onward", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							retryAttempts: [{ attempt: 2, status: "failed" }],
+						},
+					],
+				},
+			};
+
+			expect(validate(report, { specVersion: "0.0.3" }).valid).toBe(true);
+			expect(validate(report, { specVersion: "0.0.4" }).valid).toBe(false);
+			expect(validate(report, { specVersion: "0.1.0" }).valid).toBe(false);
+		});
+
+		it("should treat latest as 0.1.0", () => {
+			const invalidLatestReport = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							retries: 1,
+						},
+					],
+				},
+			};
+
+			expect(validate(invalidLatestReport, { specVersion: "latest" })).toEqual(
+				validate(invalidLatestReport, { specVersion: "0.1.0" }),
+			);
 		});
 
 		it("should reject empty label arrays", () => {
@@ -385,6 +475,26 @@ describe("validate", () => {
 		it("should return false for undefined", () => {
 			expect(isValid(undefined)).toBe(false);
 		});
+
+		it("should honor the selected schema version", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: { priority: "high" },
+						},
+					],
+				},
+			};
+
+			expect(isValid(report, { specVersion: "0.0.1" })).toBe(false);
+			expect(isValid(report, { specVersion: "0.0.2" })).toBe(true);
+		});
 	});
 
 	describe("validateStrict", () => {
@@ -423,6 +533,30 @@ describe("validate", () => {
 				expect(error).toBeInstanceOf(ValidationError);
 				expect((error as ValidationError).errors.length).toBeGreaterThan(0);
 			}
+		});
+
+		it("should honor the selected schema version", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							labels: { priority: "high" },
+						},
+					],
+				},
+			};
+
+			expect(() => validateStrict(report, { specVersion: "0.0.1" })).toThrow(
+				ValidationError,
+			);
+			expect(() =>
+				validateStrict(report, { specVersion: "0.0.2" }),
+			).not.toThrow();
 		});
 	});
 

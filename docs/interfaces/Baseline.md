@@ -6,7 +6,7 @@
 
 # Interface: Baseline
 
-Defined in: [types.ts:382](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L382)
+Defined in: [types.ts:384](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L384)
 
 Reference to a baseline report
 
@@ -16,7 +16,7 @@ Reference to a baseline report
 
 > **reportId**: `string`
 
-Defined in: [types.ts:384](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L384)
+Defined in: [types.ts:386](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L386)
 
 Report ID of the baseline report
 
@@ -26,7 +26,7 @@ Report ID of the baseline report
 
 > `optional` **timestamp?**: `string`
 
-Defined in: [types.ts:386](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L386)
+Defined in: [types.ts:388](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L388)
 
 Timestamp of the baseline report
 
@@ -36,7 +36,7 @@ Timestamp of the baseline report
 
 > `optional` **source?**: `string`
 
-Defined in: [types.ts:388](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L388)
+Defined in: [types.ts:390](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L390)
 
 Source description (e.g., 'main-branch', 'previous-run')
 
@@ -46,7 +46,7 @@ Source description (e.g., 'main-branch', 'previous-run')
 
 > `optional` **buildNumber?**: `number`
 
-Defined in: [types.ts:390](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L390)
+Defined in: [types.ts:392](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L392)
 
 Build number of the baseline
 
@@ -56,7 +56,7 @@ Build number of the baseline
 
 > `optional` **buildName?**: `string`
 
-Defined in: [types.ts:392](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L392)
+Defined in: [types.ts:394](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L394)
 
 Build name of the baseline
 
@@ -66,7 +66,7 @@ Build name of the baseline
 
 > `optional` **buildUrl?**: `string`
 
-Defined in: [types.ts:394](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L394)
+Defined in: [types.ts:396](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L396)
 
 Build URL of the baseline
 
@@ -76,7 +76,7 @@ Build URL of the baseline
 
 > `optional` **commit?**: `string`
 
-Defined in: [types.ts:396](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L396)
+Defined in: [types.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L398)
 
 Git commit of the baseline
 
@@ -86,6 +86,6 @@ Git commit of the baseline
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L398)
+Defined in: [types.ts:400](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L400)
 
 Custom metadata

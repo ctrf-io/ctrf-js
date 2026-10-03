@@ -8,7 +8,7 @@
 
 > **isTestStatus**(`value`): value is "skipped" \| "failed" \| "other" \| "pending" \| "passed"
 
-Defined in: [validate.ts:238](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L238)
+Defined in: [validate.ts:268](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L268)
 
 ## Parameters
 

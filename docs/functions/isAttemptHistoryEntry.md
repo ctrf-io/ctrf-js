@@ -8,7 +8,7 @@
 
 > **isAttemptHistoryEntry**(`obj`): `obj is AttemptHistoryEntry`
 
-Defined in: [validate.ts:255](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L255)
+Defined in: [validate.ts:285](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L285)
 
 ## Parameters
 

@@ -83,6 +83,12 @@ if (!result.valid) {
   result.errors?.forEach(err => console.error(err.message))
 }
 
+// Validate against a published historical schema
+const historicalResult = validate(report, { specVersion: '0.0.2' })
+
+// `latest` is an alias for the current published specification
+validateStrict(report, { specVersion: 'latest' })
+
 // Strict validation (throws on invalid)
 try {
   validateStrict(report)
@@ -247,8 +253,8 @@ import {
 } from 'ctrf'
 
 REPORT_FORMAT           // 'CTRF'
-CURRENT_SPEC_VERSION    // '0.0.0'
-SUPPORTED_SPEC_VERSIONS // ['0.0.0']
+CURRENT_SPEC_VERSION    // '0.1.0'
+SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
 TEST_STATUSES           // ['passed', 'failed', 'skipped', 'pending', 'other']
 CTRF_NAMESPACE          // UUID namespace for deterministic IDs
 ```
@@ -283,10 +289,11 @@ import { schema, getSchema, getCurrentSpecVersion, getSupportedSpecVersions } fr
 // Get the current JSON Schema
 console.log(schema)
 
-// Get schema for specific version
-const v0_0Schema = getSchema('0.0.0')
+// Get schemas for a specific version or the latest published specification
+const v0_0_2Schema = getSchema('0.0.2')
+const latestSchema = getSchema('latest')
 
 // Get version info
-const version = getCurrentSpecVersion()      // '0.0.0'
-const supported = getSupportedSpecVersions() // ['0.0.0']
+const version = getCurrentSpecVersion()      // '0.1.0'
+const supported = getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
 ```

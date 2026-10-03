@@ -6,7 +6,7 @@
 
 # Interface: MetricDelta
 
-Defined in: [types.ts:368](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L368)
+Defined in: [types.ts:370](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L370)
 
 Metric with current value, baseline, and change
 
@@ -16,7 +16,7 @@ Metric with current value, baseline, and change
 
 > `optional` **current?**: `number`
 
-Defined in: [types.ts:370](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L370)
+Defined in: [types.ts:372](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L372)
 
 Current value
 
@@ -26,7 +26,7 @@ Current value
 
 > `optional` **baseline?**: `number`
 
-Defined in: [types.ts:372](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L372)
+Defined in: [types.ts:374](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L374)
 
 Baseline value for comparison
 
@@ -36,6 +36,6 @@ Baseline value for comparison
 
 > `optional` **change?**: `number`
 
-Defined in: [types.ts:374](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L374)
+Defined in: [types.ts:376](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L376)
 
 Change from baseline (current - baseline)

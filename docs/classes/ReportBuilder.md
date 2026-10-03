@@ -12,7 +12,7 @@ Defined in: [builder.ts:50](https://github.com/ctrf-io/ctrf-js/blob/main/src/bui
 
 ```typescript
 const report = new ReportBuilder()
-  .specVersion('1.0.0')
+  .specVersion('0.1.0')
   .tool({ name: 'jest', version: '29.0.0' })
   .environment({ branchName: 'main' })
   .addTest(
