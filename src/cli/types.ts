@@ -55,7 +55,7 @@ export interface Test {
 	type?: string;
 	filePath?: string;
 	retries?: number;
-	retryAttempts?: RetryAttempt[];
+	retryAttempts?: AttemptHistoryEntry[];
 	flaky?: boolean;
 	stdout?: string[];
 	stderr?: string[];
@@ -115,7 +115,7 @@ export interface Attachment {
 	extra?: Record<string, unknown>;
 }
 
-export interface RetryAttempt {
+export interface AttemptHistoryEntry {
 	attempt: number;
 	attemptId?: string;
 	status: TestStatus;
@@ -131,6 +131,9 @@ export interface RetryAttempt {
 	attachments?: Attachment[];
 	extra?: Record<string, unknown>;
 }
+
+/** @deprecated Use AttemptHistoryEntry. */
+export type RetryAttempt = AttemptHistoryEntry;
 
 export interface RootInsights {
 	runsAnalyzed?: number;

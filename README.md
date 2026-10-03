@@ -125,6 +125,30 @@ const test = new TestBuilder()
   .build()
 ```
 
+### Retry Histories
+
+`retryAttempts` is the ordered history of attempts completed before the final
+attempt represented by the test object. It includes the initial attempt when a
+retry occurred and excludes the final attempt. `retries` must equal the number
+of history entries.
+
+```typescript
+const flakyTest = new TestBuilder()
+  .name('eventually succeeds')
+  .status('passed') // Final attempt
+  .duration(120)
+  .addAttemptHistoryEntry({ attempt: 1, status: 'failed', duration: 80 })
+  .addAttemptHistoryEntry({ attempt: 2, status: 'failed', duration: 90 })
+  .flaky()
+  .build()
+
+// flakyTest.retries === 2
+// flakyTest.retryAttempts contains attempts 1 and 2; the final attempt is 3.
+```
+
+`addRetryAttempt()` remains available as a deprecated alias for
+`addAttemptHistoryEntry()`.
+
 ### Parsing Reports
 
 ```typescript
@@ -238,7 +262,7 @@ try {
   validateStrict(report)
 } catch (error) {
   if (error instanceof ValidationError) {
-    console.error('Schema validation failed:', error.errors)
+    console.error('CTRF validation failed:', error.errors)
   }
 }
 

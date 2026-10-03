@@ -208,17 +208,17 @@ Path to the test file
 
 Defined in: [types.ts:147](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L147)
 
-Number of retry attempts
+Number of times the test was re-executed after its initial attempt
 
 ***
 
 ### retryAttempts?
 
-> `optional` **retryAttempts?**: [`RetryAttempt`](RetryAttempt.md)[]
+> `optional` **retryAttempts?**: [`AttemptHistoryEntry`](AttemptHistoryEntry.md)[]
 
 Defined in: [types.ts:149](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L149)
 
-Details of each retry attempt
+Ordered history of attempts completed before the final attempt
 
 ***
 

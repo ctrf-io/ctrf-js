@@ -14,7 +14,7 @@ import type {
 	TestInsights,
 	Baseline,
 	Attachment,
-	RetryAttempt,
+	AttemptHistoryEntry,
 	Step,
 	TestStatus,
 	LabelValue,
@@ -283,7 +283,7 @@ export class TestBuilder {
 	private _type?: string;
 	private _filePath?: string;
 	private _retries?: number;
-	private _retryAttempts?: RetryAttempt[];
+	private _retryAttempts?: AttemptHistoryEntry[];
 	private _flaky?: boolean;
 	private _stdout?: string[];
 	private _stderr?: string[];
@@ -453,7 +453,7 @@ export class TestBuilder {
 	}
 
 	/**
-	 * Set retry count.
+	 * Set the number of times the test was re-executed after its initial attempt.
 	 */
 	retries(count: number): this {
 		this._retries = count;
@@ -461,14 +461,27 @@ export class TestBuilder {
 	}
 
 	/**
-	 * Add a retry attempt.
+	 * Add an attempt completed before the final attempt.
+	 *
+	 * Entries must be added in their original contiguous sequence, beginning at
+	 * attempt 1. When `.retries()` is omitted, the builder derives it from the
+	 * number of history entries.
 	 */
-	addRetryAttempt(attempt: RetryAttempt): this {
+	addAttemptHistoryEntry(attempt: AttemptHistoryEntry): this {
 		if (!this._retryAttempts) {
 			this._retryAttempts = [];
 		}
 		this._retryAttempts.push(attempt);
 		return this;
+	}
+
+	/**
+	 * Backward-compatible alias for {@link addAttemptHistoryEntry}.
+	 *
+	 * @deprecated Use `addAttemptHistoryEntry()`.
+	 */
+	addRetryAttempt(attempt: AttemptHistoryEntry): this {
+		return this.addAttemptHistoryEntry(attempt);
 	}
 
 	/**
@@ -593,6 +606,43 @@ export class TestBuilder {
 		if (this._duration === undefined) {
 			throw new BuilderError(
 				"Test duration is required. Call .duration() before .build()",
+			);
+		}
+
+		if (
+			this._retries !== undefined &&
+			(!Number.isInteger(this._retries) || this._retries < 0)
+		) {
+			throw new BuilderError("Retries must be a non-negative integer");
+		}
+
+		if (this._retryAttempts) {
+			if (this._retries === undefined) {
+				this._retries = this._retryAttempts.length;
+			}
+
+			if (this._retries === 0) {
+				throw new BuilderError(
+					"Retry history must not be present when retries is 0",
+				);
+			}
+
+			if (this._retryAttempts.length !== this._retries) {
+				throw new BuilderError(
+					"Retries must equal the number of retry history entries",
+				);
+			}
+
+			for (const [index, attempt] of this._retryAttempts.entries()) {
+				if (attempt.attempt !== index + 1) {
+					throw new BuilderError(
+						"Retry history attempts must be contiguous and begin at attempt 1",
+					);
+				}
+			}
+		} else if (this._retries !== undefined && this._retries > 0) {
+			throw new BuilderError(
+				"Retry history is required when retries is greater than 0",
 			);
 		}
 

@@ -8,14 +8,75 @@ import { schema, getSchema } from "./schema.js";
 import { ValidationError } from "./errors.js";
 import type {
 	CTRFReport,
+	AttemptHistoryEntry,
 	ValidationResult,
 	ValidationErrorDetail,
 	ValidateOptions,
 } from "./types.js";
 import { REPORT_FORMAT, TEST_STATUSES } from "./constants.js";
 
+function validateRetryHistories(report: CTRFReport): ValidationErrorDetail[] {
+	const errors: ValidationErrorDetail[] = [];
+
+	for (const [testIndex, test] of report.results.tests.entries()) {
+		const path = `/results/tests/${testIndex}`;
+		const retries = test.retries;
+		const history = test.retryAttempts;
+
+		if (history !== undefined && retries === undefined) {
+			errors.push({
+				message: "must define retries when retryAttempts is present",
+				path: `${path}/retries`,
+				keyword: "retryHistory",
+			});
+			continue;
+		}
+
+		if (retries !== undefined && retries > 0 && history === undefined) {
+			errors.push({
+				message: "must define retryAttempts when retries is greater than 0",
+				path: `${path}/retryAttempts`,
+				keyword: "retryHistory",
+			});
+			continue;
+		}
+
+		if (retries === 0 && history !== undefined) {
+			errors.push({
+				message: "must not define retryAttempts when retries is 0",
+				path: `${path}/retryAttempts`,
+				keyword: "retryHistory",
+			});
+			continue;
+		}
+
+		if (history === undefined || retries === undefined) continue;
+
+		if (history.length !== retries) {
+			errors.push({
+				message: "must contain exactly retries entries",
+				path: `${path}/retryAttempts`,
+				keyword: "retryHistory",
+			});
+		}
+
+		for (const [historyIndex, attempt] of history.entries()) {
+			if (attempt.attempt !== historyIndex + 1) {
+				errors.push({
+					message: "attempt numbers must be contiguous and begin at 1",
+					path: `${path}/retryAttempts/${historyIndex}/attempt`,
+					keyword: "retryHistory",
+				});
+			}
+		}
+	}
+
+	return errors;
+}
+
 /**
- * Validate a CTRF report against the JSON schema.
+ * Validate a CTRF report against the JSON schema and normative cross-field
+ * rules that JSON Schema cannot express.
  *
  * @group Core Operations
  * @param report - The object to validate
@@ -47,10 +108,6 @@ export function validate(
 	const validateFn = ajv.compile(schemaToUse);
 	const valid = validateFn(report);
 
-	if (valid) {
-		return { valid: true, errors: [] };
-	}
-
 	const errors: ValidationErrorDetail[] =
 		validateFn.errors?.map((error) => ({
 			message: error.message || "Unknown validation error",
@@ -58,7 +115,11 @@ export function validate(
 			keyword: error.keyword,
 		})) || [];
 
-	return { valid: false, errors };
+	if (valid) {
+		errors.push(...validateRetryHistories(report as CTRFReport));
+	}
+
+	return { valid: errors.length === 0, errors };
 }
 
 /**
@@ -186,22 +247,31 @@ export function isTestStatus(
 /**
  *
  * @group Type Guards
- * Type guard for RetryAttempt objects.
+ * Type guard for attempt history entry objects.
  *
  * @param obj - Object to check
- * @returns true if the object is a RetryAttempt
+ * @returns true if the object has the required attempt-history fields
  */
-export function isRetryAttempt(
+export function isAttemptHistoryEntry(
 	obj: unknown,
-): obj is { attempt: number; status: string } {
+): obj is AttemptHistoryEntry {
+	if (typeof obj !== "object" || obj === null) return false;
+	const candidate = obj as Record<string, unknown>;
+
 	return (
-		typeof obj === "object" &&
-		obj !== null &&
-		"attempt" in obj &&
-		typeof (obj as Record<string, unknown>).attempt === "number" &&
-		"status" in obj &&
-		typeof (obj as Record<string, unknown>).status === "string"
+		Number.isInteger(candidate.attempt) &&
+		(candidate.attempt as number) >= 1 &&
+		isTestStatus(candidate.status)
 	);
+}
+
+/**
+ * Backward-compatible alias for {@link isAttemptHistoryEntry}.
+ *
+ * @deprecated Use `isAttemptHistoryEntry()`.
+ */
+export function isRetryAttempt(obj: unknown): obj is AttemptHistoryEntry {
+	return isAttemptHistoryEntry(obj);
 }
 
 /**

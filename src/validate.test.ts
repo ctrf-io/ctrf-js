@@ -6,6 +6,7 @@ import {
 	isCTRFReport,
 	isTest,
 	isTestStatus,
+	isAttemptHistoryEntry,
 	isRetryAttempt,
 	hasInsights,
 } from "./validate.js";
@@ -157,6 +158,89 @@ describe("validate", () => {
 			expect(validate(report).valid).toBe(false);
 		});
 
+		it.each([
+			[
+				"retry history without retries",
+				{
+					name: "test",
+					status: "passed",
+					duration: 100,
+					retryAttempts: [{ attempt: 1, status: "failed" }],
+				},
+			],
+			[
+				"positive retries without history",
+				{ name: "test", status: "passed", duration: 100, retries: 1 },
+			],
+			[
+				"zero retries with history",
+				{
+					name: "test",
+					status: "passed",
+					duration: 100,
+					retries: 0,
+					retryAttempts: [{ attempt: 1, status: "failed" }],
+				},
+			],
+			[
+				"retry count mismatch",
+				{
+					name: "test",
+					status: "passed",
+					duration: 100,
+					retries: 2,
+					retryAttempts: [{ attempt: 1, status: "failed" }],
+				},
+			],
+			[
+				"non-contiguous retry history",
+				{
+					name: "test",
+					status: "passed",
+					duration: 100,
+					retries: 2,
+					retryAttempts: [
+						{ attempt: 1, status: "failed" },
+						{ attempt: 3, status: "failed" },
+					],
+				},
+			],
+		])("should reject semantic violation: %s", (_description, test) => {
+			const report = {
+				...validReport,
+				results: { ...validReport.results, tests: [test] },
+			};
+
+			const result = validate(report);
+			expect(result.valid).toBe(false);
+			expect(
+				result.errors.some((error) => error.keyword === "retryHistory"),
+			).toBe(true);
+		});
+
+		it("should accept a complete retry history", () => {
+			const report = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							retries: 2,
+							retryAttempts: [
+								{ attempt: 1, status: "failed" },
+								{ attempt: 2, status: "failed" },
+							],
+						},
+					],
+				},
+			};
+
+			expect(validate(report).valid).toBe(true);
+		});
+
 		it("should accept identity fields", () => {
 			const report: CTRFReport = {
 				...validReport,
@@ -172,6 +256,7 @@ describe("validate", () => {
 							duration: 100,
 							testId: "auth/login",
 							executionId: "execution-123",
+							retries: 1,
 							retryAttempts: [
 								{
 									attempt: 1,
@@ -311,6 +396,25 @@ describe("validate", () => {
 			expect(() => validateStrict({ invalid: true })).toThrow(ValidationError);
 		});
 
+		it("should throw ValidationError for invalid retry history semantics", () => {
+			const invalid = {
+				...validReport,
+				results: {
+					...validReport.results,
+					tests: [
+						{
+							name: "test",
+							status: "passed",
+							duration: 100,
+							retries: 1,
+						},
+					],
+				},
+			};
+
+			expect(() => validateStrict(invalid)).toThrow(ValidationError);
+		});
+
 		it("should include error details in exception", () => {
 			try {
 				validateStrict({ invalid: true });
@@ -390,7 +494,10 @@ describe("validate", () => {
 	});
 
 	describe("isRetryAttempt", () => {
-		it("should return true for valid retry attempt", () => {
+		it("should return true for a valid attempt history entry", () => {
+			expect(isAttemptHistoryEntry({ attempt: 1, status: "failed" })).toBe(
+				true,
+			);
 			expect(isRetryAttempt({ attempt: 1, status: "failed" })).toBe(true);
 		});
 
@@ -400,6 +507,15 @@ describe("validate", () => {
 
 		it("should return false for missing status", () => {
 			expect(isRetryAttempt({ attempt: 1 })).toBe(false);
+		});
+
+		it.each([
+			{ attempt: 0, status: "failed" },
+			{ attempt: 1.5, status: "failed" },
+			{ attempt: 1, status: "invalid" },
+		])("should reject invalid required fields", (attempt) => {
+			expect(isAttemptHistoryEntry(attempt)).toBe(false);
+			expect(isRetryAttempt(attempt)).toBe(false);
 		});
 	});
 

@@ -283,6 +283,8 @@ describe("builder", () => {
 				.type("e2e")
 				.filePath("test/auth.test.ts")
 				.retries(2)
+				.addAttemptHistoryEntry({ attempt: 1, status: "failed" })
+				.addAttemptHistoryEntry({ attempt: 2, status: "failed" })
 				.flaky(true)
 				.stdout(["output"])
 				.stderr(["error"])
@@ -327,24 +329,64 @@ describe("builder", () => {
 			expect(test.extra).toEqual({ custom: "data" });
 		});
 
-		it("should add retry attempts", () => {
+		it("should add attempt history and derive the retry count", () => {
 			const test = new TestBuilder()
 				.name("test")
 				.status("passed")
 				.duration(100)
-				.addRetryAttempt({
+				.addAttemptHistoryEntry({
 					attempt: 1,
 					attemptId: "attempt-1",
 					status: "failed",
 					duration: 50,
 				})
-				.addRetryAttempt({ attempt: 2, status: "passed", duration: 100 })
+				.addAttemptHistoryEntry({
+					attempt: 2,
+					status: "failed",
+					duration: 100,
+				})
 				.build();
 
+			expect(test.retries).toBe(2);
 			expect(test.retryAttempts).toHaveLength(2);
 			expect(test.retryAttempts?.[0].attempt).toBe(1);
 			expect(test.retryAttempts?.[0].attemptId).toBe("attempt-1");
 			expect(test.retryAttempts?.[1].attempt).toBe(2);
+		});
+
+		it("should retain addRetryAttempt as a backward-compatible alias", () => {
+			const test = new TestBuilder()
+				.name("test")
+				.status("passed")
+				.duration(100)
+				.addRetryAttempt({ attempt: 1, status: "failed" })
+				.build();
+
+			expect(test.retries).toBe(1);
+			expect(test.retryAttempts).toEqual([{ attempt: 1, status: "failed" }]);
+		});
+
+		it.each([
+			["negative retries", new TestBuilder().retries(-1)],
+			["fractional retries", new TestBuilder().retries(1.5)],
+			["missing retry history", new TestBuilder().retries(1)],
+			[
+				"retry count mismatch",
+				new TestBuilder()
+					.retries(2)
+					.addAttemptHistoryEntry({ attempt: 1, status: "failed" }),
+			],
+			[
+				"non-contiguous retry history",
+				new TestBuilder().addAttemptHistoryEntry({
+					attempt: 2,
+					status: "failed",
+				}),
+			],
+		])("should reject %s", (_description, builder) => {
+			expect(() =>
+				builder.name("test").status("passed").duration(100).build(),
+			).toThrow();
 		});
 
 		it("should add attachments", () => {
