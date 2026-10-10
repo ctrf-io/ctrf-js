@@ -38,8 +38,6 @@ export interface Test {
 	id?: string;
 	testId?: string;
 	executionId?: string;
-	/** Identifier for this individual attempt */
-	attemptId?: string;
 	name: string;
 	status: TestStatus;
 	duration: number;
