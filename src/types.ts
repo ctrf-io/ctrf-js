@@ -113,6 +113,8 @@ export interface Test {
 	testId?: string;
 	/** Identifier for this specific execution of the test case */
 	executionId?: string;
+	/** Identifier for this individual attempt */
+	attemptId?: string;
 	/** Test name */
 	name: string;
 	/** Test execution status */

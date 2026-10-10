@@ -25,7 +25,7 @@ const test = new TestBuilder()
 
 > **new TestBuilder**(`options?`): `TestBuilder`
 
-Defined in: [builder.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L300)
+Defined in: [builder.ts:301](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L301)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [builder.ts:300](https://github.com/ctrf-io/ctrf-js/blob/main/src/bu
 
 > **id**(`uuid?`): `this`
 
-Defined in: [builder.ts:306](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L306)
+Defined in: [builder.ts:307](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L307)
 
 Set or generate the test ID.
 
@@ -65,7 +65,7 @@ UUID to use, or undefined to auto-generate based on properties
 
 > **testId**(`id`): `this`
 
-Defined in: [builder.ts:314](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L314)
+Defined in: [builder.ts:315](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L315)
 
 Set the stable logical test case ID.
 
@@ -85,9 +85,29 @@ Set the stable logical test case ID.
 
 > **executionId**(`id`): `this`
 
-Defined in: [builder.ts:322](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L322)
+Defined in: [builder.ts:323](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L323)
 
 Set the identifier for this specific test execution.
+
+#### Parameters
+
+##### id
+
+`string`
+
+#### Returns
+
+`this`
+
+***
+
+### attemptId()
+
+> **attemptId**(`id`): `this`
+
+Defined in: [builder.ts:331](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L331)
+
+Set the attempt ID.
 
 #### Parameters
 
@@ -105,7 +125,7 @@ Set the identifier for this specific test execution.
 
 > **name**(`name`): `this`
 
-Defined in: [builder.ts:330](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L330)
+Defined in: [builder.ts:342](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L342)
 
 Set the test name.
 
@@ -125,7 +145,7 @@ Set the test name.
 
 > **status**(`status`): `this`
 
-Defined in: [builder.ts:338](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L338)
+Defined in: [builder.ts:350](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L350)
 
 Set the test status.
 
@@ -145,7 +165,7 @@ Set the test status.
 
 > **duration**(`ms`): `this`
 
-Defined in: [builder.ts:346](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L346)
+Defined in: [builder.ts:358](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L358)
 
 Set the duration in milliseconds.
 
@@ -165,7 +185,7 @@ Set the duration in milliseconds.
 
 > **start**(`timestamp`): `this`
 
-Defined in: [builder.ts:354](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L354)
+Defined in: [builder.ts:366](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L366)
 
 Set the start timestamp.
 
@@ -185,7 +205,7 @@ Set the start timestamp.
 
 > **stop**(`timestamp`): `this`
 
-Defined in: [builder.ts:362](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L362)
+Defined in: [builder.ts:374](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L374)
 
 Set the stop timestamp.
 
@@ -205,7 +225,7 @@ Set the stop timestamp.
 
 > **suite**(`suites`): `this`
 
-Defined in: [builder.ts:370](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L370)
+Defined in: [builder.ts:382](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L382)
 
 Set the suite hierarchy.
 
@@ -225,7 +245,7 @@ Set the suite hierarchy.
 
 > **message**(`msg`): `this`
 
-Defined in: [builder.ts:378](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L378)
+Defined in: [builder.ts:390](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L390)
 
 Set the error message.
 
@@ -245,7 +265,7 @@ Set the error message.
 
 > **trace**(`trace`): `this`
 
-Defined in: [builder.ts:386](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L386)
+Defined in: [builder.ts:398](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L398)
 
 Set the stack trace.
 
@@ -265,7 +285,7 @@ Set the stack trace.
 
 > **snippet**(`code`): `this`
 
-Defined in: [builder.ts:394](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L394)
+Defined in: [builder.ts:406](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L406)
 
 Set the code snippet.
 
@@ -285,7 +305,7 @@ Set the code snippet.
 
 > **ai**(`analysis`): `this`
 
-Defined in: [builder.ts:402](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L402)
+Defined in: [builder.ts:414](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L414)
 
 Set AI-generated analysis.
 
@@ -305,7 +325,7 @@ Set AI-generated analysis.
 
 > **line**(`num`): `this`
 
-Defined in: [builder.ts:410](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L410)
+Defined in: [builder.ts:422](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L422)
 
 Set the line number.
 
@@ -325,7 +345,7 @@ Set the line number.
 
 > **rawStatus**(`status`): `this`
 
-Defined in: [builder.ts:418](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L418)
+Defined in: [builder.ts:430](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L430)
 
 Set the raw status from the test framework.
 
@@ -345,7 +365,7 @@ Set the raw status from the test framework.
 
 > **tags**(`tags`): `this`
 
-Defined in: [builder.ts:426](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L426)
+Defined in: [builder.ts:438](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L438)
 
 Set tags.
 
@@ -365,7 +385,7 @@ Set tags.
 
 > **labels**(`labels`): `this`
 
-Defined in: [builder.ts:434](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L434)
+Defined in: [builder.ts:446](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L446)
 
 Set structured labels.
 
@@ -385,7 +405,7 @@ Set structured labels.
 
 > **type**(`type`): `this`
 
-Defined in: [builder.ts:442](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L442)
+Defined in: [builder.ts:454](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L454)
 
 Set test type.
 
@@ -405,7 +425,7 @@ Set test type.
 
 > **filePath**(`path`): `this`
 
-Defined in: [builder.ts:450](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L450)
+Defined in: [builder.ts:462](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L462)
 
 Set file path.
 
@@ -425,7 +445,7 @@ Set file path.
 
 > **retries**(`count`): `this`
 
-Defined in: [builder.ts:458](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L458)
+Defined in: [builder.ts:470](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L470)
 
 Set the number of times the test was re-executed after its initial attempt.
 
@@ -445,7 +465,7 @@ Set the number of times the test was re-executed after its initial attempt.
 
 > **addAttemptHistoryEntry**(`attempt`): `this`
 
-Defined in: [builder.ts:470](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L470)
+Defined in: [builder.ts:482](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L482)
 
 Add an attempt completed before the final attempt.
 
@@ -469,7 +489,7 @@ number of history entries.
 
 > **addRetryAttempt**(`attempt`): `this`
 
-Defined in: [builder.ts:483](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L483)
+Defined in: [builder.ts:495](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L495)
 
 Backward-compatible alias for [addAttemptHistoryEntry](#addattempthistoryentry).
 
@@ -493,7 +513,7 @@ Use `addAttemptHistoryEntry()`.
 
 > **flaky**(`isFlaky?`): `this`
 
-Defined in: [builder.ts:490](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L490)
+Defined in: [builder.ts:502](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L502)
 
 Mark as flaky.
 
@@ -513,7 +533,7 @@ Mark as flaky.
 
 > **stdout**(`lines`): `this`
 
-Defined in: [builder.ts:498](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L498)
+Defined in: [builder.ts:510](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L510)
 
 Set stdout.
 
@@ -533,7 +553,7 @@ Set stdout.
 
 > **stderr**(`lines`): `this`
 
-Defined in: [builder.ts:506](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L506)
+Defined in: [builder.ts:518](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L518)
 
 Set stderr.
 
@@ -553,7 +573,7 @@ Set stderr.
 
 > **threadId**(`id`): `this`
 
-Defined in: [builder.ts:514](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L514)
+Defined in: [builder.ts:526](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L526)
 
 Set thread ID.
 
@@ -573,7 +593,7 @@ Set thread ID.
 
 > **browser**(`name`): `this`
 
-Defined in: [builder.ts:522](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L522)
+Defined in: [builder.ts:534](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L534)
 
 Set browser name.
 
@@ -593,7 +613,7 @@ Set browser name.
 
 > **device**(`name`): `this`
 
-Defined in: [builder.ts:530](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L530)
+Defined in: [builder.ts:542](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L542)
 
 Set device name.
 
@@ -613,7 +633,7 @@ Set device name.
 
 > **screenshot**(`base64`): `this`
 
-Defined in: [builder.ts:538](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L538)
+Defined in: [builder.ts:550](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L550)
 
 Set screenshot (base64).
 
@@ -633,7 +653,7 @@ Set screenshot (base64).
 
 > **addAttachment**(`attachment`): `this`
 
-Defined in: [builder.ts:546](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L546)
+Defined in: [builder.ts:558](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L558)
 
 Add an attachment.
 
@@ -653,7 +673,7 @@ Add an attachment.
 
 > **parameters**(`params`): `this`
 
-Defined in: [builder.ts:557](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L557)
+Defined in: [builder.ts:569](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L569)
 
 Set parameters.
 
@@ -673,7 +693,7 @@ Set parameters.
 
 > **addStep**(`step`): `this`
 
-Defined in: [builder.ts:565](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L565)
+Defined in: [builder.ts:577](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L577)
 
 Add a step.
 
@@ -693,7 +713,7 @@ Add a step.
 
 > **insights**(`insights`): `this`
 
-Defined in: [builder.ts:576](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L576)
+Defined in: [builder.ts:588](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L588)
 
 Set test-level insights.
 
@@ -713,7 +733,7 @@ Set test-level insights.
 
 > **extra**(`data`): `this`
 
-Defined in: [builder.ts:584](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L584)
+Defined in: [builder.ts:596](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L596)
 
 Set extra metadata.
 
@@ -733,7 +753,7 @@ Set extra metadata.
 
 > **build**(): [`Test`](../interfaces/Test.md)
 
-Defined in: [builder.ts:593](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L593)
+Defined in: [builder.ts:605](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L605)
 
 Build and return the Test object.
 

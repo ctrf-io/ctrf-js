@@ -6,7 +6,7 @@
 
 # Interface: MergeOptions
 
-Defined in: [types.ts:438](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L438)
+Defined in: [types.ts:440](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L440)
 
 Options for merging reports
 
@@ -16,7 +16,7 @@ Options for merging reports
 
 > `optional` **deduplicateTests?**: `boolean`
 
-Defined in: [types.ts:440](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L440)
+Defined in: [types.ts:442](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L442)
 
 Remove duplicate tests by executionId, testId, or legacy id
 
@@ -26,7 +26,7 @@ Remove duplicate tests by executionId, testId, or legacy id
 
 > `optional` **mergeSummary?**: `boolean`
 
-Defined in: [types.ts:442](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L442)
+Defined in: [types.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L444)
 
 Recalculate summary from merged tests
 
@@ -36,6 +36,6 @@ Recalculate summary from merged tests
 
 > `optional` **preserveEnvironment?**: `"first"` \| `"last"` \| `"merge"`
 
-Defined in: [types.ts:444](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L444)
+Defined in: [types.ts:446](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L446)
 
 Strategy for handling environments

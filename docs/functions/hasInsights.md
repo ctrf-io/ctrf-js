@@ -8,7 +8,7 @@
 
 > **hasInsights**(`report`): `boolean`
 
-Defined in: [validate.ts:315](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L315)
+Defined in: [validate.ts:316](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L316)
 
 ## Parameters
 

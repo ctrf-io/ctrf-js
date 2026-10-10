@@ -121,6 +121,7 @@ const report = new ReportBuilder()
 const test = new TestBuilder()
 	.testId('authentication/login')
 	.executionId('execution-123')
+	.attemptId('attempt-1')
   .name('User login test')
   .status('passed')
   .duration(1500)
@@ -141,10 +142,11 @@ of history entries.
 ```typescript
 const flakyTest = new TestBuilder()
   .name('eventually succeeds')
+  .attemptId('attempt-3')
   .status('passed') // Final attempt
   .duration(120)
-  .addAttemptHistoryEntry({ attempt: 1, status: 'failed', duration: 80 })
-  .addAttemptHistoryEntry({ attempt: 2, status: 'failed', duration: 90 })
+  .addAttemptHistoryEntry({ attempt: 1, attemptId: 'attempt-1', status: 'failed', duration: 80 })
+  .addAttemptHistoryEntry({ attempt: 2, attemptId: 'attempt-2', status: 'failed', duration: 90 })
   .flaky()
   .build()
 
@@ -253,8 +255,8 @@ import {
 } from 'ctrf'
 
 REPORT_FORMAT           // 'CTRF'
-CURRENT_SPEC_VERSION    // '0.1.0'
-SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
+CURRENT_SPEC_VERSION    // '0.2.0'
+SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
 TEST_STATUSES           // ['passed', 'failed', 'skipped', 'pending', 'other']
 CTRF_NAMESPACE          // UUID namespace for deterministic IDs
 ```
@@ -294,6 +296,6 @@ const v0_0_2Schema = getSchema('0.0.2')
 const latestSchema = getSchema('latest')
 
 // Get version info
-const version = getCurrentSpecVersion()      // '0.1.0'
-const supported = getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0']
+const version = getCurrentSpecVersion()      // '0.2.0'
+const supported = getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
 ```

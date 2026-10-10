@@ -236,6 +236,7 @@ describe("builder", () => {
 			expect(test.name).toBe("should work");
 			expect(test.status).toBe("passed");
 			expect(test.duration).toBe(100);
+			expect(test).not.toHaveProperty("attemptId");
 		});
 
 		it("should throw if name is missing", () => {
@@ -256,11 +257,21 @@ describe("builder", () => {
 			).toThrow(BuilderError);
 		});
 
+		it.each(["", null, 1, true, [], {}])(
+			"should reject invalid attemptId %j",
+			(id) => {
+				expect(() => new TestBuilder().attemptId(id as string)).toThrow(
+					BuilderError,
+				);
+			},
+		);
+
 		it("should set all optional fields", () => {
 			const test = new TestBuilder()
 				.id("test-id")
 				.testId("auth/login")
 				.executionId("execution-123")
+				.attemptId("attempt-3")
 				.name("test")
 				.status("failed")
 				.duration(100)
@@ -299,6 +310,7 @@ describe("builder", () => {
 			expect(test.id).toBe("test-id");
 			expect(test.testId).toBe("auth/login");
 			expect(test.executionId).toBe("execution-123");
+			expect(test.attemptId).toBe("attempt-3");
 			expect(test.start).toBe(1000);
 			expect(test.stop).toBe(1100);
 			expect(test.suite).toEqual(["unit", "auth"]);

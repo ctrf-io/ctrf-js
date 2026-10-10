@@ -29,7 +29,8 @@ function validateRetryHistories(
 	// Versions before 0.0.4 used the earlier retry model. In those versions,
 	// matching history length was recommended rather than required, and the
 	// presence and ordering constraints below were not normative requirements.
-	if (version !== "0.0.4" && version !== "0.1.0") return errors;
+	if (version !== "0.0.4" && version !== "0.1.0" && version !== "0.2.0")
+		return errors;
 
 	for (const [testIndex, test] of report.results.tests.entries()) {
 		const path = `/results/tests/${testIndex}`;

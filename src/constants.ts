@@ -6,7 +6,7 @@
 export const REPORT_FORMAT = "CTRF" as const;
 
 /** Current spec version */
-export const CURRENT_SPEC_VERSION = "0.1.0";
+export const CURRENT_SPEC_VERSION = "0.2.0";
 
 /** All valid test statuses */
 export const TEST_STATUSES = [
@@ -24,6 +24,7 @@ export const SUPPORTED_SPEC_VERSIONS = [
 	"0.0.3",
 	"0.0.4",
 	"0.1.0",
+	"0.2.0",
 ] as const;
 
 /** A published CTRF specification version supported by this package */
