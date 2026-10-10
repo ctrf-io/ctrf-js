@@ -53,5 +53,5 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
-          prerelease: true
-          make_latest: false
+          prerelease: ${{ steps.release-info.outputs.is_prerelease }}
+          make_latest: ${{ steps.release-info.outputs.is_prerelease == 'false' }}
