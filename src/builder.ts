@@ -266,6 +266,7 @@ export class TestBuilder {
 	private _id?: string;
 	private _testId?: string;
 	private _executionId?: string;
+	private _attemptId?: string;
 	private _name?: string;
 	private _status?: TestStatus;
 	private _duration?: number;
@@ -321,6 +322,17 @@ export class TestBuilder {
 	 */
 	executionId(id: string): this {
 		this._executionId = id;
+		return this;
+	}
+
+	/**
+	 * Set the attempt ID.
+	 */
+	attemptId(id: string): this {
+		if (typeof id !== "string" || id.length === 0) {
+			throw new BuilderError("Attempt ID must be a non-empty string");
+		}
+		this._attemptId = id;
 		return this;
 	}
 
@@ -670,6 +682,8 @@ export class TestBuilder {
 		if (this._executionId) {
 			test.executionId = this._executionId;
 		}
+
+		if (this._attemptId !== undefined) test.attemptId = this._attemptId;
 
 		// Add optional fields only if set
 		if (this._start !== undefined) test.start = this._start;

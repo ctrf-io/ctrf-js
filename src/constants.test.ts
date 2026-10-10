@@ -20,7 +20,7 @@ describe("constants", () => {
 		});
 
 		it("should identify the latest published specification", () => {
-			expect(CURRENT_SPEC_VERSION).toBe("0.1.0");
+			expect(CURRENT_SPEC_VERSION).toBe("0.2.0");
 		});
 	});
 
@@ -50,6 +50,7 @@ describe("constants", () => {
 				"0.0.3",
 				"0.0.4",
 				"0.1.0",
+				"0.2.0",
 			]);
 		});
 	});

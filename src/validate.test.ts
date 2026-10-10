@@ -179,9 +179,10 @@ describe("validate", () => {
 			expect(validate(report, { specVersion: "0.0.3" }).valid).toBe(true);
 			expect(validate(report, { specVersion: "0.0.4" }).valid).toBe(false);
 			expect(validate(report, { specVersion: "0.1.0" }).valid).toBe(false);
+			expect(validate(report, { specVersion: "0.2.0" }).valid).toBe(false);
 		});
 
-		it("should treat latest as 0.1.0", () => {
+		it("should treat latest as 0.2.0", () => {
 			const invalidLatestReport = {
 				...validReport,
 				results: {
@@ -198,7 +199,7 @@ describe("validate", () => {
 			};
 
 			expect(validate(invalidLatestReport, { specVersion: "latest" })).toEqual(
-				validate(invalidLatestReport, { specVersion: "0.1.0" }),
+				validate(invalidLatestReport, { specVersion: "0.2.0" }),
 			);
 		});
 
@@ -331,6 +332,20 @@ describe("validate", () => {
 			expect(validate(report).valid).toBe(true);
 		});
 
+		it.each(["", null, 1, true, [], {}])(
+			"should reject invalid Test attemptId %j",
+			(attemptId) => {
+				const report = {
+					...validReport,
+					results: {
+						...validReport.results,
+						tests: [{ ...validReport.results.tests[0], attemptId }],
+					},
+				};
+				expect(validate(report).valid).toBe(false);
+			},
+		);
+
 		it("should accept identity fields", () => {
 			const report: CTRFReport = {
 				...validReport,
@@ -346,6 +361,7 @@ describe("validate", () => {
 							duration: 100,
 							testId: "auth/login",
 							executionId: "execution-123",
+							attemptId: "attempt-2",
 							retries: 1,
 							retryAttempts: [
 								{
@@ -368,6 +384,7 @@ describe("validate", () => {
 			};
 
 			expect(validate(report).valid).toBe(true);
+			expect(validate(report, { specVersion: "0.1.0" }).valid).toBe(false);
 		});
 
 		it.each([
