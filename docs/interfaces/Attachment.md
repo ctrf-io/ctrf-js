@@ -6,7 +6,7 @@
 
 # Interface: Attachment
 
-Defined in: [types.ts:246](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L246)
+Defined in: [types.ts:289](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L289)
 
 File attachment
 
@@ -16,7 +16,7 @@ File attachment
 
 > `optional` **attachmentId?**: `string`
 
-Defined in: [types.ts:248](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L248)
+Defined in: [types.ts:291](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L291)
 
 Identifier for this attachment reference instance
 
@@ -26,7 +26,7 @@ Identifier for this attachment reference instance
 
 > **name**: `string`
 
-Defined in: [types.ts:250](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L250)
+Defined in: [types.ts:293](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L293)
 
 Attachment name
 
@@ -36,7 +36,7 @@ Attachment name
 
 > **contentType**: `string`
 
-Defined in: [types.ts:252](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L252)
+Defined in: [types.ts:295](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L295)
 
 MIME content type
 
@@ -46,9 +46,9 @@ MIME content type
 
 > **path**: `string`
 
-Defined in: [types.ts:254](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L254)
+Defined in: [types.ts:297](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L297)
 
-Path to the attachment file
+Opaque attachment reference (URL or file path); portable references are recommended
 
 ***
 
@@ -56,6 +56,6 @@ Path to the attachment file
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:256](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L256)
+Defined in: [types.ts:299](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L299)
 
 Custom metadata

@@ -19,6 +19,8 @@ A complete TypeScript implementation for working with CTRF (Common Test Report F
 - [Tool](interfaces/Tool.md)
 - [Summary](interfaces/Summary.md)
 - [Test](interfaces/Test.md)
+- [AssertionFailure](interfaces/AssertionFailure.md)
+- [GlobalError](interfaces/GlobalError.md)
 - [TestStatus](type-aliases/TestStatus.md)
 - [AttemptHistoryEntry](interfaces/AttemptHistoryEntry.md)
 - [~~RetryAttempt~~](type-aliases/RetryAttempt.md)
@@ -165,6 +167,10 @@ A test is considered flaky if:
 ## Merge
 Merge multiple CTRF reports into a single report.
 Useful for combining results from parallel or sharded test runs.
+
+Reports must declare the same specification version; merging does not convert
+historical reports to a newer contract. Global errors are concatenated in input
+order and do not contribute to test counts.
 
 - [merge](functions/merge.md)
 

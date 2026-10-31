@@ -132,6 +132,40 @@ const test = new TestBuilder()
   .build()
 ```
 
+### Specification 0.3.0 fields
+
+Test descriptions provide case context. Assertion failures belong to the final
+attempt or to an individual history entry; expected and actual values are strings.
+Global errors describe the run and do not increase test counts.
+
+```typescript
+const report = new ReportBuilder()
+  .tool({ name: 'runner' })
+  .addError({ message: 'A worker could not initialize' })
+  .addTest(
+    new TestBuilder()
+      .name('checkout')
+      .description('Accepts a saved card')
+      .status('failed')
+      .duration(100)
+      .threadId('host-a/worker-2')
+      .addAssertionFailure({ expected: '200', actual: '500' })
+      .addAttemptHistoryEntry({
+        attempt: 1,
+        status: 'failed',
+        threadId: 'host-a/worker-1',
+        assertionFailures: [{ message: 'Request timed out' }],
+      })
+      .build()
+  )
+  .build()
+
+validateStrict(report)
+```
+
+`extra` continues to accept arbitrary metadata. Official extension contracts are
+versioned and validated separately; CTRF validation does not validate their payloads.
+
 ### Retry Histories
 
 `retryAttempts` is the ordered history of attempts completed before the final
@@ -191,11 +225,15 @@ const testById = findTest(report, { id: 'test-uuid' })
 ```typescript
 import { merge } from 'ctrf'
 
-// Merge multiple reports into one
+// Merge reports declaring the same specification version into one
 const merged = merge([report1, report2, report3], {
   deduplicateTests: true,  // Remove duplicate tests by ID
 })
 ```
+
+Merging preserves the declared specification version and rejects mixed versions.
+Convert and validate inputs explicitly before combining different versions. Global
+errors are retained in input order, separately from test counts.
 
 ### ID Generation
 
@@ -255,8 +293,8 @@ import {
 } from 'ctrf'
 
 REPORT_FORMAT           // 'CTRF'
-CURRENT_SPEC_VERSION    // '0.2.0'
-SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
+CURRENT_SPEC_VERSION    // '0.3.0'
+SUPPORTED_SPEC_VERSIONS // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0', '0.3.0']
 TEST_STATUSES           // ['passed', 'failed', 'skipped', 'pending', 'other']
 CTRF_NAMESPACE          // UUID namespace for deterministic IDs
 ```
@@ -296,6 +334,6 @@ const v0_0_2Schema = getSchema('0.0.2')
 const latestSchema = getSchema('latest')
 
 // Get version info
-const version = getCurrentSpecVersion()      // '0.2.0'
-const supported = getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
+const version = getCurrentSpecVersion()      // '0.3.0'
+const supported = getSupportedSpecVersions() // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0', '0.3.0']
 ```

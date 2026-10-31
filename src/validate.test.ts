@@ -182,7 +182,7 @@ describe("validate", () => {
 			expect(validate(report, { specVersion: "0.2.0" }).valid).toBe(false);
 		});
 
-		it("should treat latest as 0.2.0", () => {
+		it("should treat latest as 0.3.0", () => {
 			const invalidLatestReport = {
 				...validReport,
 				results: {
@@ -199,7 +199,7 @@ describe("validate", () => {
 			};
 
 			expect(validate(invalidLatestReport, { specVersion: "latest" })).toEqual(
-				validate(invalidLatestReport, { specVersion: "0.2.0" }),
+				validate(invalidLatestReport, { specVersion: "0.3.0" }),
 			);
 		});
 

@@ -42,11 +42,21 @@ Array of individual test results
 
 ***
 
+### errors?
+
+> `optional` **errors?**: [`GlobalError`](GlobalError.md)[]
+
+Defined in: [types.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L53)
+
+Global errors, separate from test results and summary counts
+
+***
+
 ### environment?
 
 > `optional` **environment?**: [`Environment`](Environment.md)
 
-Defined in: [types.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L53)
+Defined in: [types.ts:55](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L55)
 
 Environment information
 
@@ -56,6 +66,6 @@ Environment information
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:55](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L55)
+Defined in: [types.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L57)
 
 Custom metadata
