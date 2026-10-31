@@ -9,6 +9,8 @@
 export type {
 	CTRFReport,
 	Results,
+	AssertionFailure,
+	GlobalError,
 	Tool,
 	Summary,
 	Test,

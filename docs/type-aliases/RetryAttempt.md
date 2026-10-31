@@ -8,7 +8,7 @@
 
 > **RetryAttempt** = [`AttemptHistoryEntry`](../interfaces/AttemptHistoryEntry.md)
 
-Defined in: [types.ts:239](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L239)
+Defined in: [types.ts:282](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L282)
 
 Backward-compatible name for an attempt history entry.
 

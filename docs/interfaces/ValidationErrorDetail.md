@@ -6,7 +6,7 @@
 
 # Interface: ValidationErrorDetail
 
-Defined in: [types.ts:426](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L426)
+Defined in: [types.ts:469](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L469)
 
 Details of a validation error
 
@@ -16,7 +16,7 @@ Details of a validation error
 
 > **message**: `string`
 
-Defined in: [types.ts:428](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L428)
+Defined in: [types.ts:471](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L471)
 
 Human-readable error message
 
@@ -26,7 +26,7 @@ Human-readable error message
 
 > **path**: `string`
 
-Defined in: [types.ts:430](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L430)
+Defined in: [types.ts:473](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L473)
 
 JSON path to the error location
 
@@ -36,6 +36,6 @@ JSON path to the error location
 
 > **keyword**: `string`
 
-Defined in: [types.ts:432](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L432)
+Defined in: [types.ts:475](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L475)
 
 JSON Schema or semantic validation keyword that failed

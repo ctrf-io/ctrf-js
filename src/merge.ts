@@ -9,7 +9,7 @@ import type {
 	Environment,
 	MergeOptions,
 } from "./types.js";
-import { REPORT_FORMAT, CURRENT_SPEC_VERSION } from "./constants.js";
+import { REPORT_FORMAT } from "./constants.js";
 import { calculateSummary } from "./summary.js";
 import { generateReportId } from "./id.js";
 
@@ -19,10 +19,14 @@ import { generateReportId } from "./id.js";
  * Merge multiple CTRF reports into a single report.
  * Useful for combining results from parallel or sharded test runs.
  *
+ * Reports must declare the same specification version; merging does not convert
+ * historical reports to a newer contract. Global errors are concatenated in input
+ * order and do not contribute to test counts.
+ *
  * @param reports - Array of CTRF reports to merge
  * @param options - Merge options (deduplication, environment handling)
  * @returns A new merged CTRFReport
- * @throws Error if no reports are provided
+ * @throws Error if no reports are provided or specification versions differ
  *
  * @example
  * ```typescript
@@ -45,6 +49,13 @@ export function merge(
 
 	if (reports.length === 1) {
 		return { ...reports[0] };
+	}
+
+	const specVersion = reports[0].specVersion;
+	if (reports.some((report) => report.specVersion !== specVersion)) {
+		throw new Error(
+			"Cannot merge reports with different specification versions",
+		);
 	}
 
 	const {
@@ -106,7 +117,7 @@ export function merge(
 	const tool = reports[0].results.tool;
 	const merged: CTRFReport = {
 		reportFormat: REPORT_FORMAT,
-		specVersion: CURRENT_SPEC_VERSION,
+		specVersion,
 		reportId: generateReportId(),
 		timestamp: new Date().toISOString(),
 		results: {
@@ -120,6 +131,9 @@ export function merge(
 	if (sharedRunId && reports.every((report) => report.runId === sharedRunId)) {
 		merged.runId = sharedRunId;
 	}
+
+	const errors = reports.flatMap((report) => report.results.errors ?? []);
+	if (errors.length > 0) merged.results.errors = errors;
 
 	if (environment && Object.keys(environment).length > 0) {
 		merged.results.environment = environment;

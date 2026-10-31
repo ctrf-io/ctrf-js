@@ -48,7 +48,7 @@ Unique identifier for this report (UUID v4)
 
 Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
 
-Identifier shared by all documents belonging to the same logical test run
+Logical-run identifier shared across coordinated module, shard and retry-process reports
 
 ***
 
