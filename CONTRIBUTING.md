@@ -63,6 +63,7 @@ To set up the project for local development:
    ```
 
 5. **Build the package**:
+
    ```bash
    npm run build
    ```

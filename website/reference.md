@@ -1,4 +1,5 @@
 ---
+
 title: TypeScript Reference
 sidebar_label: TypeScript Reference
 description: Complete API reference for the CTRF TypeScript reference implementation
@@ -18,34 +19,34 @@ npm install ctrf
 
 ```typescript
 import {
-  validate,
-  parse,
-  ReportBuilder,
-  TestBuilder,
-  filterTests,
-  merge,
-} from 'ctrf'
+	validate,
+	parse,
+	ReportBuilder,
+	TestBuilder,
+	filterTests,
+	merge,
+} from "ctrf";
 
 // Validate a report
-const result = validate(report)
+const result = validate(report);
 if (result.valid) {
-  console.log('Report is valid!')
+	console.log("Report is valid!");
 }
 
 // Parse JSON
-const report = parse(jsonString, { validate: true })
+const report = parse(jsonString, { validate: true });
 
 // Build reports programmatically
 const report = new ReportBuilder()
-  .tool({ name: 'jest', version: '29.0.0' })
-  .addTest(
-    new TestBuilder()
-      .name('should add numbers')
-      .status('passed')
-      .duration(150)
-      .build()
-  )
-  .build()
+	.tool({ name: "jest", version: "29.0.0" })
+	.addTest(
+		new TestBuilder()
+			.name("should add numbers")
+			.status("passed")
+			.duration(150)
+			.build(),
+	)
+	.build();
 ```
 
 ---
@@ -57,7 +58,7 @@ const report = new ReportBuilder()
 Validate a CTRF report against the JSON schema.
 
 ```typescript
-function validate(report: unknown, options?: ValidateOptions): ValidationResult
+function validate(report: unknown, options?: ValidateOptions): ValidationResult;
 ```
 
 **Parameters:**
@@ -70,15 +71,15 @@ function validate(report: unknown, options?: ValidateOptions): ValidationResult
 **Example:**
 
 ```typescript
-import { validate } from 'ctrf'
+import { validate } from "ctrf";
 
-const result = validate(report)
+const result = validate(report);
 if (!result.valid) {
-  console.log('Validation errors:', result.errors)
+	console.log("Validation errors:", result.errors);
 }
 
 // Validate against specific version
-const result = validate(report, { specVersion: '0.0.0' })
+const result = validate(report, { specVersion: "0.0.0" });
 ```
 
 ### isValid
@@ -86,17 +87,17 @@ const result = validate(report, { specVersion: '0.0.0' })
 Type guard to check if a report is valid.
 
 ```typescript
-function isValid(report: unknown): report is CTRFReport
+function isValid(report: unknown): report is CTRFReport;
 ```
 
 **Example:**
 
 ```typescript
-import { isValid } from 'ctrf'
+import { isValid } from "ctrf";
 
 if (isValid(report)) {
-  // TypeScript knows report is CTRFReport
-  console.log(report.results.summary.passed)
+	// TypeScript knows report is CTRFReport
+	console.log(report.results.summary.passed);
 }
 ```
 
@@ -105,7 +106,7 @@ if (isValid(report)) {
 Validate and throw if invalid.
 
 ```typescript
-function validateStrict(report: unknown): asserts report is CTRFReport
+function validateStrict(report: unknown): asserts report is CTRFReport;
 ```
 
 **Throws:** `ValidationError` if the report is invalid
@@ -113,15 +114,15 @@ function validateStrict(report: unknown): asserts report is CTRFReport
 **Example:**
 
 ```typescript
-import { validateStrict, ValidationError } from 'ctrf'
+import { validateStrict, ValidationError } from "ctrf";
 
 try {
-  validateStrict(report)
-  // TypeScript knows report is CTRFReport
+	validateStrict(report);
+	// TypeScript knows report is CTRFReport
 } catch (e) {
-  if (e instanceof ValidationError) {
-    console.log(e.errors)
-  }
+	if (e instanceof ValidationError) {
+		console.log(e.errors);
+	}
 }
 ```
 
@@ -130,7 +131,7 @@ try {
 Parse a JSON string into a CTRFReport.
 
 ```typescript
-function parse(json: string, options?: ParseOptions): CTRFReport
+function parse(json: string, options?: ParseOptions): CTRFReport;
 ```
 
 **Parameters:**
@@ -143,12 +144,12 @@ function parse(json: string, options?: ParseOptions): CTRFReport
 **Example:**
 
 ```typescript
-import { parse } from 'ctrf'
+import { parse } from "ctrf";
 
-const report = parse(jsonString)
+const report = parse(jsonString);
 
 // With validation
-const report = parse(jsonString, { validate: true })
+const report = parse(jsonString, { validate: true });
 ```
 
 ### stringify
@@ -156,7 +157,7 @@ const report = parse(jsonString, { validate: true })
 Serialize a CTRFReport to JSON.
 
 ```typescript
-function stringify(report: CTRFReport, options?: StringifyOptions): string
+function stringify(report: CTRFReport, options?: StringifyOptions): string;
 ```
 
 **Parameters:**
@@ -168,15 +169,15 @@ function stringify(report: CTRFReport, options?: StringifyOptions): string
 **Example:**
 
 ```typescript
-import { stringify } from 'ctrf'
+import { stringify } from "ctrf";
 
-const json = stringify(report)
+const json = stringify(report);
 
 // Pretty print
-const json = stringify(report, { pretty: true })
+const json = stringify(report, { pretty: true });
 
 // Custom indent
-const json = stringify(report, { pretty: true, indent: 4 })
+const json = stringify(report, { pretty: true, indent: 4 });
 ```
 
 ### calculateSummary
@@ -184,7 +185,7 @@ const json = stringify(report, { pretty: true, indent: 4 })
 Calculate summary statistics from an array of tests.
 
 ```typescript
-function calculateSummary(tests: Test[], options?: SummaryOptions): Summary
+function calculateSummary(tests: Test[], options?: SummaryOptions): Summary;
 ```
 
 **Parameters:**
@@ -196,15 +197,15 @@ function calculateSummary(tests: Test[], options?: SummaryOptions): Summary
 **Example:**
 
 ```typescript
-import { calculateSummary } from 'ctrf'
+import { calculateSummary } from "ctrf";
 
-const summary = calculateSummary(tests)
+const summary = calculateSummary(tests);
 
 // With timing overrides
 const summary = calculateSummary(tests, {
-  start: 1704067200000,
-  stop: 1704067260000,
-})
+	start: 1704067200000,
+	stop: 1704067260000,
+});
 ```
 
 ---
@@ -217,21 +218,21 @@ Fluent builder for constructing CTRF reports.
 
 ```typescript
 class ReportBuilder {
-  constructor(options?: ReportBuilderOptions)
+	constructor(options?: ReportBuilderOptions);
 
-  specVersion(version: string): this
-  reportId(uuid?: string): this
-  timestamp(date?: Date | string): this
-  generatedBy(name: string): this
-  tool(tool: Tool): this
-  environment(env: Environment): this
-  addTest(test: Test): this
-  addTests(tests: Test[]): this
-  insights(insights: Insights): this
-  baseline(baseline: Baseline): this
-  extra(data: Record<string, unknown>): this
-  summaryOverrides(overrides: Partial<Summary>): this
-  build(): CTRFReport
+	specVersion(version: string): this;
+	reportId(uuid?: string): this;
+	timestamp(date?: Date | string): this;
+	generatedBy(name: string): this;
+	tool(tool: Tool): this;
+	environment(env: Environment): this;
+	addTest(test: Test): this;
+	addTests(tests: Test[]): this;
+	insights(insights: Insights): this;
+	baseline(baseline: Baseline): this;
+	extra(data: Record<string, unknown>): this;
+	summaryOverrides(overrides: Partial<Summary>): this;
+	build(): CTRFReport;
 }
 ```
 
@@ -243,28 +244,28 @@ class ReportBuilder {
 **Example:**
 
 ```typescript
-import { ReportBuilder, TestBuilder } from 'ctrf'
+import { ReportBuilder, TestBuilder } from "ctrf";
 
 const report = new ReportBuilder({ autoGenerateId: true, autoTimestamp: true })
-  .specVersion('0.0.0')
-  .tool({ name: 'jest', version: '29.0.0' })
-  .environment({ branchName: 'main', commit: 'abc123' })
-  .addTest(
-    new TestBuilder()
-      .name('should add numbers')
-      .status('passed')
-      .duration(150)
-      .build()
-  )
-  .addTest(
-    new TestBuilder()
-      .name('should handle errors')
-      .status('failed')
-      .duration(200)
-      .message('Expected 5 but got 4')
-      .build()
-  )
-  .build()
+	.specVersion("0.0.0")
+	.tool({ name: "jest", version: "29.0.0" })
+	.environment({ branchName: "main", commit: "abc123" })
+	.addTest(
+		new TestBuilder()
+			.name("should add numbers")
+			.status("passed")
+			.duration(150)
+			.build(),
+	)
+	.addTest(
+		new TestBuilder()
+			.name("should handle errors")
+			.status("failed")
+			.duration(200)
+			.message("Expected 5 but got 4")
+			.build(),
+	)
+	.build();
 ```
 
 ### TestBuilder
@@ -273,38 +274,38 @@ Fluent builder for constructing Test objects.
 
 ```typescript
 class TestBuilder {
-  constructor(options?: TestBuilderOptions)
+	constructor(options?: TestBuilderOptions);
 
-  id(uuid?: string): this
-  name(name: string): this
-  status(status: TestStatus): this
-  duration(ms: number): this
-  start(timestamp: number): this
-  stop(timestamp: number): this
-  suite(suite: string[]): this
-  message(message: string): this
-  trace(trace: string): this
-  snippet(snippet: string): this
-  ai(ai: string): this
-  line(line: number): this
-  rawStatus(rawStatus: string): this
-  tags(tags: string[]): this
-  type(type: string): this
-  filePath(filePath: string): this
-  retries(retries: number): this
-  addRetryAttempt(attempt: RetryAttempt): this
-  flaky(flaky: boolean): this
-  stdout(stdout: string[]): this
-  stderr(stderr: string[]): this
-  threadId(threadId: string): this
-  browser(browser: string): this
-  device(device: string): this
-  screenshot(screenshot: string): this
-  parameters(params: Record<string, unknown>): this
-  addStep(step: Step): this
-  addAttachment(attachment: Attachment): this
-  extra(data: Record<string, unknown>): this
-  build(): Test
+	id(uuid?: string): this;
+	name(name: string): this;
+	status(status: TestStatus): this;
+	duration(ms: number): this;
+	start(timestamp: number): this;
+	stop(timestamp: number): this;
+	suite(suite: string[]): this;
+	message(message: string): this;
+	trace(trace: string): this;
+	snippet(snippet: string): this;
+	ai(ai: string): this;
+	line(line: number): this;
+	rawStatus(rawStatus: string): this;
+	tags(tags: string[]): this;
+	type(type: string): this;
+	filePath(filePath: string): this;
+	retries(retries: number): this;
+	addRetryAttempt(attempt: RetryAttempt): this;
+	flaky(flaky: boolean): this;
+	stdout(stdout: string[]): this;
+	stderr(stderr: string[]): this;
+	threadId(threadId: string): this;
+	browser(browser: string): this;
+	device(device: string): this;
+	screenshot(screenshot: string): this;
+	parameters(params: Record<string, unknown>): this;
+	addStep(step: Step): this;
+	addAttachment(attachment: Attachment): this;
+	extra(data: Record<string, unknown>): this;
+	build(): Test;
 }
 ```
 
@@ -315,17 +316,17 @@ class TestBuilder {
 **Example:**
 
 ```typescript
-import { TestBuilder } from 'ctrf'
+import { TestBuilder } from "ctrf";
 
 const test = new TestBuilder({ autoGenerateId: true })
-  .name('should validate user input')
-  .suite(['Authentication', 'Login'])
-  .status('passed')
-  .duration(245)
-  .filePath('tests/auth/login.test.ts')
-  .tags(['smoke', 'auth'])
-  .type('integration')
-  .build()
+	.name("should validate user input")
+	.suite(["Authentication", "Login"])
+	.status("passed")
+	.duration(245)
+	.filePath("tests/auth/login.test.ts")
+	.tags(["smoke", "auth"])
+	.type("integration")
+	.build();
 ```
 
 ---
@@ -337,7 +338,7 @@ const test = new TestBuilder({ autoGenerateId: true })
 Filter tests in a report by criteria.
 
 ```typescript
-function filterTests(report: CTRFReport, criteria: FilterCriteria): Test[]
+function filterTests(report: CTRFReport, criteria: FilterCriteria): Test[];
 ```
 
 **FilterCriteria:**
@@ -352,22 +353,22 @@ function filterTests(report: CTRFReport, criteria: FilterCriteria): Test[]
 **Example:**
 
 ```typescript
-import { filterTests } from 'ctrf'
+import { filterTests } from "ctrf";
 
 // Filter by status
-const failed = filterTests(report, { status: 'failed' })
+const failed = filterTests(report, { status: "failed" });
 
 // Multiple statuses
 const notPassed = filterTests(report, {
-  status: ['failed', 'skipped'],
-})
+	status: ["failed", "skipped"],
+});
 
 // Multiple criteria
 const filtered = filterTests(report, {
-  status: 'failed',
-  tags: ['smoke'],
-  flaky: true,
-})
+	status: "failed",
+	tags: ["smoke"],
+	flaky: true,
+});
 ```
 
 ### findTest
@@ -376,9 +377,9 @@ Find a single test in a report.
 
 ```typescript
 function findTest(
-  report: CTRFReport,
-  criteria: FilterCriteria
-): Test | undefined
+	report: CTRFReport,
+	criteria: FilterCriteria,
+): Test | undefined;
 ```
 
 **Additional FilterCriteria for findTest:**
@@ -389,16 +390,16 @@ function findTest(
 **Example:**
 
 ```typescript
-import { findTest } from 'ctrf'
+import { findTest } from "ctrf";
 
 // Find by ID
-const test = findTest(report, { id: 'test-uuid' })
+const test = findTest(report, { id: "test-uuid" });
 
 // Find by name
-const test = findTest(report, { name: 'should login successfully' })
+const test = findTest(report, { name: "should login successfully" });
 
 // Find by criteria
-const test = findTest(report, { status: 'failed', flaky: true })
+const test = findTest(report, { status: "failed", flaky: true });
 ```
 
 ---
@@ -410,7 +411,7 @@ const test = findTest(report, { status: 'failed', flaky: true })
 Merge multiple CTRF reports into a single report.
 
 ```typescript
-function merge(reports: CTRFReport[], options?: MergeOptions): CTRFReport
+function merge(reports: CTRFReport[], options?: MergeOptions): CTRFReport;
 ```
 
 **MergeOptions:**
@@ -422,20 +423,20 @@ function merge(reports: CTRFReport[], options?: MergeOptions): CTRFReport
 **Example:**
 
 ```typescript
-import { merge } from 'ctrf'
+import { merge } from "ctrf";
 
 // Basic merge
-const merged = merge([report1, report2, report3])
+const merged = merge([report1, report2, report3]);
 
 // With deduplication
 const merged = merge(reports, {
-  deduplicateTests: true,
-})
+	deduplicateTests: true,
+});
 
 // Keep first environment only
 const merged = merge(reports, {
-  preserveEnvironment: 'first',
-})
+	preserveEnvironment: "first",
+});
 ```
 
 ---
@@ -448,10 +449,10 @@ Add historical insights to a report by analyzing previous reports.
 
 ```typescript
 function addInsights(
-  report: CTRFReport,
-  historicalReports?: CTRFReport[],
-  options?: InsightsOptions
-): CTRFReport
+	report: CTRFReport,
+	historicalReports?: CTRFReport[],
+	options?: InsightsOptions,
+): CTRFReport;
 ```
 
 **InsightsOptions:**
@@ -461,15 +462,15 @@ function addInsights(
 **Example:**
 
 ```typescript
-import { addInsights } from 'ctrf'
+import { addInsights } from "ctrf";
 
 // Add insights from historical data
-const reportWithInsights = addInsights(currentReport, previousReports)
+const reportWithInsights = addInsights(currentReport, previousReports);
 
 // With baseline comparison
 const reportWithInsights = addInsights(currentReport, previousReports, {
-  baseline: baselineReport,
-})
+	baseline: baselineReport,
+});
 ```
 
 ### isTestFlaky
@@ -477,7 +478,7 @@ const reportWithInsights = addInsights(currentReport, previousReports, {
 Determine if a test is flaky based on CTRF specification.
 
 ```typescript
-function isTestFlaky(test: Test): boolean
+function isTestFlaky(test: Test): boolean;
 ```
 
 A test is flaky if:
@@ -488,10 +489,10 @@ A test is flaky if:
 **Example:**
 
 ```typescript
-import { isTestFlaky } from 'ctrf'
+import { isTestFlaky } from "ctrf";
 
 if (isTestFlaky(test)) {
-  console.log('Test is flaky:', test.name)
+	console.log("Test is flaky:", test.name);
 }
 ```
 
@@ -505,10 +506,10 @@ Generate a deterministic UUID v5 for a test based on its properties.
 
 ```typescript
 function generateTestId(properties: {
-  name: string
-  suite?: string[]
-  filePath?: string
-}): string
+	name: string;
+	suite?: string[];
+	filePath?: string;
+}): string;
 ```
 
 The same inputs always produce the same UUID, enabling cross-run analysis.
@@ -516,13 +517,13 @@ The same inputs always produce the same UUID, enabling cross-run analysis.
 **Example:**
 
 ```typescript
-import { generateTestId } from 'ctrf'
+import { generateTestId } from "ctrf";
 
 const id = generateTestId({
-  name: 'should add numbers',
-  suite: ['math', 'addition'],
-  filePath: 'tests/math.test.ts',
-})
+	name: "should add numbers",
+	suite: ["math", "addition"],
+	filePath: "tests/math.test.ts",
+});
 // Always returns the same UUID for these inputs
 ```
 
@@ -531,15 +532,15 @@ const id = generateTestId({
 Generate a random UUID v4 for report identification.
 
 ```typescript
-function generateReportId(): string
+function generateReportId(): string;
 ```
 
 **Example:**
 
 ```typescript
-import { generateReportId } from 'ctrf'
+import { generateReportId } from "ctrf";
 
-const reportId = generateReportId()
+const reportId = generateReportId();
 // => 'f47ac10b-58cc-4372-a567-0e02b2c3d479'
 ```
 
@@ -552,7 +553,7 @@ const reportId = generateReportId()
 Get the JSON Schema for a specific CTRF spec version.
 
 ```typescript
-function getSchema(version: string): object
+function getSchema(version: string): object;
 ```
 
 **Throws:** `SchemaVersionError` if version is not supported
@@ -560,9 +561,9 @@ function getSchema(version: string): object
 **Example:**
 
 ```typescript
-import { getSchema } from 'ctrf'
+import { getSchema } from "ctrf";
 
-const schema = getSchema('0.0.0')
+const schema = getSchema("0.0.0");
 ```
 
 ### getCurrentSpecVersion
@@ -570,7 +571,7 @@ const schema = getSchema('0.0.0')
 Get the current spec version.
 
 ```typescript
-function getCurrentSpecVersion(): string
+function getCurrentSpecVersion(): string;
 ```
 
 ### getSupportedSpecVersions
@@ -578,7 +579,7 @@ function getCurrentSpecVersion(): string
 Get all supported spec versions.
 
 ```typescript
-function getSupportedSpecVersions(): readonly string[]
+function getSupportedSpecVersions(): readonly string[];
 ```
 
 ### schema
@@ -586,8 +587,8 @@ function getSupportedSpecVersions(): readonly string[]
 The current version CTRF JSON Schema object.
 
 ```typescript
-import { schema } from 'ctrf'
-console.log(schema.$schema)
+import { schema } from "ctrf";
+console.log(schema.$schema);
 ```
 
 ---
@@ -601,16 +602,16 @@ Runtime type checking functions.
 Quick check if an object has CTRF report structure.
 
 ```typescript
-function isCTRFReport(report: unknown): report is { reportFormat: 'CTRF' }
+function isCTRFReport(report: unknown): report is { reportFormat: "CTRF" };
 ```
 
 **Example:**
 
 ```typescript
-import { isCTRFReport } from 'ctrf'
+import { isCTRFReport } from "ctrf";
 
 if (isCTRFReport(data)) {
-  // data.reportFormat is 'CTRF'
+	// data.reportFormat is 'CTRF'
 }
 ```
 
@@ -619,7 +620,7 @@ if (isCTRFReport(data)) {
 Type guard for Test objects.
 
 ```typescript
-function isTest(test: unknown): test is Test
+function isTest(test: unknown): test is Test;
 ```
 
 ### isTestStatus
@@ -627,7 +628,7 @@ function isTest(test: unknown): test is Test
 Type guard for valid test statuses.
 
 ```typescript
-function isTestStatus(status: unknown): status is TestStatus
+function isTestStatus(status: unknown): status is TestStatus;
 ```
 
 ### isRetryAttempt
@@ -635,7 +636,7 @@ function isTestStatus(status: unknown): status is TestStatus
 Type guard for RetryAttempt objects.
 
 ```typescript
-function isRetryAttempt(attempt: unknown): attempt is RetryAttempt
+function isRetryAttempt(attempt: unknown): attempt is RetryAttempt;
 ```
 
 ### hasInsights
@@ -643,7 +644,7 @@ function isRetryAttempt(attempt: unknown): attempt is RetryAttempt
 Check if a report has insights data.
 
 ```typescript
-function hasInsights(report: CTRFReport): boolean
+function hasInsights(report: CTRFReport): boolean;
 ```
 
 ---
@@ -652,12 +653,12 @@ function hasInsights(report: CTRFReport): boolean
 
 ```typescript
 import {
-  REPORT_FORMAT, // 'CTRF'
-  CURRENT_SPEC_VERSION, // '0.0.0'
-  TEST_STATUSES, // ['passed', 'failed', 'skipped', 'pending', 'other']
-  SUPPORTED_SPEC_VERSIONS, // ['0.0.0']
-  CTRF_NAMESPACE, // UUID namespace for deterministic IDs
-} from 'ctrf'
+	REPORT_FORMAT, // 'CTRF'
+	CURRENT_SPEC_VERSION, // '0.0.0'
+	TEST_STATUSES, // ['passed', 'failed', 'skipped', 'pending', 'other']
+	SUPPORTED_SPEC_VERSIONS, // ['0.0.0']
+	CTRF_NAMESPACE, // UUID namespace for deterministic IDs
+} from "ctrf";
 ```
 
 ---
@@ -672,7 +673,7 @@ Base error class for all CTRF errors.
 
 ```typescript
 class CTRFError extends Error {
-  name: 'CTRFError'
+	name: "CTRFError";
 }
 ```
 
@@ -682,13 +683,13 @@ Thrown when schema validation fails.
 
 ```typescript
 class ValidationError extends CTRFError {
-  errors: ValidationErrorDetail[]
+	errors: ValidationErrorDetail[];
 }
 
 interface ValidationErrorDetail {
-  message: string
-  path: string
-  keyword?: string
+	message: string;
+	path: string;
+	keyword?: string;
 }
 ```
 
@@ -698,7 +699,7 @@ Thrown when JSON parsing fails.
 
 ```typescript
 class ParseError extends CTRFError {
-  cause?: Error
+	cause?: Error;
 }
 ```
 
@@ -708,8 +709,8 @@ Thrown when an unsupported spec version is encountered.
 
 ```typescript
 class SchemaVersionError extends CTRFError {
-  version: string
-  supportedVersions: string[]
+	version: string;
+	supportedVersions: string[];
 }
 ```
 
@@ -719,8 +720,8 @@ Thrown when file operations fail.
 
 ```typescript
 class FileError extends CTRFError {
-  filePath: string
-  cause?: Error
+	filePath: string;
+	cause?: Error;
 }
 ```
 
@@ -744,15 +745,15 @@ The root report object.
 
 ```typescript
 interface CTRFReport {
-  reportFormat: 'CTRF'
-  specVersion: string
-  reportId?: string
-  timestamp?: string
-  generatedBy?: string
-  results: Results
-  insights?: Insights
-  baseline?: Baseline
-  extra?: Record<string, unknown>
+	reportFormat: "CTRF";
+	specVersion: string;
+	reportId?: string;
+	timestamp?: string;
+	generatedBy?: string;
+	results: Results;
+	insights?: Insights;
+	baseline?: Baseline;
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -762,35 +763,35 @@ Individual test result.
 
 ```typescript
 interface Test {
-  id?: string
-  name: string
-  status: TestStatus
-  duration: number
-  start?: number
-  stop?: number
-  suite?: string[]
-  message?: string
-  trace?: string
-  snippet?: string
-  ai?: string
-  line?: number
-  rawStatus?: string
-  tags?: string[]
-  type?: string
-  filePath?: string
-  retries?: number
-  retryAttempts?: RetryAttempt[]
-  flaky?: boolean
-  stdout?: string[]
-  stderr?: string[]
-  threadId?: string
-  browser?: string
-  device?: string
-  screenshot?: string
-  parameters?: Record<string, unknown>
-  steps?: Step[]
-  attachments?: Attachment[]
-  extra?: Record<string, unknown>
+	id?: string;
+	name: string;
+	status: TestStatus;
+	duration: number;
+	start?: number;
+	stop?: number;
+	suite?: string[];
+	message?: string;
+	trace?: string;
+	snippet?: string;
+	ai?: string;
+	line?: number;
+	rawStatus?: string;
+	tags?: string[];
+	type?: string;
+	filePath?: string;
+	retries?: number;
+	retryAttempts?: RetryAttempt[];
+	flaky?: boolean;
+	stdout?: string[];
+	stderr?: string[];
+	threadId?: string;
+	browser?: string;
+	device?: string;
+	screenshot?: string;
+	parameters?: Record<string, unknown>;
+	steps?: Step[];
+	attachments?: Attachment[];
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -800,11 +801,11 @@ Container for test results.
 
 ```typescript
 interface Results {
-  tool: Tool
-  summary: Summary
-  tests: Test[]
-  environment?: Environment
-  extra?: Record<string, unknown>
+	tool: Tool;
+	summary: Summary;
+	tests: Test[];
+	environment?: Environment;
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -814,18 +815,18 @@ Aggregated test statistics.
 
 ```typescript
 interface Summary {
-  tests: number
-  passed: number
-  failed: number
-  skipped: number
-  pending: number
-  other: number
-  flaky?: number
-  suites?: number
-  start: number
-  stop: number
-  duration?: number
-  extra?: Record<string, unknown>
+	tests: number;
+	passed: number;
+	failed: number;
+	skipped: number;
+	pending: number;
+	other: number;
+	flaky?: number;
+	suites?: number;
+	start: number;
+	stop: number;
+	duration?: number;
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -835,9 +836,9 @@ Test tool information.
 
 ```typescript
 interface Tool {
-  name: string
-  version?: string
-  extra?: Record<string, unknown>
+	name: string;
+	version?: string;
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -847,20 +848,20 @@ Environment metadata.
 
 ```typescript
 interface Environment {
-  appName?: string
-  appVersion?: string
-  buildName?: string
-  buildNumber?: string
-  buildUrl?: string
-  repositoryName?: string
-  repositoryUrl?: string
-  commit?: string
-  branchName?: string
-  osPlatform?: string
-  osRelease?: string
-  osVersion?: string
-  testEnvironment?: string
-  extra?: Record<string, unknown>
+	appName?: string;
+	appVersion?: string;
+	buildName?: string;
+	buildNumber?: string;
+	buildUrl?: string;
+	repositoryName?: string;
+	repositoryUrl?: string;
+	commit?: string;
+	branchName?: string;
+	osPlatform?: string;
+	osRelease?: string;
+	osVersion?: string;
+	testEnvironment?: string;
+	extra?: Record<string, unknown>;
 }
 ```
 
@@ -869,61 +870,61 @@ interface Environment {
 Valid test status values.
 
 ```typescript
-type TestStatus = 'passed' | 'failed' | 'skipped' | 'pending' | 'other'
+type TestStatus = "passed" | "failed" | "skipped" | "pending" | "other";
 ```
 
 ### Supporting Types
 
 ```typescript
 interface Attachment {
-  name: string
-  path?: string
-  contentType?: string
-  content?: string
+	name: string;
+	path?: string;
+	contentType?: string;
+	content?: string;
 }
 
 interface Step {
-  name: string
-  status: TestStatus
-  duration?: number
-  start?: number
-  stop?: number
-  message?: string
+	name: string;
+	status: TestStatus;
+	duration?: number;
+	start?: number;
+	stop?: number;
+	message?: string;
 }
 
 interface RetryAttempt {
-  attempt: number
-  status: TestStatus
-  duration?: number
-  message?: string
-  trace?: string
+	attempt: number;
+	status: TestStatus;
+	duration?: number;
+	message?: string;
+	trace?: string;
 }
 
 interface Insights {
-  flakiness?: MetricDelta
-  failRate?: MetricDelta
-  newFailures?: number
-  extra?: Record<string, unknown>
+	flakiness?: MetricDelta;
+	failRate?: MetricDelta;
+	newFailures?: number;
+	extra?: Record<string, unknown>;
 }
 
 interface TestInsights {
-  flakiness?: MetricDelta
-  failRate?: MetricDelta
-  averageDuration?: MetricDelta
-  p95Duration?: MetricDelta
-  extra?: Record<string, unknown>
+	flakiness?: MetricDelta;
+	failRate?: MetricDelta;
+	averageDuration?: MetricDelta;
+	p95Duration?: MetricDelta;
+	extra?: Record<string, unknown>;
 }
 
 interface MetricDelta {
-  current?: number
-  baseline?: number
-  change?: number
+	current?: number;
+	baseline?: number;
+	change?: number;
 }
 
 interface Baseline {
-  reportId?: string
-  timestamp?: string
-  summary?: Summary
+	reportId?: string;
+	timestamp?: string;
+	summary?: Summary;
 }
 ```
 
@@ -933,64 +934,64 @@ interface Baseline {
 
 ```typescript
 import {
-  ReportBuilder,
-  TestBuilder,
-  validate,
-  stringify,
-  filterTests,
-  addInsights,
-  merge,
-  type CTRFReport,
-  type Test,
-} from 'ctrf'
+	ReportBuilder,
+	TestBuilder,
+	validate,
+	stringify,
+	filterTests,
+	addInsights,
+	merge,
+	type CTRFReport,
+	type Test,
+} from "ctrf";
 
 // Build a report
 const report = new ReportBuilder({ autoGenerateId: true, autoTimestamp: true })
-  .tool({ name: 'vitest', version: '1.0.0' })
-  .environment({
-    branchName: 'main',
-    commit: 'abc123',
-    buildNumber: '42',
-  })
-  .addTest(
-    new TestBuilder({ autoGenerateId: true })
-      .name('should create user')
-      .suite(['API', 'Users'])
-      .status('passed')
-      .duration(120)
-      .filePath('tests/api/users.test.ts')
-      .tags(['api', 'smoke'])
-      .build()
-  )
-  .addTest(
-    new TestBuilder({ autoGenerateId: true })
-      .name('should delete user')
-      .suite(['API', 'Users'])
-      .status('failed')
-      .duration(85)
-      .message('User not found')
-      .trace('Error: User not found\n    at deleteUser (users.ts:42)')
-      .filePath('tests/api/users.test.ts')
-      .build()
-  )
-  .build()
+	.tool({ name: "vitest", version: "1.0.0" })
+	.environment({
+		branchName: "main",
+		commit: "abc123",
+		buildNumber: "42",
+	})
+	.addTest(
+		new TestBuilder({ autoGenerateId: true })
+			.name("should create user")
+			.suite(["API", "Users"])
+			.status("passed")
+			.duration(120)
+			.filePath("tests/api/users.test.ts")
+			.tags(["api", "smoke"])
+			.build(),
+	)
+	.addTest(
+		new TestBuilder({ autoGenerateId: true })
+			.name("should delete user")
+			.suite(["API", "Users"])
+			.status("failed")
+			.duration(85)
+			.message("User not found")
+			.trace("Error: User not found\n    at deleteUser (users.ts:42)")
+			.filePath("tests/api/users.test.ts")
+			.build(),
+	)
+	.build();
 
 // Validate
-const result = validate(report)
-console.log('Valid:', result.valid)
+const result = validate(report);
+console.log("Valid:", result.valid);
 
 // Filter failed tests
-const failed = filterTests(report, { status: 'failed' })
-console.log('Failed tests:', failed.length)
+const failed = filterTests(report, { status: "failed" });
+console.log("Failed tests:", failed.length);
 
 // Serialize
-const json = stringify(report, { pretty: true })
+const json = stringify(report, { pretty: true });
 
 // Add insights from history
-const reportWithInsights = addInsights(report, previousReports)
+const reportWithInsights = addInsights(report, previousReports);
 
 // Merge parallel runs
 const merged = merge([shard1, shard2, shard3], {
-  deduplicateTests: true,
-})
+	deduplicateTests: true,
+});
 ```
