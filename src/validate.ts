@@ -29,7 +29,7 @@ function validateRetryHistories(
 	// Versions before 0.0.4 used the earlier retry model. In those versions,
 	// matching history length was recommended rather than required, and the
 	// presence and ordering constraints below were not normative requirements.
-	if (version !== "0.0.4" && version !== "0.1.0" && version !== "0.2.0")
+	if (version === "0.0.1" || version === "0.0.2" || version === "0.0.3")
 		return errors;
 
 	for (const [testIndex, test] of report.results.tests.entries()) {
@@ -140,6 +140,30 @@ export function validate(
 				selectedVersion as SupportedSpecVersion,
 			),
 		);
+	}
+
+	if (valid && selectedVersion === "0.3.0") {
+		const { reportId, provenance } = report as CTRFReport;
+		const seen = new Set<string>();
+		for (const [index, input] of (provenance?.inputs ?? []).entries()) {
+			const id = input.reportId.toLowerCase();
+			const path = `/provenance/inputs/${index}/reportId`;
+			if (id === reportId?.toLowerCase()) {
+				errors.push({
+					path,
+					keyword: "provenance",
+					message: "must not reference the current report",
+				});
+			}
+			if (seen.has(id)) {
+				errors.push({
+					path,
+					keyword: "provenance",
+					message: "must identify a distinct source report",
+				});
+			}
+			seen.add(id);
+		}
 	}
 
 	return { valid: errors.length === 0, errors };

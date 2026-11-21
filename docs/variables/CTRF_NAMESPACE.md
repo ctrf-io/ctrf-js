@@ -8,6 +8,6 @@
 
 > `const` **CTRF\_NAMESPACE**: `"6ba7b810-9dad-11d1-80b4-00c04fd430c8"` = `"6ba7b810-9dad-11d1-80b4-00c04fd430c8"`
 
-Defined in: [constants.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/constants.ts#L37)
+Defined in: [constants.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/constants.ts#L38)
 
 CTRF namespace UUID for deterministic ID generation

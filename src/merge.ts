@@ -9,7 +9,7 @@ import type {
 	Environment,
 	MergeOptions,
 } from "./types.js";
-import { REPORT_FORMAT, CURRENT_SPEC_VERSION } from "./constants.js";
+import { CURRENT_SPEC_VERSION, REPORT_FORMAT } from "./constants.js";
 import { calculateSummary } from "./summary.js";
 import { generateReportId } from "./id.js";
 
@@ -18,6 +18,10 @@ import { generateReportId } from "./id.js";
  * @group Merge
  * Merge multiple CTRF reports into a single report.
  * Useful for combining results from parallel or sharded test runs.
+ *
+ * Reports with a shared specification version retain it. Mixed-version inputs
+ * continue to use the current version without conversion or validation. Global
+ * errors are concatenated in input order and do not contribute to test counts.
  *
  * @param reports - Array of CTRF reports to merge
  * @param options - Merge options (deduplication, environment handling)
@@ -46,6 +50,13 @@ export function merge(
 	if (reports.length === 1) {
 		return { ...reports[0] };
 	}
+
+	const inputVersion = reports[0].specVersion;
+	const specVersion = reports.every(
+		(report) => report.specVersion === inputVersion,
+	)
+		? inputVersion
+		: CURRENT_SPEC_VERSION;
 
 	const {
 		deduplicateTests = false,
@@ -106,7 +117,7 @@ export function merge(
 	const tool = reports[0].results.tool;
 	const merged: CTRFReport = {
 		reportFormat: REPORT_FORMAT,
-		specVersion: CURRENT_SPEC_VERSION,
+		specVersion,
 		reportId: generateReportId(),
 		timestamp: new Date().toISOString(),
 		results: {
@@ -116,10 +127,27 @@ export function merge(
 		},
 	};
 
+	if (specVersion === "0.3.0") {
+		const inputs = new Map<string, { reportId: string }>();
+		let complete = true;
+		for (const report of reports) {
+			if (!report.reportId) {
+				complete = false;
+				break;
+			}
+			const id = report.reportId.toLowerCase();
+			if (!inputs.has(id)) inputs.set(id, { reportId: report.reportId });
+		}
+		if (complete) merged.provenance = { inputs: [...inputs.values()] };
+	}
+
 	const sharedRunId = reports[0].runId;
 	if (sharedRunId && reports.every((report) => report.runId === sharedRunId)) {
 		merged.runId = sharedRunId;
 	}
+
+	const errors = reports.flatMap((report) => report.results.errors ?? []);
+	if (errors.length > 0) merged.results.errors = errors;
 
 	if (environment && Object.keys(environment).length > 0) {
 		merged.results.environment = environment;

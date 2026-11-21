@@ -217,6 +217,11 @@ const merged = merge([report1, report2, report3], {
 });
 ```
 
+Reports sharing a specification version retain that version when merged.
+Mixed-version inputs continue to use the current specification version without
+conversion or validation; validate the result against the intended contract.
+Global errors are retained in input order, separately from test counts.
+
 ### ID Generation
 
 ```typescript
@@ -273,8 +278,8 @@ import {
 } from "ctrf";
 
 REPORT_FORMAT; // 'CTRF'
-CURRENT_SPEC_VERSION; // '0.2.0'
-SUPPORTED_SPEC_VERSIONS; // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
+CURRENT_SPEC_VERSION; // '0.3.0'
+SUPPORTED_SPEC_VERSIONS; // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0', '0.3.0']
 TEST_STATUSES; // ['passed', 'failed', 'skipped', 'pending', 'other']
 CTRF_NAMESPACE; // UUID namespace for deterministic IDs
 ```
@@ -319,6 +324,6 @@ const v0_0_2Schema = getSchema("0.0.2");
 const latestSchema = getSchema("latest");
 
 // Get version info
-const version = getCurrentSpecVersion(); // '0.2.0'
-const supported = getSupportedSpecVersions(); // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0']
+const version = getCurrentSpecVersion(); // '0.3.0'
+const supported = getSupportedSpecVersions(); // ['0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.2.0', '0.3.0']
 ```

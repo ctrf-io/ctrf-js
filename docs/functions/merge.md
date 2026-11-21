@@ -8,7 +8,7 @@
 
 > **merge**(`reports`, `options?`): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [merge.ts:38](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L38)
+Defined in: [merge.ts:42](https://github.com/ctrf-io/ctrf-js/blob/main/src/merge.ts#L42)
 
 ## Parameters
 

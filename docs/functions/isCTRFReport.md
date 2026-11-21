@@ -8,7 +8,7 @@
 
 > **isCTRFReport**(`report`): `report is { reportFormat: "CTRF" }`
 
-Defined in: [validate.ts:227](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L227)
+Defined in: [validate.ts:251](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L251)
 
 ## Parameters
 

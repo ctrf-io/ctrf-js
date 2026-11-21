@@ -8,7 +8,7 @@
 
 > **isRetryAttempt**(`obj`): `obj is AttemptHistoryEntry`
 
-Defined in: [validate.ts:304](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L304)
+Defined in: [validate.ts:328](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L328)
 
 Backward-compatible alias for [isAttemptHistoryEntry](isAttemptHistoryEntry.md).
 

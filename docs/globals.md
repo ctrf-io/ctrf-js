@@ -15,10 +15,14 @@ A complete TypeScript implementation for working with CTRF (Common Test Report F
 ## Core Types
 
 - [CTRFReport](interfaces/CTRFReport.md)
+- [ProvenanceInput](interfaces/ProvenanceInput.md)
+- [Provenance](interfaces/Provenance.md)
 - [Results](interfaces/Results.md)
 - [Tool](interfaces/Tool.md)
 - [Summary](interfaces/Summary.md)
 - [Test](interfaces/Test.md)
+- [AssertionFailure](interfaces/AssertionFailure.md)
+- [GlobalError](interfaces/GlobalError.md)
 - [TestStatus](type-aliases/TestStatus.md)
 - [AttemptHistoryEntry](interfaces/AttemptHistoryEntry.md)
 - [~~RetryAttempt~~](type-aliases/RetryAttempt.md)
@@ -165,6 +169,10 @@ A test is considered flaky if:
 ## Merge
 Merge multiple CTRF reports into a single report.
 Useful for combining results from parallel or sharded test runs.
+
+Reports with a shared specification version retain it. Mixed-version inputs
+continue to use the current version without conversion or validation. Global
+errors are concatenated in input order and do not contribute to test counts.
 
 - [merge](functions/merge.md)
 

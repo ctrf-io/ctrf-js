@@ -9,6 +9,8 @@
 export type {
 	CTRFReport,
 	Results,
+	AssertionFailure,
+	GlobalError,
 	Tool,
 	Summary,
 	Test,
@@ -21,6 +23,8 @@ export type {
 	TestInsights,
 	MetricDelta,
 	Baseline,
+	Provenance,
+	ProvenanceInput,
 	TestStatus,
 	LabelPrimitive,
 	LabelValue,

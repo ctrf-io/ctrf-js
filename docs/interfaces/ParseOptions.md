@@ -6,7 +6,7 @@
 
 # Interface: ParseOptions
 
-Defined in: [types.ts:528](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L528)
+Defined in: [types.ts:589](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L589)
 
 Options for parsing JSON
 
@@ -16,6 +16,6 @@ Options for parsing JSON
 
 > `optional` **validate?**: `boolean`
 
-Defined in: [types.ts:530](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L530)
+Defined in: [types.ts:591](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L591)
 
 Validate after parsing

@@ -6,6 +6,8 @@
 import type {
 	CTRFReport,
 	Results,
+	AssertionFailure,
+	GlobalError,
 	Tool,
 	Summary,
 	Test,
@@ -13,6 +15,7 @@ import type {
 	Insights,
 	TestInsights,
 	Baseline,
+	Provenance,
 	Attachment,
 	AttemptHistoryEntry,
 	Step,
@@ -56,8 +59,10 @@ export class ReportBuilder {
 	private _tool?: Tool;
 	private _environment?: Environment;
 	private _tests: Test[] = [];
+	private _errors: GlobalError[] = [];
 	private _insights?: Insights;
 	private _baseline?: Baseline;
+	private _provenance?: Provenance;
 	private _extra?: Record<string, unknown>;
 	private _summaryOverrides?: Partial<Summary>;
 
@@ -151,6 +156,14 @@ export class ReportBuilder {
 	}
 
 	/**
+	 * Add a global error without changing test counts.
+	 */
+	addError(error: GlobalError): this {
+		this._errors.push(error);
+		return this;
+	}
+
+	/**
 	 * Set run-level insights.
 	 */
 	insights(insights: Insights): this {
@@ -163,6 +176,12 @@ export class ReportBuilder {
 	 */
 	baseline(baseline: Baseline): this {
 		this._baseline = baseline;
+		return this;
+	}
+
+	/** Set direct report provenance. */
+	provenance(provenance: Provenance): this {
+		this._provenance = provenance;
 		return this;
 	}
 
@@ -205,6 +224,8 @@ export class ReportBuilder {
 			tests: this._tests,
 		};
 
+		if (this._errors.length > 0) results.errors = [...this._errors];
+
 		if (this._environment) {
 			results.environment = this._environment;
 		}
@@ -234,6 +255,8 @@ export class ReportBuilder {
 		if (this._insights) {
 			report.insights = this._insights;
 		}
+
+		if (this._provenance) report.provenance = this._provenance;
 
 		if (this._baseline) {
 			report.baseline = this._baseline;
@@ -268,6 +291,8 @@ export class TestBuilder {
 	private _executionId?: string;
 	private _attemptId?: string;
 	private _name?: string;
+	private _description?: string;
+	private _assertionFailures: AssertionFailure[] = [];
 	private _status?: TestStatus;
 	private _duration?: number;
 	private _start?: number;
@@ -341,6 +366,22 @@ export class TestBuilder {
 	 */
 	name(name: string): this {
 		this._name = name;
+		return this;
+	}
+
+	/**
+	 * Set the human-readable test-case description.
+	 */
+	description(description: string): this {
+		this._description = description;
+		return this;
+	}
+
+	/**
+	 * Add an assertion failure attributable to the final attempt.
+	 */
+	addAssertionFailure(failure: AssertionFailure): this {
+		this._assertionFailures.push(failure);
 		return this;
 	}
 
@@ -521,7 +562,7 @@ export class TestBuilder {
 	}
 
 	/**
-	 * Set thread ID.
+	 * Set the thread or worker that executed the final attempt.
 	 */
 	threadId(id: string): this {
 		this._threadId = id;
@@ -685,6 +726,11 @@ export class TestBuilder {
 
 		if (this._attemptId !== undefined) test.attemptId = this._attemptId;
 
+		if (this._description !== undefined) test.description = this._description;
+		if (this._assertionFailures.length > 0) {
+			test.assertionFailures = [...this._assertionFailures];
+		}
+
 		// Add optional fields only if set
 		if (this._start !== undefined) test.start = this._start;
 		if (this._stop !== undefined) test.stop = this._stop;
@@ -704,7 +750,7 @@ export class TestBuilder {
 		if (this._flaky !== undefined) test.flaky = this._flaky;
 		if (this._stdout) test.stdout = this._stdout;
 		if (this._stderr) test.stderr = this._stderr;
-		if (this._threadId) test.threadId = this._threadId;
+		if (this._threadId !== undefined) test.threadId = this._threadId;
 		if (this._browser) test.browser = this._browser;
 		if (this._device) test.device = this._device;
 		if (this._screenshot) test.screenshot = this._screenshot;

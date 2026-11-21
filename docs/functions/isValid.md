@@ -8,7 +8,7 @@
 
 > **isValid**(`report`, `options?`): `report is CTRFReport`
 
-Defined in: [validate.ts:165](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L165)
+Defined in: [validate.ts:189](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L189)
 
 ## Parameters
 

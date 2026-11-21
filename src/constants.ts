@@ -6,7 +6,7 @@
 export const REPORT_FORMAT = "CTRF" as const;
 
 /** Current spec version */
-export const CURRENT_SPEC_VERSION = "0.2.0";
+export const CURRENT_SPEC_VERSION = "0.3.0";
 
 /** All valid test statuses */
 export const TEST_STATUSES = [
@@ -25,12 +25,13 @@ export const SUPPORTED_SPEC_VERSIONS = [
 	"0.0.4",
 	"0.1.0",
 	"0.2.0",
+	"0.3.0",
 ] as const;
 
-/** A published CTRF specification version supported by this package */
+/** A CTRF specification version supported by this package */
 export type SupportedSpecVersion = (typeof SUPPORTED_SPEC_VERSIONS)[number];
 
-/** A published CTRF specification version or the current-version alias */
+/** A CTRF specification version or the current-version alias */
 export type SchemaSelector = SupportedSpecVersion | "latest";
 
 /** CTRF namespace UUID for deterministic ID generation */

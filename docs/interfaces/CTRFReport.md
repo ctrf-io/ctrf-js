@@ -48,7 +48,7 @@ Unique identifier for this report (UUID v4)
 
 Defined in: [types.ts:25](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L25)
 
-Identifier shared by all documents belonging to the same logical test run
+Logical-run identifier shared across coordinated module, shard and retry-process reports
 
 ***
 
@@ -102,10 +102,20 @@ Reference to a baseline report for comparison
 
 ***
 
+### provenance?
+
+> `optional` **provenance?**: [`Provenance`](Provenance.md)
+
+Defined in: [types.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L37)
+
+Direct input documents for a derived report (CTRF 0.3.0 and later).
+
+***
+
 ### extra?
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:37](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L37)
+Defined in: [types.ts:39](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L39)
 
 Custom metadata

@@ -21,7 +21,7 @@ export interface CTRFReport {
 	specVersion: string;
 	/** Unique identifier for this report (UUID v4) */
 	reportId?: string;
-	/** Identifier shared by all documents belonging to the same logical test run */
+	/** Logical-run identifier shared across coordinated module, shard and retry-process reports */
 	runId?: string;
 	/** ISO 8601 timestamp when the report was generated */
 	timestamp?: string;
@@ -33,7 +33,25 @@ export interface CTRFReport {
 	insights?: Insights;
 	/** Reference to a baseline report for comparison */
 	baseline?: Baseline;
+	/** Direct input documents for a derived report (CTRF 0.3.0 and later). */
+	provenance?: Provenance;
 	/** Custom metadata */
+	extra?: Record<string, unknown>;
+}
+
+/** A direct source document in a report derivation.
+ * @group Core Types
+ */
+export interface ProvenanceInput {
+	reportId: string;
+	extra?: Record<string, unknown>;
+}
+
+/** The distinct direct sources of a derived report.
+ * @group Core Types
+ */
+export interface Provenance {
+	inputs: ProvenanceInput[];
 	extra?: Record<string, unknown>;
 }
 
@@ -49,6 +67,8 @@ export interface Results {
 	summary: Summary;
 	/** Array of individual test results */
 	tests: Test[];
+	/** Global errors, separate from test results and summary counts */
+	errors?: GlobalError[];
 	/** Environment information */
 	environment?: Environment;
 	/** Custom metadata */
@@ -107,19 +127,21 @@ export interface Summary {
  * @group Core Types
  */
 export interface Test {
-	/** Legacy test identifier (UUID); new producers should prefer testId */
+	/** Deprecated test-case identifier (UUID), scheduled for removal in CTRF 1.0.0; prefer optional testId */
 	id?: string;
-	/** Stable identifier for the logical test case */
+	/** Stable test-case identifier across runs within the producer's documented scope */
 	testId?: string;
-	/** Identifier for this specific execution of the test case */
+	/** Identifier for one test-case execution lifecycle within a run, including coordinated retries */
 	executionId?: string;
 	/** Identifier for this individual attempt */
 	attemptId?: string;
 	/** Test name */
 	name: string;
+	/** Human-readable description of the test case */
+	description?: string;
 	/** Test execution status */
 	status: TestStatus;
-	/** Test duration in milliseconds */
+	/** Duration of the final attempt in milliseconds, excluding earlier attempts */
 	duration: number;
 	/** Start timestamp (Unix epoch milliseconds) */
 	start?: number;
@@ -131,6 +153,8 @@ export interface Test {
 	message?: string;
 	/** Stack trace (for failed tests) */
 	trace?: string;
+	/** Assertion failures attributable to the final attempt */
+	assertionFailures?: AssertionFailure[];
 	/** Code snippet where failure occurred */
 	snippet?: string;
 	/** AI-generated analysis or suggestion */
@@ -157,7 +181,7 @@ export interface Test {
 	stdout?: string[];
 	/** Standard error captured during test */
 	stderr?: string[];
-	/** Thread/worker ID that ran this test */
+	/** Thread or worker that executed the final attempt; qualify across processes or hosts */
 	threadId?: string;
 	/** Browser name (for browser tests) */
 	browser?: string;
@@ -174,6 +198,39 @@ export interface Test {
 	/** Test-level insights */
 	insights?: TestInsights;
 	/** Custom metadata */
+	extra?: Record<string, unknown>;
+}
+
+/**
+ * Details of an individual assertion failure. At least one property is required.
+ *
+ * @group Core Types
+ */
+export interface AssertionFailure {
+	/** Message associated with this assertion failure */
+	message?: string;
+	/** Stack trace associated with this assertion failure */
+	trace?: string;
+	/** String representation of the expected value */
+	expected?: string;
+	/** String representation of the actual value */
+	actual?: string;
+	/** Arbitrary metadata */
+	extra?: Record<string, unknown>;
+}
+
+/**
+ * Error associated with the run rather than an individual test result.
+ * At least one property is required. Global errors do not add test results.
+ *
+ * @group Core Types
+ */
+export interface GlobalError {
+	/** Message associated with this global error */
+	message?: string;
+	/** Stack trace associated with this global error */
+	trace?: string;
+	/** Arbitrary metadata */
 	extra?: Record<string, unknown>;
 }
 
@@ -210,6 +267,10 @@ export interface AttemptHistoryEntry {
 	message?: string;
 	/** Stack trace */
 	trace?: string;
+	/** Assertion failures attributable to this attempt */
+	assertionFailures?: AssertionFailure[];
+	/** Thread or worker that executed this attempt; qualify across processes or hosts */
+	threadId?: string;
 	/** Line number */
 	line?: number;
 	/** Code snippet */
@@ -250,7 +311,7 @@ export interface Attachment {
 	name: string;
 	/** MIME content type */
 	contentType: string;
-	/** Path to the attachment file */
+	/** Opaque attachment reference (URL or file path); portable references are recommended */
 	path: string;
 	/** Custom metadata */
 	extra?: Record<string, unknown>;

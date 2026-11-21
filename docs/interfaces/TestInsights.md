@@ -6,7 +6,7 @@
 
 # Interface: TestInsights
 
-Defined in: [types.ts:350](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L350)
+Defined in: [types.ts:411](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L411)
 
 Test-level insights computed from historical data
 
@@ -16,7 +16,7 @@ Test-level insights computed from historical data
 
 > `optional` **passRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:352](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L352)
+Defined in: [types.ts:413](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L413)
 
 Pass rate metric
 
@@ -26,7 +26,7 @@ Pass rate metric
 
 > `optional` **failRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:354](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L354)
+Defined in: [types.ts:415](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L415)
 
 Fail rate metric
 
@@ -36,7 +36,7 @@ Fail rate metric
 
 > `optional` **flakyRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:356](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L356)
+Defined in: [types.ts:417](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L417)
 
 Flaky rate metric
 
@@ -46,7 +46,7 @@ Flaky rate metric
 
 > `optional` **averageTestDuration?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:358](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L358)
+Defined in: [types.ts:419](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L419)
 
 Average test duration metric
 
@@ -56,7 +56,7 @@ Average test duration metric
 
 > `optional` **p95TestDuration?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:360](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L360)
+Defined in: [types.ts:421](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L421)
 
 95th percentile test duration metric
 
@@ -66,7 +66,7 @@ Defined in: [types.ts:360](https://github.com/ctrf-io/ctrf-js/blob/main/src/type
 
 > `optional` **executedInRuns?**: `number`
 
-Defined in: [types.ts:362](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L362)
+Defined in: [types.ts:423](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L423)
 
 Number of runs this test was executed in
 
@@ -76,6 +76,6 @@ Number of runs this test was executed in
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:364](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L364)
+Defined in: [types.ts:425](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L425)
 
 Custom metadata

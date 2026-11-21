@@ -19,8 +19,8 @@ describe("constants", () => {
 			expect(CURRENT_SPEC_VERSION).toMatch(/^\d+\.\d+\.\d+$/);
 		});
 
-		it("should identify the latest published specification", () => {
-			expect(CURRENT_SPEC_VERSION).toBe("0.2.0");
+		it("should identify the current specification", () => {
+			expect(CURRENT_SPEC_VERSION).toBe("0.3.0");
 		});
 	});
 
@@ -43,7 +43,7 @@ describe("constants", () => {
 			expect(SUPPORTED_SPEC_VERSIONS).toContain(CURRENT_SPEC_VERSION);
 		});
 
-		it("should contain every published CTRF specification version", () => {
+		it("should contain every supported CTRF specification version", () => {
 			expect(SUPPORTED_SPEC_VERSIONS).toEqual([
 				"0.0.1",
 				"0.0.2",
@@ -51,6 +51,7 @@ describe("constants", () => {
 				"0.0.4",
 				"0.1.0",
 				"0.2.0",
+				"0.3.0",
 			]);
 		});
 	});

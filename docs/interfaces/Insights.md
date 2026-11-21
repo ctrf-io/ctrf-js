@@ -6,7 +6,7 @@
 
 # Interface: Insights
 
-Defined in: [types.ts:326](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L326)
+Defined in: [types.ts:387](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L387)
 
 Run-level insights computed from historical data
 
@@ -16,7 +16,7 @@ Run-level insights computed from historical data
 
 > `optional` **passRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:328](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L328)
+Defined in: [types.ts:389](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L389)
 
 Pass rate metric
 
@@ -26,7 +26,7 @@ Pass rate metric
 
 > `optional` **failRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:330](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L330)
+Defined in: [types.ts:391](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L391)
 
 Fail rate metric
 
@@ -36,7 +36,7 @@ Fail rate metric
 
 > `optional` **flakyRate?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:332](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L332)
+Defined in: [types.ts:393](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L393)
 
 Flaky rate metric
 
@@ -46,7 +46,7 @@ Flaky rate metric
 
 > `optional` **averageRunDuration?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:334](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L334)
+Defined in: [types.ts:395](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L395)
 
 Average run duration metric
 
@@ -56,7 +56,7 @@ Average run duration metric
 
 > `optional` **p95RunDuration?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:336](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L336)
+Defined in: [types.ts:397](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L397)
 
 95th percentile run duration metric
 
@@ -66,7 +66,7 @@ Defined in: [types.ts:336](https://github.com/ctrf-io/ctrf-js/blob/main/src/type
 
 > `optional` **averageTestDuration?**: [`MetricDelta`](MetricDelta.md)
 
-Defined in: [types.ts:338](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L338)
+Defined in: [types.ts:399](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L399)
 
 Average test duration metric
 
@@ -76,7 +76,7 @@ Average test duration metric
 
 > `optional` **runsAnalyzed?**: `number`
 
-Defined in: [types.ts:340](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L340)
+Defined in: [types.ts:401](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L401)
 
 Number of historical runs analyzed
 
@@ -86,6 +86,6 @@ Number of historical runs analyzed
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:342](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L342)
+Defined in: [types.ts:403](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L403)
 
 Custom metadata
