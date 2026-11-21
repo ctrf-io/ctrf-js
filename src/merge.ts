@@ -127,6 +127,20 @@ export function merge(
 		},
 	};
 
+	if (specVersion === "0.3.0") {
+		const inputs = new Map<string, { reportId: string }>();
+		let complete = true;
+		for (const report of reports) {
+			if (!report.reportId) {
+				complete = false;
+				break;
+			}
+			const id = report.reportId.toLowerCase();
+			if (!inputs.has(id)) inputs.set(id, { reportId: report.reportId });
+		}
+		if (complete) merged.provenance = { inputs: [...inputs.values()] };
+	}
+
 	const sharedRunId = reports[0].runId;
 	if (sharedRunId && reports.every((report) => report.runId === sharedRunId)) {
 		merged.runId = sharedRunId;

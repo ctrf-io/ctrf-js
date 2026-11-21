@@ -6,7 +6,7 @@
 
 # Interface: GlobalError
 
-Defined in: [types.ts:210](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L210)
+Defined in: [types.ts:228](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L228)
 
 Error associated with the run rather than an individual test result.
 At least one property is required. Global errors do not add test results.
@@ -17,7 +17,7 @@ At least one property is required. Global errors do not add test results.
 
 > `optional` **message?**: `string`
 
-Defined in: [types.ts:212](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L212)
+Defined in: [types.ts:230](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L230)
 
 Message associated with this global error
 
@@ -27,7 +27,7 @@ Message associated with this global error
 
 > `optional` **trace?**: `string`
 
-Defined in: [types.ts:214](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L214)
+Defined in: [types.ts:232](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L232)
 
 Stack trace associated with this global error
 
@@ -37,6 +37,6 @@ Stack trace associated with this global error
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:216](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L216)
+Defined in: [types.ts:234](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L234)
 
 Arbitrary metadata

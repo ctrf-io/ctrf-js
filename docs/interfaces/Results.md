@@ -6,7 +6,7 @@
 
 # Interface: Results
 
-Defined in: [types.ts:45](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L45)
+Defined in: [types.ts:63](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L63)
 
 Container for test results
 
@@ -16,7 +16,7 @@ Container for test results
 
 > **tool**: [`Tool`](Tool.md)
 
-Defined in: [types.ts:47](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L47)
+Defined in: [types.ts:65](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L65)
 
 Information about the test tool
 
@@ -26,7 +26,7 @@ Information about the test tool
 
 > **summary**: [`Summary`](Summary.md)
 
-Defined in: [types.ts:49](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L49)
+Defined in: [types.ts:67](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L67)
 
 Aggregated test statistics
 
@@ -36,7 +36,7 @@ Aggregated test statistics
 
 > **tests**: [`Test`](Test.md)[]
 
-Defined in: [types.ts:51](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L51)
+Defined in: [types.ts:69](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L69)
 
 Array of individual test results
 
@@ -46,7 +46,7 @@ Array of individual test results
 
 > `optional` **errors?**: [`GlobalError`](GlobalError.md)[]
 
-Defined in: [types.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L53)
+Defined in: [types.ts:71](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L71)
 
 Global errors, separate from test results and summary counts
 
@@ -56,7 +56,7 @@ Global errors, separate from test results and summary counts
 
 > `optional` **environment?**: [`Environment`](Environment.md)
 
-Defined in: [types.ts:55](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L55)
+Defined in: [types.ts:73](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L73)
 
 Environment information
 
@@ -66,6 +66,6 @@ Environment information
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:57](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L57)
+Defined in: [types.ts:75](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L75)
 
 Custom metadata

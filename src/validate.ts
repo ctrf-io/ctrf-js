@@ -142,6 +142,30 @@ export function validate(
 		);
 	}
 
+	if (valid && selectedVersion === "0.3.0") {
+		const { reportId, provenance } = report as CTRFReport;
+		const seen = new Set<string>();
+		for (const [index, input] of (provenance?.inputs ?? []).entries()) {
+			const id = input.reportId.toLowerCase();
+			const path = `/provenance/inputs/${index}/reportId`;
+			if (id === reportId?.toLowerCase()) {
+				errors.push({
+					path,
+					keyword: "provenance",
+					message: "must not reference the current report",
+				});
+			}
+			if (seen.has(id)) {
+				errors.push({
+					path,
+					keyword: "provenance",
+					message: "must identify a distinct source report",
+				});
+			}
+			seen.add(id);
+		}
+	}
+
 	return { valid: errors.length === 0, errors };
 }
 

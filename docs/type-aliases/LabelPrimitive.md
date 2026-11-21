@@ -8,6 +8,6 @@
 
 > **LabelPrimitive** = `string` \| `number` \| `boolean`
 
-Defined in: [types.ts:227](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L227)
+Defined in: [types.ts:245](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L245)
 
 Primitive value supported by a test label

@@ -6,7 +6,7 @@
 
 # Interface: TestBuilderOptions
 
-Defined in: [types.ts:549](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L549)
+Defined in: [types.ts:567](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L567)
 
 Options for TestBuilder
 
@@ -16,6 +16,6 @@ Options for TestBuilder
 
 > `optional` **autoGenerateId?**: `boolean`
 
-Defined in: [types.ts:551](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L551)
+Defined in: [types.ts:569](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L569)
 
 Automatically generate test ID

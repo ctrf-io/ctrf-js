@@ -6,7 +6,7 @@
 
 # Interface: Environment
 
-Defined in: [types.ts:321](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L321)
+Defined in: [types.ts:339](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L339)
 
 Environment information
 
@@ -16,7 +16,7 @@ Environment information
 
 > `optional` **reportName?**: `string`
 
-Defined in: [types.ts:323](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L323)
+Defined in: [types.ts:341](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L341)
 
 Custom report name
 
@@ -26,7 +26,7 @@ Custom report name
 
 > `optional` **appName?**: `string`
 
-Defined in: [types.ts:325](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L325)
+Defined in: [types.ts:343](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L343)
 
 Application name
 
@@ -36,7 +36,7 @@ Application name
 
 > `optional` **appVersion?**: `string`
 
-Defined in: [types.ts:327](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L327)
+Defined in: [types.ts:345](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L345)
 
 Application version
 
@@ -46,7 +46,7 @@ Application version
 
 > `optional` **buildId?**: `string`
 
-Defined in: [types.ts:329](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L329)
+Defined in: [types.ts:347](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L347)
 
 Build identifier
 
@@ -56,7 +56,7 @@ Build identifier
 
 > `optional` **buildName?**: `string`
 
-Defined in: [types.ts:331](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L331)
+Defined in: [types.ts:349](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L349)
 
 Build name
 
@@ -66,7 +66,7 @@ Build name
 
 > `optional` **buildNumber?**: `number`
 
-Defined in: [types.ts:333](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L333)
+Defined in: [types.ts:351](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L351)
 
 Build number
 
@@ -76,7 +76,7 @@ Build number
 
 > `optional` **buildUrl?**: `string`
 
-Defined in: [types.ts:335](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L335)
+Defined in: [types.ts:353](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L353)
 
 Build URL
 
@@ -86,7 +86,7 @@ Build URL
 
 > `optional` **repositoryName?**: `string`
 
-Defined in: [types.ts:337](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L337)
+Defined in: [types.ts:355](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L355)
 
 Repository name
 
@@ -96,7 +96,7 @@ Repository name
 
 > `optional` **repositoryUrl?**: `string`
 
-Defined in: [types.ts:339](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L339)
+Defined in: [types.ts:357](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L357)
 
 Repository URL
 
@@ -106,7 +106,7 @@ Repository URL
 
 > `optional` **commit?**: `string`
 
-Defined in: [types.ts:341](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L341)
+Defined in: [types.ts:359](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L359)
 
 Git commit SHA
 
@@ -116,7 +116,7 @@ Git commit SHA
 
 > `optional` **branchName?**: `string`
 
-Defined in: [types.ts:343](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L343)
+Defined in: [types.ts:361](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L361)
 
 Git branch name
 
@@ -126,7 +126,7 @@ Git branch name
 
 > `optional` **osPlatform?**: `string`
 
-Defined in: [types.ts:345](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L345)
+Defined in: [types.ts:363](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L363)
 
 Operating system platform
 
@@ -136,7 +136,7 @@ Operating system platform
 
 > `optional` **osRelease?**: `string`
 
-Defined in: [types.ts:347](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L347)
+Defined in: [types.ts:365](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L365)
 
 Operating system release
 
@@ -146,7 +146,7 @@ Operating system release
 
 > `optional` **osVersion?**: `string`
 
-Defined in: [types.ts:349](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L349)
+Defined in: [types.ts:367](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L367)
 
 Operating system version
 
@@ -156,7 +156,7 @@ Operating system version
 
 > `optional` **testEnvironment?**: `string`
 
-Defined in: [types.ts:351](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L351)
+Defined in: [types.ts:369](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L369)
 
 Test environment name
 
@@ -166,7 +166,7 @@ Test environment name
 
 > `optional` **shardId?**: `string`
 
-Defined in: [types.ts:353](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L353)
+Defined in: [types.ts:371](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L371)
 
 Shard or partition that produced this document
 
@@ -176,7 +176,7 @@ Shard or partition that produced this document
 
 > `optional` **healthy?**: `boolean`
 
-Defined in: [types.ts:355](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L355)
+Defined in: [types.ts:373](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L373)
 
 Whether the environment is healthy
 
@@ -186,6 +186,6 @@ Whether the environment is healthy
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:357](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L357)
+Defined in: [types.ts:375](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L375)
 
 Custom metadata

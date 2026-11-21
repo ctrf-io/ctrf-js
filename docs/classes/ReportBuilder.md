@@ -6,7 +6,7 @@
 
 # Class: ReportBuilder
 
-Defined in: [builder.ts:52](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L52)
+Defined in: [builder.ts:53](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L53)
 
 ## Example
 
@@ -31,7 +31,7 @@ const report = new ReportBuilder()
 
 > **new ReportBuilder**(`options?`): `ReportBuilder`
 
-Defined in: [builder.ts:67](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L67)
+Defined in: [builder.ts:69](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L69)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ Defined in: [builder.ts:67](https://github.com/ctrf-io/ctrf-js/blob/main/src/bui
 
 > **specVersion**(`version`): `this`
 
-Defined in: [builder.ts:79](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L79)
+Defined in: [builder.ts:81](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L81)
 
 Set the spec version.
 
@@ -69,7 +69,7 @@ Set the spec version.
 
 > **reportId**(`uuid?`): `this`
 
-Defined in: [builder.ts:88](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L88)
+Defined in: [builder.ts:90](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L90)
 
 Set or generate the report ID.
 
@@ -91,7 +91,7 @@ UUID to use, or undefined to auto-generate
 
 > **runId**(`id`): `this`
 
-Defined in: [builder.ts:96](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L96)
+Defined in: [builder.ts:98](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L98)
 
 Set the logical test run ID shared across related CTRF documents.
 
@@ -111,7 +111,7 @@ Set the logical test run ID shared across related CTRF documents.
 
 > **timestamp**(`date?`): `this`
 
-Defined in: [builder.ts:105](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L105)
+Defined in: [builder.ts:107](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L107)
 
 Set the timestamp.
 
@@ -133,7 +133,7 @@ Date to use, or undefined for current time
 
 > **generatedBy**(`name`): `this`
 
-Defined in: [builder.ts:119](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L119)
+Defined in: [builder.ts:121](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L121)
 
 Set the generator name.
 
@@ -153,7 +153,7 @@ Set the generator name.
 
 > **tool**(`tool`): `this`
 
-Defined in: [builder.ts:127](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L127)
+Defined in: [builder.ts:129](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L129)
 
 Set the tool information.
 
@@ -173,7 +173,7 @@ Set the tool information.
 
 > **environment**(`env`): `this`
 
-Defined in: [builder.ts:135](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L135)
+Defined in: [builder.ts:137](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L137)
 
 Set the environment information.
 
@@ -193,7 +193,7 @@ Set the environment information.
 
 > **addTest**(`test`): `this`
 
-Defined in: [builder.ts:143](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L143)
+Defined in: [builder.ts:145](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L145)
 
 Add a single test.
 
@@ -213,7 +213,7 @@ Add a single test.
 
 > **addTests**(`tests`): `this`
 
-Defined in: [builder.ts:151](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L151)
+Defined in: [builder.ts:153](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L153)
 
 Add multiple tests.
 
@@ -233,7 +233,7 @@ Add multiple tests.
 
 > **addError**(`error`): `this`
 
-Defined in: [builder.ts:159](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L159)
+Defined in: [builder.ts:161](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L161)
 
 Add a global error without changing test counts.
 
@@ -253,7 +253,7 @@ Add a global error without changing test counts.
 
 > **insights**(`insights`): `this`
 
-Defined in: [builder.ts:167](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L167)
+Defined in: [builder.ts:169](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L169)
 
 Set run-level insights.
 
@@ -273,7 +273,7 @@ Set run-level insights.
 
 > **baseline**(`baseline`): `this`
 
-Defined in: [builder.ts:175](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L175)
+Defined in: [builder.ts:177](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L177)
 
 Set the baseline reference.
 
@@ -289,11 +289,31 @@ Set the baseline reference.
 
 ***
 
+### provenance()
+
+> **provenance**(`provenance`): `this`
+
+Defined in: [builder.ts:183](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L183)
+
+Set direct report provenance.
+
+#### Parameters
+
+##### provenance
+
+[`Provenance`](../interfaces/Provenance.md)
+
+#### Returns
+
+`this`
+
+***
+
 ### extra()
 
 > **extra**(`data`): `this`
 
-Defined in: [builder.ts:183](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L183)
+Defined in: [builder.ts:191](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L191)
 
 Set extra metadata.
 
@@ -313,7 +333,7 @@ Set extra metadata.
 
 > **summaryOverrides**(`overrides`): `this`
 
-Defined in: [builder.ts:192](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L192)
+Defined in: [builder.ts:200](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L200)
 
 Override specific summary fields.
 Useful when you want to set specific timing or counts.
@@ -334,7 +354,7 @@ Useful when you want to set specific timing or counts.
 
 > **build**(): [`CTRFReport`](../interfaces/CTRFReport.md)
 
-Defined in: [builder.ts:201](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L201)
+Defined in: [builder.ts:209](https://github.com/ctrf-io/ctrf-js/blob/main/src/builder.ts#L209)
 
 Build and return the CTRF report.
 

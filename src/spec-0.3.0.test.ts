@@ -227,3 +227,48 @@ describe("specification 0.3.0", () => {
 		).toBe(false);
 	});
 });
+
+describe("direct provenance", () => {
+	const a = "550e8400-e29b-41d4-a716-446655440001";
+	const b = "550e8400-e29b-41d4-a716-446655440002";
+	const source = (reportId: string) =>
+		new ReportBuilder().reportId(reportId).tool({ name: "runner" }).build();
+
+	it("builds a valid reference and rejects duplicate and self references by UUID", () => {
+		const report = new ReportBuilder()
+			.reportId(a)
+			.tool({ name: "runner" })
+			.provenance({ inputs: [{ reportId: b, extra: { shard: 1 } }] })
+			.build();
+		expect(validate(report).valid).toBe(true);
+		expect(
+			validate({
+				...report,
+				provenance: {
+					inputs: [{ reportId: b }, { reportId: b.toUpperCase() }],
+				},
+			}).valid,
+		).toBe(false);
+		expect(
+			validate({
+				...report,
+				provenance: { inputs: [{ reportId: a.toUpperCase() }] },
+			}).valid,
+		).toBe(false);
+	});
+
+	it("records direct sources on each merge and omits lineage when a source ID is missing", () => {
+		const first = merge([source(a), source(b), source(a.toUpperCase())]);
+		expect(first.provenance?.inputs).toEqual([
+			{ reportId: a },
+			{ reportId: b },
+		]);
+		expect(validate(first).valid).toBe(true);
+		expect(merge([first, source(a)]).provenance?.inputs).toEqual([
+			{ reportId: first.reportId },
+			{ reportId: a },
+		]);
+		const { reportId: _, ...unidentified } = source(b);
+		expect(merge([source(a), unidentified]).provenance).toBeUndefined();
+	});
+});

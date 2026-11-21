@@ -15,6 +15,7 @@ import type {
 	Insights,
 	TestInsights,
 	Baseline,
+	Provenance,
 	Attachment,
 	AttemptHistoryEntry,
 	Step,
@@ -61,6 +62,7 @@ export class ReportBuilder {
 	private _errors: GlobalError[] = [];
 	private _insights?: Insights;
 	private _baseline?: Baseline;
+	private _provenance?: Provenance;
 	private _extra?: Record<string, unknown>;
 	private _summaryOverrides?: Partial<Summary>;
 
@@ -177,6 +179,12 @@ export class ReportBuilder {
 		return this;
 	}
 
+	/** Set direct report provenance. */
+	provenance(provenance: Provenance): this {
+		this._provenance = provenance;
+		return this;
+	}
+
 	/**
 	 * Set extra metadata.
 	 */
@@ -247,6 +255,8 @@ export class ReportBuilder {
 		if (this._insights) {
 			report.insights = this._insights;
 		}
+
+		if (this._provenance) report.provenance = this._provenance;
 
 		if (this._baseline) {
 			report.baseline = this._baseline;

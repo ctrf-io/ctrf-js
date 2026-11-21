@@ -6,7 +6,7 @@
 
 # Interface: ValidateOptions
 
-Defined in: [types.ts:593](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L593)
+Defined in: [types.ts:611](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L611)
 
 Options for validation
 
@@ -16,6 +16,6 @@ Options for validation
 
 > `optional` **specVersion?**: [`SchemaSelector`](../type-aliases/SchemaSelector.md)
 
-Defined in: [types.ts:595](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L595)
+Defined in: [types.ts:613](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L613)
 
 Specific spec version to validate against, or `latest` (default)

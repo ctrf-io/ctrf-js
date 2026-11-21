@@ -33,7 +33,25 @@ export interface CTRFReport {
 	insights?: Insights;
 	/** Reference to a baseline report for comparison */
 	baseline?: Baseline;
+	/** Direct input documents for a derived report (CTRF 0.3.0 and later). */
+	provenance?: Provenance;
 	/** Custom metadata */
+	extra?: Record<string, unknown>;
+}
+
+/** A direct source document in a report derivation.
+ * @group Core Types
+ */
+export interface ProvenanceInput {
+	reportId: string;
+	extra?: Record<string, unknown>;
+}
+
+/** The distinct direct sources of a derived report.
+ * @group Core Types
+ */
+export interface Provenance {
+	inputs: ProvenanceInput[];
 	extra?: Record<string, unknown>;
 }
 

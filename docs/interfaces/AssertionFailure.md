@@ -6,7 +6,7 @@
 
 # Interface: AssertionFailure
 
-Defined in: [types.ts:191](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L191)
+Defined in: [types.ts:209](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L209)
 
 Details of an individual assertion failure. At least one property is required.
 
@@ -16,7 +16,7 @@ Details of an individual assertion failure. At least one property is required.
 
 > `optional` **message?**: `string`
 
-Defined in: [types.ts:193](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L193)
+Defined in: [types.ts:211](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L211)
 
 Message associated with this assertion failure
 
@@ -26,7 +26,7 @@ Message associated with this assertion failure
 
 > `optional` **trace?**: `string`
 
-Defined in: [types.ts:195](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L195)
+Defined in: [types.ts:213](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L213)
 
 Stack trace associated with this assertion failure
 
@@ -36,7 +36,7 @@ Stack trace associated with this assertion failure
 
 > `optional` **expected?**: `string`
 
-Defined in: [types.ts:197](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L197)
+Defined in: [types.ts:215](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L215)
 
 String representation of the expected value
 
@@ -46,7 +46,7 @@ String representation of the expected value
 
 > `optional` **actual?**: `string`
 
-Defined in: [types.ts:199](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L199)
+Defined in: [types.ts:217](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L217)
 
 String representation of the actual value
 
@@ -56,6 +56,6 @@ String representation of the actual value
 
 > `optional` **extra?**: `Record`\<`string`, `unknown`\>
 
-Defined in: [types.ts:201](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L201)
+Defined in: [types.ts:219](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L219)
 
 Arbitrary metadata

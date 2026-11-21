@@ -6,7 +6,7 @@
 
 # Interface: FilterCriteria
 
-Defined in: [types.ts:497](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L497)
+Defined in: [types.ts:515](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L515)
 
 Criteria for filtering and finding tests.
 
@@ -16,7 +16,7 @@ Criteria for filtering and finding tests.
 
 > `optional` **id?**: `string`
 
-Defined in: [types.ts:499](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L499)
+Defined in: [types.ts:517](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L517)
 
 Filter by legacy test ID (UUID)
 
@@ -26,7 +26,7 @@ Filter by legacy test ID (UUID)
 
 > `optional` **testId?**: `string`
 
-Defined in: [types.ts:501](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L501)
+Defined in: [types.ts:519](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L519)
 
 Filter by stable logical test case ID
 
@@ -36,7 +36,7 @@ Filter by stable logical test case ID
 
 > `optional` **executionId?**: `string`
 
-Defined in: [types.ts:503](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L503)
+Defined in: [types.ts:521](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L521)
 
 Filter by a specific test execution ID
 
@@ -46,7 +46,7 @@ Filter by a specific test execution ID
 
 > `optional` **name?**: `string`
 
-Defined in: [types.ts:505](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L505)
+Defined in: [types.ts:523](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L523)
 
 Filter by test name
 
@@ -56,7 +56,7 @@ Filter by test name
 
 > `optional` **status?**: [`TestStatus`](../type-aliases/TestStatus.md) \| [`TestStatus`](../type-aliases/TestStatus.md)[]
 
-Defined in: [types.ts:507](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L507)
+Defined in: [types.ts:525](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L525)
 
 Filter by status
 
@@ -66,7 +66,7 @@ Filter by status
 
 > `optional` **tags?**: `string` \| `string`[]
 
-Defined in: [types.ts:509](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L509)
+Defined in: [types.ts:527](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L527)
 
 Filter by tags
 
@@ -76,7 +76,7 @@ Filter by tags
 
 > `optional` **suite?**: `string` \| `string`[]
 
-Defined in: [types.ts:511](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L511)
+Defined in: [types.ts:529](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L529)
 
 Filter by suite
 
@@ -86,7 +86,7 @@ Filter by suite
 
 > `optional` **flaky?**: `boolean`
 
-Defined in: [types.ts:513](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L513)
+Defined in: [types.ts:531](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L531)
 
 Filter by flaky flag
 
@@ -96,7 +96,7 @@ Filter by flaky flag
 
 > `optional` **browser?**: `string`
 
-Defined in: [types.ts:515](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L515)
+Defined in: [types.ts:533](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L533)
 
 Filter by browser
 
@@ -106,6 +106,6 @@ Filter by browser
 
 > `optional` **device?**: `string`
 
-Defined in: [types.ts:517](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L517)
+Defined in: [types.ts:535](https://github.com/ctrf-io/ctrf-js/blob/main/src/types.ts#L535)
 
 Filter by device

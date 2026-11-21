@@ -23,6 +23,8 @@ export type {
 	TestInsights,
 	MetricDelta,
 	Baseline,
+	Provenance,
+	ProvenanceInput,
 	TestStatus,
 	LabelPrimitive,
 	LabelValue,

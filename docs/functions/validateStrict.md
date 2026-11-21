@@ -8,7 +8,7 @@
 
 > **validateStrict**(`report`, `options?`): `asserts report is CTRFReport`
 
-Defined in: [validate.ts:194](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L194)
+Defined in: [validate.ts:218](https://github.com/ctrf-io/ctrf-js/blob/main/src/validate.ts#L218)
 
 ## Parameters
 

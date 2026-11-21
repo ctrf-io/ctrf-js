@@ -15,6 +15,8 @@ A complete TypeScript implementation for working with CTRF (Common Test Report F
 ## Core Types
 
 - [CTRFReport](interfaces/CTRFReport.md)
+- [ProvenanceInput](interfaces/ProvenanceInput.md)
+- [Provenance](interfaces/Provenance.md)
 - [Results](interfaces/Results.md)
 - [Tool](interfaces/Tool.md)
 - [Summary](interfaces/Summary.md)
