@@ -32,7 +32,7 @@ A new merged CTRFReport
 
 ## Throws
 
-Error if no reports are provided or specification versions differ
+Error if no reports are provided
 
 ## Example
 

@@ -9,7 +9,7 @@ import type {
 	Environment,
 	MergeOptions,
 } from "./types.js";
-import { REPORT_FORMAT } from "./constants.js";
+import { CURRENT_SPEC_VERSION, REPORT_FORMAT } from "./constants.js";
 import { calculateSummary } from "./summary.js";
 import { generateReportId } from "./id.js";
 
@@ -19,14 +19,14 @@ import { generateReportId } from "./id.js";
  * Merge multiple CTRF reports into a single report.
  * Useful for combining results from parallel or sharded test runs.
  *
- * Reports must declare the same specification version; merging does not convert
- * historical reports to a newer contract. Global errors are concatenated in input
- * order and do not contribute to test counts.
+ * Reports with a shared specification version retain it. Mixed-version inputs
+ * continue to use the current version without conversion or validation. Global
+ * errors are concatenated in input order and do not contribute to test counts.
  *
  * @param reports - Array of CTRF reports to merge
  * @param options - Merge options (deduplication, environment handling)
  * @returns A new merged CTRFReport
- * @throws Error if no reports are provided or specification versions differ
+ * @throws Error if no reports are provided
  *
  * @example
  * ```typescript
@@ -51,12 +51,12 @@ export function merge(
 		return { ...reports[0] };
 	}
 
-	const specVersion = reports[0].specVersion;
-	if (reports.some((report) => report.specVersion !== specVersion)) {
-		throw new Error(
-			"Cannot merge reports with different specification versions",
-		);
-	}
+	const inputVersion = reports[0].specVersion;
+	const specVersion = reports.every(
+		(report) => report.specVersion === inputVersion,
+	)
+		? inputVersion
+		: CURRENT_SPEC_VERSION;
 
 	const {
 		deduplicateTests = false,

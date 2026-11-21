@@ -211,15 +211,16 @@ const testById = findTest(report, { id: "test-uuid" });
 ```typescript
 import { merge } from "ctrf";
 
-// Merge reports declaring the same specification version into one
+// Merge multiple reports into one
 const merged = merge([report1, report2, report3], {
 	deduplicateTests: true, // Remove duplicate tests by ID
 });
 ```
 
-Merging preserves the declared specification version and rejects mixed versions.
-Convert and validate inputs explicitly before combining different versions. Global
-errors are retained in input order, separately from test counts.
+Reports sharing a specification version retain that version when merged.
+Mixed-version inputs continue to use the current specification version without
+conversion or validation; validate the result against the intended contract.
+Global errors are retained in input order, separately from test counts.
 
 ### ID Generation
 

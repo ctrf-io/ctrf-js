@@ -170,9 +170,9 @@ A test is considered flaky if:
 Merge multiple CTRF reports into a single report.
 Useful for combining results from parallel or sharded test runs.
 
-Reports must declare the same specification version; merging does not convert
-historical reports to a newer contract. Global errors are concatenated in input
-order and do not contribute to test counts.
+Reports with a shared specification version retain it. Mixed-version inputs
+continue to use the current version without conversion or validation. Global
+errors are concatenated in input order and do not contribute to test counts.
 
 - [merge](functions/merge.md)
 

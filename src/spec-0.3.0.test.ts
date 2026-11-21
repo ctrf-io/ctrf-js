@@ -206,7 +206,7 @@ describe("specification 0.3.0", () => {
 		expect(validate(report).valid).toBe(false);
 	});
 
-	it("does not relabel legacy reports or implicitly convert mixed versions", () => {
+	it("preserves a shared legacy version without rejecting mixed inputs", () => {
 		const legacy = new ReportBuilder()
 			.specVersion("0.0.3")
 			.tool({ name: "runner" })
@@ -216,9 +216,30 @@ describe("specification 0.3.0", () => {
 		const result = merge([legacy, structuredClone(legacy)]);
 		expect(result.specVersion).toBe("0.0.3");
 		expect(validate(result, { specVersion: "0.0.3" }).valid).toBe(true);
-		expect(() => merge([legacy, reportWithDiagnostics()])).toThrow(
-			"different specification versions",
-		);
+		for (const inputs of [
+			[legacy, reportWithDiagnostics()],
+			[reportWithDiagnostics(), legacy],
+		]) {
+			const mixed = merge(inputs);
+			expect(mixed.specVersion).toBe("0.3.0");
+			expect(mixed.results.tests).toEqual(
+				inputs.flatMap((input) => input.results.tests),
+			);
+			// Existing behavior does not convert unavailable historical retry data.
+			expect(
+				mixed.results.tests.find((test) => test.name === "legacy")
+					?.retryAttempts,
+			).toBeUndefined();
+		}
+	});
+
+	it("continues accepting differing patch-version strings", () => {
+		const first = new ReportBuilder()
+			.specVersion("0.3.0")
+			.tool({ name: "runner" })
+			.build();
+		const second = { ...first, specVersion: "0.3.1" };
+		expect(merge([first, second]).specVersion).toBe("0.3.0");
 	});
 
 	it("keeps 0.3.0 additions out of historical schemas", () => {
